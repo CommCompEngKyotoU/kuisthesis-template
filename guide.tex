@@ -1,6 +1,6 @@
-\documentclass{kuisthesis}			% $BFCJL8&5fJs9p=q(B
-%\documentclass[master]{kuisthesis}		% $B=$;NO@J8(B($BOBJ8(B)
-%\documentclass[master,english]{kuisthesis}	% $B=$;NO@J8(B($B1QJ8(B)
+\documentclass{kuisthesis}			% 特別研究報告書
+%\documentclass[master]{kuisthesis}		% 修士論文(和文)
+%\documentclass[master,english]{kuisthesis}	% 修士論文(英文)
 
 \def\LATEX{{\rm (L\kern-.36em\raise.3ex\hbox{\sc a})\TeX}}
 \def\LATex{\iLATEX\small}
@@ -14,32 +14,32 @@
 \def\>{\(\rangle\)}
 \def\CS#1{{\tt\string#1}}
 
-\jtitle[$BFCJL8&5fJs9p=q!&=$;NO@J8<9I.$N<j0z(B]%	% $BOBJ8BjL\!JFbMF9<35!?L\<!MQ!K(B
-	{$BFCJL8&5fJs9p=q!&=$;NO@J8(B\\$B<9I.$N<j0z(B}	% $BOBJ8BjL\(B
-\etitle{How to Write Your B.E./M.E. Thesis}	% $B1QJ8BjL\(B
-\jauthor{$BCfEg(B $B9@(B}				% $BOBJ8Cx<TL>(B
-\eauthor{Hiroshi NAKASHIMA}			% $B1QJ8Cx<TL>(B
-\supervisor{$B@PED(B $B5|(B $B65<x(B}			% $B;XF3650wL>(B
-\date{$BJ?@.(B11$BG/(B2$B7n(B12$BF|(B}				% $BDs=PG/7nF|(B
-\department{$B<R2q>pJs3X(B}				% $B=$;NO@J8$N>l9g$N@l96L>(B
+\jtitle[特別研究報告書・修士論文執筆の手引]%	% 和文題目（内容梗概／目次用）
+	{特別研究報告書・修士論文\\執筆の手引}	% 和文題目
+\etitle{How to Write Your B.E./M.E. Thesis}	% 英文題目
+\jauthor{中島 浩}				% 和文著者名
+\eauthor{Hiroshi NAKASHIMA}			% 英文著者名
+\supervisor{石田 亨 教授}			% 指導教員名
+\date{平成11年2月12日}				% 提出年月日
+\department{社会情報学}				% 修士論文の場合の専攻名
 
 \begin{document}
-\maketitle					% $B!V$H$S$i!W$N=PNO(B
+\maketitle					% 「とびら」の出力
 
-\begin{jabstract}				% $BOBJ89<35(B
-$B$3$N<j0z$G$O!$FCJL8&5fJs9p=q$*$h$S=$;NO@J8$r$I$N$h$&$J9=@.$H$9$k$+!$$^$?$I$N(B
-$B$h$&$J7A<0$G:n@.$9$k$+$r@bL@$7$?$b$N$G$"$k!#$^$?!$Ev65<<$GDj$a$?7A<0$KB'$C$?(B
-$BO@J8$rF|K\8l(B\LaTeX $B$rMQ$$$F:n@.$9$k$?$a$N%9%?%$%k!&%U%!%$%k!$(B 
-\verb|kuisthesis|$B$N;H$$J}$K$D$$$F$b@bL@$7$F$$$k!#$J$*!$$3$N<j0z<+BN$b(B
-\verb|kuisthesis|$B$rMQ$$!$Dj$a$i$l$?7A<0$K=>$C$F:n@.$5$l$F$$$k$N$G!$I,MW$K1~$8(B
-$B$F%=!<%9!&%U%!%$%k(B\verb|guide.tex|$B$r;2>H$5$l$?$$!#(B
+\begin{jabstract}				% 和文梗概
+この手引では，特別研究報告書および修士論文をどのような構成とするか，またどの
+ような形式で作成するかを説明したものである。また，当教室で定めた形式に則った
+論文を日本語\LaTeX を用いて作成するためのスタイル・ファイル， 
+\verb|kuisthesis|の使い方についても説明している。なお，この手引自体も
+\verb|kuisthesis|を用い，定められた形式に従って作成されているので，必要に応じ
+てソース・ファイル\verb|guide.tex|を参照されたい。
 
-$B$J$*!"=$;NO@J8$K4X$7$F$O!"$3$NFbMF$O5l>pJs9)3X@l968~$1$N$b$N$G$"$k!#(B
-$B>pJs3X8&5f2J$N=$;N2]Dx3X@8$G$3$N%^%/%m$rMxMQ$9$k<T$O!"3F@l96$N<9I.5,Dj$K(B
-$B=>$&$3$H!#(B
+なお、修士論文に関しては、この内容は旧情報工学専攻向けのものである。
+情報学研究科の修士課程学生でこのマクロを利用する者は、各専攻の執筆規定に
+従うこと。
 \end{jabstract}
 
-\begin{eabstract}				% $B1QJ89<35(B
+\begin{eabstract}				% 英文梗概
 This guide gives instructions for writing your B.E. or M.E. theses following
 the standard of the Department of Information Science.  The
 standard includes the structure and format which you must obey on writing
@@ -57,628 +57,628 @@ of informatics must obey rules given by each department.
 
 \end{eabstract}
 
-\tableofcontents				% $BL\<!$N=PNO(B
+\tableofcontents				% 目次の出力
 
-\section{$B$O$8$a$K(B}\label{sec-intro}		% $BK\J8$N3+;O(B
-$BFCJL8&5fJs9p=q$*$h$S=$;NO@J8$O!$$=$l$>$l3XIt$*$h$S=$;N2]Dx$G9T$J$C$?8&5f$N@.(B
-$B2L$r$^$H$a$FDs=P$9$k$b$N$G!$$=$l$>$l$N2]Dx$NDy$a$/$/$j$H$7$F=EMW$J0U5A$r;}$C(B
-$B$F$$$k!#$3$l$i$O1J$/65<<$KJ]4I$5$l!$9-$/650w!$3X@8$N1\Mw$K6!$;$i$l$k$3$H$K$J$C(B
-$B$F$$$k!#(B
+\section{はじめに}\label{sec-intro}		% 本文の開始
+特別研究報告書および修士論文は，それぞれ学部および修士課程で行なった研究の成
+果をまとめて提出するもので，それぞれの課程の締めくくりとして重要な意義を持っ
+ている。これらは永く教室に保管され，広く教員，学生の閲覧に供せられることになっ
+ている。
 
-$BJs9p=q$"$k$$$OO@J8$N:n@.$KEv$?$C$F$O!$M?$($i$l$?;f?t$NOHFb$G!$8&5f$NFbMF$r4J(B
-$B7i$KJ,$+$j$d$9$/=q$/$3$H$r?4$,$1!$A4BN$N9=@.!$J8>O!$;z6g$J$I$K$D$$$F$b:Y?4$N(B
-$BCm0U$rJ'$&$3$H$,I,MW$G$"$k!#$3$N<j0z$G$O!$O@J8:n@.$N4pK\E*$JMWNN$H!$7ABV$r$"(B
-$B$kDxEYE}0l$9$k$?$a$N;X<($r=R$Y$F$$$k$,!$$=$l$i$K=>$$$5$($9$l$P$h$$O@J8$,=q$1(B
-$B$k$H$$$&$b$N$G$O$J$$!#<j0z$,<($9MWNN$d;X<($O:GDc8B$N$b$N$G$"$j!$3F<+$N8&5f$N(B
-$B@.2L$,FI<T$K@5$7$/M}2r$5$l$k$h$&$K5-=R$9$k$3$H$,:G$b=EMW$G$"$k!#$3$N$?$a$K$O!$(B
-$BF|:"$+$iFb30$NM%$l$?O@J8$K?($l!$5-=R$dI=8=$NG=NO$rM\$&$3$H$,Bg@Z$G$"$k!#(B
+報告書あるいは論文の作成に当たっては，与えられた紙数の枠内で，研究の内容を簡
+潔に分かりやすく書くことを心がけ，全体の構成，文章，字句などについても細心の
+注意を払うことが必要である。この手引では，論文作成の基本的な要領と，形態をあ
+る程度統一するための指示を述べているが，それらに従いさえすればよい論文が書け
+るというものではない。手引が示す要領や指示は最低限のものであり，各自の研究の
+成果が読者に正しく理解されるように記述することが最も重要である。このためには，
+日頃から内外の優れた論文に触れ，記述や表現の能力を養うことが大切である。
 
-$B0J2<!$O@J8$N9=@.$H<9I.>e$NCm0U;v9`$r=R$Y!$IUO?$H$7$FO@J8<9I.MQ$NF|K\8l(B\LaTeX 
-$B%9%?%$%k%U%!%$%k(B\verb|kuisthesis|$B$N;H$$J}$r<($9!#(B
+以下，論文の構成と執筆上の注意事項を述べ，付録として論文執筆用の日本語\LaTeX 
+スタイルファイル\verb|kuisthesis|の使い方を示す。
 
-\section{$BO@J8$N9=@.(B}\label{sec-structure}
-$BJs9p=q$*$h$SO@J8$O!$FbMF9<35!$L\<!!$K\J8$+$i$J$j!$I,MW$K1~$8$FIUO?$r2C$($k$3(B
-$B$H$,$G$-$k!#$3$l$i$N6hJ,$rL@3N$K$9$k$3$H$H!$$=$l$>$l$NL\E*$K=>$C$F5-=R$9$k$3(B
-$B$H$,I,MW$G$"$k!#(B
+\section{論文の構成}\label{sec-structure}
+報告書および論文は，内容梗概，目次，本文からなり，必要に応じて付録を加えるこ
+とができる。これらの区分を明確にすることと，それぞれの目的に従って記述するこ
+とが必要である。
 
-\subsection{$BFbMF9<35(B}\label{subsec-abstract}
-$BFbMF9<35$O!$O@J8$,2?$rL\E*$H$7!$$I$N$h$&$J7kO@$KC#$7$F$$$k$+$rC;$$J8>O$G5-=R(B
-$B$9$k$b$N$G$"$k!#$7$?$,$C$F!$C1$KK\J8$r05=L$9$k$N$G$O$J$/!$8&5f$NCf?4$r$J$9It(B
-$BJ,$r=EE@E*$KCj=P$9$kI,MW$,$"$k!#$^$?!$FbMF9<35$NB?$/$NItJ,$r8e$K=R$Y$k=oO@(B
-$B!J=xO@!K$,@j$a$kNc$,$7$P$7$P8+$i$l$k$,!$FbMF9<35$NL\E*$+$i$7$FITE,@Z$G$"$k$3(B
-$B$H$O$$$&$^$G$b$J$$!#(B
+\subsection{内容梗概}\label{subsec-abstract}
+内容梗概は，論文が何を目的とし，どのような結論に達しているかを短い文章で記述
+するものである。したがって，単に本文を圧縮するのではなく，研究の中心をなす部
+分を重点的に抽出する必要がある。また，内容梗概の多くの部分を後に述べる緒論
+（序論）が占める例がしばしば見られるが，内容梗概の目的からして不適切であるこ
+とはいうまでもない。
 
-$B$J$*Ev65<<$G$O!$K\J8$NMQ8l!JF|K\8l$^$?$O1Q8l!K$K$+$+$o$i$:!$F|K\J8$H1QJ8$N(B
-$BFbMF9<35$r$=$l$>$l(B2$B%Z!<%8$K$^$H$a$k$3$H$,Dj$a$i$l$F$$$k!#(B
+なお当教室では，本文の用語（日本語または英語）にかかわらず，日本文と英文の
+内容梗概をそれぞれ2ページにまとめることが定められている。
 
-\subsection{$BL\<!(B}\label{subsec-toc}
-$BL\<!$O0lHL$NCx=q$HF1MM$N7A<0$G!$K\J8$ND>A0$KCV$/!#$3$l$OC1$KFCDj$N>O!&@a$r8!(B
-$B:w$9$k$?$a$@$1$G$J$/!$O@J8A4BN$N9=@.$rCN$k$&$($K$bLrN)$D$b$N$G$"$k!#(B
+\subsection{目次}\label{subsec-toc}
+目次は一般の著書と同様の形式で，本文の直前に置く。これは単に特定の章・節を検
+索するためだけでなく，論文全体の構成を知るうえにも役立つものである。
 
-\subsection{$BK\J8(B}\label{subsec-main}
-$BO@J8$*$h$SJs9p=q$K$O!$8e=R$N$h$&$KIUO?$r$D$1$k$3$H$,$G$-$k$,!$IUO?$NM-L5$K$+(B
-$B$+$o$i$:!$K\J8$N$_$G407k$7$?$b$N$K$^$H$a$J$1$l$P$J$i$J$$!#(B
+\subsection{本文}\label{subsec-main}
+論文および報告書には，後述のように付録をつけることができるが，付録の有無にか
+かわらず，本文のみで完結したものにまとめなければならない。
 
-$BK\J8$O=oO@!J=xO@!K!$K\O@!$7kO@$KJ,$1$k$N$,E,Ev$G$"$k!#(B
+本文は緒論（序論），本論，結論に分けるのが適当である。
 
-\subsubsection{$B=oO@(B}\label{subsubsec-intro}
-$B=oO@$O$=$N8&5f$N0LCV$E$1!$L\E*!$@-3J$J$I$r5-=R$7!$$3$l$K$h$C$F!$FI$`<T$K$"$k(B
-$BDxEY$N?49=$($rM?$(!$$=$N8&5f$N$*$h$=$N0U5A$r$"$i$+$8$aM}2r$5$;$k$h$&$KN10U$9(B
-$B$Y$-$G$"$k!#(B
+\subsubsection{緒論}\label{subsubsec-intro}
+緒論はその研究の位置づけ，目的，性格などを記述し，これによって，読む者にある
+程度の心構えを与え，その研究のおよその意義をあらかじめ理解させるように留意す
+べきである。
 
-$B$?$@$7$3$l$O!$>e=R$NFbMF9<35$H$O$*$N$:$+$iL\E*$,0[$J$j!$$"$/$^$GK\O@$rFI$`$?(B
-$B$a$N=`Hw$H$7$F$N5!G=$K=EE@$rCV$/$Y$-$G$"$C$F!$LdBj$N<oN`$K$h$C$F$O!$Nr;KE*$J(B
-$B7P2a$N5-=R!$$"$k$$$O8=>u$NE8K>$r2C$(!$$^$?B>$N8&5f$H$N4X78$*$h$SAj0cE@$J$I$K(B
-$B$b?($l$k$3$H$,I,MW$G$"$k!#(B
+ただしこれは，上述の内容梗概とはおのずから目的が異なり，あくまで本論を読むた
+めの準備としての機能に重点を置くべきであって，問題の種類によっては，歴史的な
+経過の記述，あるいは現状の展望を加え，また他の研究との関係および相違点などに
+も触れることが必要である。
 
-\subsubsection{$BK\O@(B}\label{subsubsec-main}
-$BK\O@$O$$$&$^$G$b$J$/O@J8$N<gBN$G$"$C$F!$B?$/$N;f?t$r$3$l$KEv$F$k$N$,IaDL$G$"(B
-$B$k!#$^$?O@M}E*$K0l4S$7$?N.$l$NCf$K=EE@$,6/D4$5$l!$A4BN$H$7$F$N$^$H$^$j$,J]$?(B
-$B$l$k$h$&$K9)IW$9$k$H$H$b$K!$0zMQ$HAO0U$N6hJL$rL@$i$+$K$9$k$J$I!$NI?4E*$J5-=R(B
-$B$K?4$,$1$J$1$l$P$J$i$J$$!#(B
+\subsubsection{本論}\label{subsubsec-main}
+本論はいうまでもなく論文の主体であって，多くの紙数をこれに当てるのが普通であ
+る。また論理的に一貫した流れの中に重点が強調され，全体としてのまとまりが保た
+れるように工夫するとともに，引用と創意の区別を明らかにするなど，良心的な記述
+に心がけなければならない。
 
-$BA0=R$N$H$*$j!$O@J8$OJ,$+$j$d$9$$$3$H$,Bh0l$NMW7o$G$"$k$+$i!$K\O@$N5-=R$KEv$?$C(B
-$B$F$O!$$D$.$N;v9`$KCm0U$9$kI,MW$,$"$k!#(B
+前述のとおり，論文は分かりやすいことが第一の要件であるから，本論の記述に当たっ
+ては，つぎの事項に注意する必要がある。
 \begin{itemize}%{
 \item
-$BE,Ev$JD9$5$N>O!&@a$KJ,$1!$$=$N=g=x!$I8Bj$J$I$b==J,$K8!F$$9$k!#I,MW$J$i$P!$@a(B
-$B$r$5$i$K:YJ,$7!$E,Ev$J8+=P$7$r$D$1$k!#(B
+適当な長さの章・節に分け，その順序，標題なども十分に検討する。必要ならば，節
+をさらに細分し，適当な見出しをつける。
 \item
-$B3F>O!&@a$4$H$K0l1~$N$^$H$^$j$r$b$D$H$H$b$K!$B>$N>O!&@a$X$N<+A3$J$D$J$,$j$,J](B
-$B$?$l$k$h$&$KN10U$9$k!#(B
+各章・節ごとに一応のまとまりをもつとともに，他の章・節への自然なつながりが保
+たれるように留意する。
 \item
-$B$@$i$@$i$H$7$?I=8=$rHr$1!$5-=R$N@:AB$NG[J,$r9)IW$7$F!$=EMW$JE@!$FHAOE*$JItJ,(B
-$B$r6/D4$9$k!#(B
+だらだらとした表現を避け，記述の精疎の配分を工夫して，重要な点，独創的な部分
+を強調する。
 \item
-$B;HMQ$9$k5-9f$N0UL#$r@53N$KDj5A$7!$?t<0$NM6F3$O!$==J,$K@0M}$5$l$?7A$G5-:\$9$k!#(B
-$BD9$$<0$N07$$$O!$A4BN$rIUO?$K$^$o$7K\O@$K$O=EMW$JItJ,$N$_$r=q$/$[$&$,FI$_$d$9(B
-$B$/$J$k>l9g$,B?$$!#(B
+使用する記号の意味を正確に定義し，数式の誘導は，十分に整理された形で記載する。
+長い式の扱いは，全体を付録にまわし本論には重要な部分のみを書くほうが読みやす
+くなる場合が多い。
 \item
-$B6a;w<0!$<B83<0$J$I$O!$$=$N:,5r$rL@<($9$k!#(B
+近似式，実験式などは，その根拠を明示する。
 \item
-$B?^I=$O$7$P$7$P6K$a$F=EMW$JMWAG$H$J$k$,!$@bL@E*$JL\E*$GF~$l$k$b$N$H7kO@E*$J0U(B
-$BL#$r;}$D$b$N$H$N6hJL$rL@3N$K$7!$$^$?0zMQ$7$??^I=$O$=$N=PE5$rL@$i$+$K$9$k!#(B
+図表はしばしば極めて重要な要素となるが，説明的な目的で入れるものと結論的な意
+味を持つものとの区別を明確にし，また引用した図表はその出典を明らかにする。
 \item
-$B?^$O$F$$$M$$$K!$@53N$K=q$-!$?^Cf$NJ8;z$d5-9f!$?^I=$N8+=P$7!JI8Bj$^$?$O4JC1$J(B
-$B@bL@!K$K$b==J,$JCm0U$rJ'$&$3$H!#(B
+図はていねいに，正確に書き，図中の文字や記号，図表の見出し（標題または簡単な
+説明）にも十分な注意を払うこと。
 \item
-$B0zMQJ88%$O!$8&5f$K4X78$N?<$$=EMW$J$b$N$r7G$2!$L50UL#$JMeNs$rHr$1$k$3$H!#J88%(B
-$BI=$NA^F~>l=j$OK\J8$NKvHx!JIUO?$,$"$k>l9g$K$O!$IUO?$NA0!K$H$9$k!#(B
+引用文献は，研究に関係の深い重要なものを掲げ，無意味な羅列を避けること。文献
+表の挿入場所は本文の末尾（付録がある場合には，付録の前）とする。
 \end{itemize}%}
 
-\subsubsection{$B7kO@(B}\label{subsubsec-conclusion}
-$B7kO@$OO@J8$N$^$H$a$H$7$F!$8&5f@.2L$NMWE@$r4J7i$K5-=R$9$Y$-$G$"$k!#$3$l$OEvA3!$(B
-$BK\O@$KCV$1$kK\<AE*$JItJ,$r05=L$7$?$b$N$H$J$k$,!$FbMF9<35$H$O0[$J$j!$O@J8$NDy(B
-$B$a$/$/$j$K$U$5$o$7$$3JD4$N$&$A$K407k$9$k$h$&$KEX$a$J$1$l$P$J$i$J$$!#(B
+\subsubsection{結論}\label{subsubsec-conclusion}
+結論は論文のまとめとして，研究成果の要点を簡潔に記述すべきである。これは当然，
+本論に置ける本質的な部分を圧縮したものとなるが，内容梗概とは異なり，論文の締
+めくくりにふさわしい格調のうちに完結するように努めなければならない。
 
-$B$^$?8&5fES>e$KGI@8$7$?I{<!E*$JLdBj$d!$>-Mh$K;D$5$l$?8&5f2]Bj$,$"$l$P!$$=$l$i(B
-$B$K$D$$$F$b?($l$k$3$H$,K>$^$7$$!#(B
+また研究途上に派生した副次的な問題や，将来に残された研究課題があれば，それら
+についても触れることが望ましい。
 
-$B$J$*7kO@$N$"$H$K!$8&5f>e$N;XF3!$=u8@!$1g=u$r<u$1$??M!9$KBP$7$F!$<U<-$r=q$/$N(B
-$B$,8&5fH/I=<T$NNi57$G$"$k$+$i!$FCJL8&5fJs9p=q$d=$;NO@J8$K$*$$$F$b!$$3$N47=,$K(B
-$B=>$&$3$H$,K>$^$7$$!#(B
+なお結論のあとに，研究上の指導，助言，援助を受けた人々に対して，謝辞を書くの
+が研究発表者の礼儀であるから，特別研究報告書や修士論文においても，この慣習に
+従うことが望ましい。
 
-\subsection{$BIUO?(B}\label{subsec-appendix}
-$BJs9p=q$*$h$SO@J8$O!$>e5-$N9=@.$G407k$7$?$b$N$K$^$H$a$J$1$l$P$J$i$J$$$,!$$5$i(B
-$B$KK\J8$NFbMF$rJdB-$7!$$h$j=<<B$7$?$b$N$H$9$k$?$a$K!$K\J8$N$"$H$KIUO?$r2C$($k(B
-$B$3$H$,$G$-$k!#(B
+\subsection{付録}\label{subsec-appendix}
+報告書および論文は，上記の構成で完結したものにまとめなければならないが，さら
+に本文の内容を補足し，より充実したものとするために，本文のあとに付録を加える
+ことができる。
 
-$BIUO?$O!$$?$H$($P$D$.$N$h$&$J>l9g$KI,MW$G$"$k!#(B
+付録は，たとえばつぎのような場合に必要である。
 \begin{itemize}%{
 \item
-$BJ#;($J?t<0$NM6F3$O!$D9$5$N4X78$GK\J8$K5-:\$G$-$J$$$3$H$,B?$/!$$^$?K\J8$rFI$_(B
-$B$d$9$/$9$k$?$a$K$b!$<0$N>\:Y$J<h07$$$OIUO?$K$^$H$a$k$[$&$,NI$$!#$3$N>l9g!$K\(B
-$BJ8$*$h$SIUO?$NN>J}$K!$8_$$$NBP1~$rL@<($7$J$1$l$P$J$i$J$$!#(B
+複雑な数式の誘導は，長さの関係で本文に記載できないことが多く，また本文を読み
+やすくするためにも，式の詳細な取扱いは付録にまとめるほうが良い。この場合，本
+文および付録の両方に，互いの対応を明示しなければならない。
 \item
-$BF1MM$K!$I,MW$JDjM}$N>ZL@$b!$IUO?$K$^$H$a$?$[$&$,NI$$!#$?$@$7!$$=$NDjM}$N>ZL@(B
-$B<+BN$,8&5f$N<gL\E*$G$"$k>l9g$K$O!$EvA3$3$l$rK\J8$KF~$l$k$Y$-$G$"$k!#(B
+同様に，必要な定理の証明も，付録にまとめたほうが良い。ただし，その定理の証明
+自体が研究の主目的である場合には，当然これを本文に入れるべきである。
 \item
-$BK\J8$NO@;]$NN"IU$1$H$J$k=EMW$J4QB,%G!<%?$d?tCM7W;;$N7k2L$J$I$O!$?^I=$N7A$K@0(B
-$BM}$7$?$&$($GK\J8$KF~$l$k$Y$-$G$"$k$,!$$=$NNL$,B?$$$H$-$K$O!$;29M;qNA$H$7$FIU(B
-$BO?$K7G:\$9$k!#(B
+本文の論旨の裏付けとなる重要な観測データや数値計算の結果などは，図表の形に整
+理したうえで本文に入れるべきであるが，その量が多いときには，参考資料として付
+録に掲載する。
 \item
-$B%W%m%0%i%`$N%=!<%9%j%9%H$J$I$b!$D9$$$b$N$OIUO?$K<}$a$k!#(B
+プログラムのソースリストなども，長いものは付録に収める。
 \item
-$BFC$KBgNL$N%G!<%?$dD9Bg$J%W%m%0%i%`$rE:IU$7$?$$$H$-$K$O!$JL:}IUO?$H$7$F$b$h$$!#(B
-$B$?$@$7$3$l$b!$J]4I!$1\Mw$NJX59$r9MN8$7!$$J$k$Y$/K\J8$HF1MM$NBN:[$K$^$H$a$k$3(B
-$B$H$,K>$^$7$$!#(B
+特に大量のデータや長大なプログラムを添付したいときには，別冊付録としてもよい。
+ただしこれも，保管，閲覧の便宜を考慮し，なるべく本文と同様の体裁にまとめるこ
+とが望ましい。
 \item
-$BIUO?!JFC$KJL:}IUO?!K$K$O!$E,Ev$J>l=j$KI8Bj$H4JC1$J@bL@$rIU$7!$$=$l$@$1$GBgBN(B
-$B$N0UL#$,J,$+$k$h$&$KG[N8$9$Y$-$G$"$k!#(B
+付録（特に別冊付録）には，適当な場所に標題と簡単な説明を付し，それだけで大体
+の意味が分かるように配慮すべきである。
 \end{itemize}%}
 
-\section{$B<9I.>e$NCm0U(B}\label{sec-instruction}
-\subsection{$BMQ8l(B}\label{subsec-language}
-$BFCJL8&5fJs9p=q$O(B{\EM $BF|K\J8(B}$B$G=q$+$J$1$l$P$J$i$J$$!#(B
+\section{執筆上の注意}\label{sec-instruction}
+\subsection{用語}\label{subsec-language}
+特別研究報告書は{\EM 日本文}で書かなければならない。
 
-$B=$;NO@J8$O(B{\EM $BF|K\J8$^$?$O1QJ8(B}$B$N$I$A$i$G=q$$$F$b$h$$!#(B
+修士論文は{\EM 日本文または英文}のどちらで書いてもよい。
 
-$B:#8e!$9q:]E*$J>l$G8&5fH/I=$9$k5!2q$O$^$9$^$9$U$($k$HM=A[$5$l$k$N$G!$O@J8$r1Q(B
-$BJ8$G=q$/$3$H$bK>$^$7$$$N$G$"$k$,!$0lJ}!$@5$7$$F|K\8l$NO@J8$rDV$k71N}$b!$$h$j(B
-$B$$$C$=$&=EMW$G$"$k!#$7$?$,$C$F!$3XIt$K$*$1$kFCJL8&5f$K4X$7$F$O!$$^$:@5$7$$F|(B
-$BK\J8$GNI$$Js9p=q$r:n@.$9$k$N$,E,Ev$G$"$k!#(B
+今後，国際的な場で研究発表する機会はますますふえると予想されるので，論文を英
+文で書くことも望ましいのであるが，一方，正しい日本語の論文を綴る訓練も，より
+いっそう重要である。したがって，学部における特別研究に関しては，まず正しい日
+本文で良い報告書を作成するのが適当である。
 
-$BA0=R$NDL$j!$$$$:$l$N>l9g$K$b!$(B{\EM $BF|K\J8$H1QJ8$NFbMF9<35(B}$B$r$D$1$J$1$l$P$J$i(B
-$B$J$$!#(B
+前述の通り，いずれの場合にも，{\EM 日本文と英文の内容梗概}をつけなければなら
+ない。
 
-$B=Q8l$K4X$7$F$O!$@lLg$N3X2q;oEy$r;2>H$7$F@53N$r4|$7!$DjLu$N$J$$=Q8l$O868l$N$^(B
-$B$^$H$9$k$+!$868l$rJ;5-$9$k$3$H$,I,MW$G$"$k!#8GM-L>;l$O8@8l$^$?$O$+$?$+$J$G=q(B
-$B$/$,!$$+$J=q$-$N>l9g$K$b:G=i$@$1$O8@8l$rJ;5-$9$k$N$,$h$$!#(B
+術語に関しては，専門の学会誌等を参照して正確を期し，定訳のない術語は原語のま
+まとするか，原語を併記することが必要である。固有名詞は言語またはかたかなで書
+くが，かな書きの場合にも最初だけは言語を併記するのがよい。
 
-\subsection{$B5-9f!$C10L(B}\label{subsec-symbol}
-$B?t<0$rB?MQ$9$kO@J8$O!$(B\LATEX $B$J$I$N?t<0$r07$($k%D!<%k$G=q$/$3$H$,K>$^$7$$!#(B
-$B$^$?!$$d$`$r$($:DL>o$N%o!<%I%W%m%;%C%5$rMQ$$$k>l9g$d!$?^I=$J$I$NCf$G?t<0$r;H(B
-$BMQ$9$k>l9g$K$O!$J8;z$N%U%)%s%H!$%5%V%9%/%j%W%H$d%9!<%Q%9%/%j%W%H$N0LCV$J$I$K(B
-$B==J,$JCm0U$,I,MW$G$"$k!#(B
+\subsection{記号，単位}\label{subsec-symbol}
+数式を多用する論文は，\LATEX などの数式を扱えるツールで書くことが望ましい。
+また，やむをえず通常のワードプロセッサを用いる場合や，図表などの中で数式を使
+用する場合には，文字のフォント，サブスクリプトやスーパスクリプトの位置などに
+十分な注意が必要である。
 
-$BA0=R$N$H$*$j!$5-9f$OA4$FL@3N$KDj5A$7$J$1$l$P$J$i$J$$$,!$B??t$N5-9f$r;HMQ$9$k(B
-$B>l9g$K$O!$!V5-9fI=!W$rE,Ev$J>l=j$KA^F~$7$F$*$/$N$b$h$$!#(B
+前述のとおり，記号は全て明確に定義しなければならないが，多数の記号を使用する
+場合には，「記号表」を適当な場所に挿入しておくのもよい。
 
-$BJ*M}NL$NC10L$NN,5-K!$O!$3X2q;o$J$I$G9-$/MQ$$$i$l$F$$$kI8=`E*$J$b$N$K=>$&$Y$-(B
-$B$G$"$k$,!$I8=`2=$5$l$F$$$J$$$b$N$K$D$$$F$O!$@bL@$r2C$($kI,MW$,$"$k!J5SCm$rMx(B
-$BMQ$7$F$b$h$$!K!#(B
+物理量の単位の略記法は，学会誌などで広く用いられている標準的なものに従うべき
+であるが，標準化されていないものについては，説明を加える必要がある（脚注を利
+用してもよい）。
 
-\subsection{$B?^I=(B}\label{subsec-figure}
-$B?^I=$O(B{\EM $BA4$FK\J8Cf$KA^F~$7(B}$B!$$G$-$k$@$1K\J8$G;2>H$7$F$$$k2U=j$N6a$/$KG[CV(B
-$B$9$k!#(B
+\subsection{図表}\label{subsec-figure}
+図表は{\EM 全て本文中に挿入し}，できるだけ本文で参照している箇所の近くに配置
+する。
 
-$BI=$N>eB&$K$OI=HV9f!J$?$H$($PI=(B1.3$B!K$H4JC1$J8+=P$7$r$D$1$k!#$^$??^$N2<B&$K$O(B
-$B?^HV9f!J$?$H$($P?^(B2.1$B!K$H4JC1$J8+=P$7!JI,MW$J$i$P4JC1$J@bL@!K$r$D$1$k!#(B
+表の上側には表番号（たとえば表1.3）と簡単な見出しをつける。また図の下側には
+図番号（たとえば図2.1）と簡単な見出し（必要ならば簡単な説明）をつける。
 
-$B?^$O$G$-$k$@$1:n?^%D!<%k$J$I$rMQ$$$FEE;RE*$K:n@.$9$Y$-$G$"$k$,!$$d$`$r$($:<j(B
-$B=q$-$G:n@.$9$k>l9g$K$O!$$$$o$f$k!VHG2<!W$K;H$&$D$b$j$G$F$$$M$$$K=q$+$J$1$l$P(B
-$B$J$i$J$$!J1tI.=q$-$O5v$5$l$J$$!K!#(B
+図はできるだけ作図ツールなどを用いて電子的に作成すべきであるが，やむをえず手
+書きで作成する場合には，いわゆる「版下」に使うつもりでていねいに書かなければ
+ならない（鉛筆書きは許されない）。
 
-$B0lHL$K!$?^I=$O$=$l$r$_$?$@$1$G!$$*$h$=$N0UL#$,J,$+$k$h$&$K:n@.$9$k$3$H$,K>$^(B
-$B$7$$!#$^$?!$K\J8$K$bBP1~$9$k?^I=$NHV9f$,I,$:8=$l$k$h$&$KCm0U$7$J$1$l$P$J$i$J(B
-$B$$!#(B
+一般に，図表はそれをみただけで，およその意味が分かるように作成することが望ま
+しい。また，本文にも対応する図表の番号が必ず現れるように注意しなければならな
+い。
 
-$BBgNL$N4QB,%G!<%?$d7W;;7k2L$KBP$9$k?^I=$O!$BeI=E*$J$b$N$N$_$rK\J8$KF~$l!$A4BN(B
-$B$rIUO?!JFCJL$J>l9g$OJL:}IUO?!K$K$^$H$a$?$[$&$,$h$$!#(B
+大量の観測データや計算結果に対する図表は，代表的なもののみを本文に入れ，全体
+を付録（特別な場合は別冊付録）にまとめたほうがよい。
 
-\subsection{$B5SCm(B}\label{subsec-footnote}
-$B5SCm$O$`$d$_$KA^F~$9$Y$-$G$O$J$$$,!$K\J8$rJ,$+$j$d$9$/$9$k$?$a$K!$4JC1$JCm<a(B
-$B$r5SCm$H$7$FF~$l$k$3$H$O!$>l9g$K$h$C$F$O8z2LE*$G$"$k!#(B
+\subsection{脚注}\label{subsec-footnote}
+脚注はむやみに挿入すべきではないが，本文を分かりやすくするために，簡単な注釈
+を脚注として入れることは，場合によっては効果的である。
 
-$B5SCm$HK\J8$H$NBP1~$O2<$NNc$N$h$&$K!$%Z!<%8$4$H$KIU$1$?5SCmHV9f$K$h$k!#(B
+脚注と本文との対応は下の例のように，ページごとに付けた脚注番号による。
 
-$B$J$*0zMQJ88%$O!$86B'$H$7$FJ88%I=!J8e=R!K$N7A$K$^$H$a$k$Y$-$G$"$k$,!$8&5f$NK\(B
-$BBj$H$"$^$j4X78$N$J$$>ZL@$J$I$N=P=j$"$k$$$O;29M=q$r<($9$?$a$K$O!$5SCm$rMQ$$$F(B
-$B$b$h$$!#(B
+なお引用文献は，原則として文献表（後述）の形にまとめるべきであるが，研究の本
+題とあまり関係のない証明などの出所あるいは参考書を示すためには，脚注を用いて
+もよい。
 \begin{description}
-\item[$BNc(B{\dm $B!JK\J8!K(B}]\leavevmode\par
-\ldots $B$3$NC`<!6a;wK!$O!$HyJ,J}Dx<0$N2r$NB8:_DjM}$N>ZL@$KMQ$$$i$l(B\footnote
-{$B$3$N;WA[$O(BPicard$B$K$h$C$FF3F~$5$l$?$b$N$G$"$k(B(1890)$B!#(B}$B!$(B\ldots, $B$H$J$k$3$H$,(B
-$BCN$i$l$F$$$k(B\footnote{$B$3$N>ZL@$O!$Nc$($P(BWhittaker and Watoson: Modern
-Analysis, p.~123$B$K$_$i$l$k!#(B}$B!#(B
+\item[例{\dm （本文）}]\leavevmode\par
+\ldots この逐次近似法は，微分方程式の解の存在定理の証明に用いられ\footnote
+{この思想はPicardによって導入されたものである(1890)。}，\ldots, となることが
+知られている\footnote{この証明は，例えばWhittaker and Watoson: Modern
+Analysis, p.~123にみられる。}。
 \end{description}
 
-\subsection{$BJ88%(B}\label{subsec-references}
-$B0zMQJ88%$OK\J8$NKvHx$K!JIUO?$,$"$l$P$=$N$^$($K!K!$I=$N7A$K$^$H$a$k!#J88%$N(B
-$B;2>H$O(B[1], [2]$B$N$h$&$K!$(B[ ]$B$D$-$NDL$7HV9f$K$h$k!#$3$NHV9f$O!$3:Ev$9$kJ8>O(B
-$B$N@Z$lL\!$$^$?$O?ML>$=$NB>$NC18l$KB3$$$FA^F~$9$k!#(B
+\subsection{文献}\label{subsec-references}
+引用文献は本文の末尾に（付録があればそのまえに），表の形にまとめる。文献の
+参照は[1], [2]のように，[ ]つきの通し番号による。この番号は，該当する文章
+の切れ目，または人名その他の単語に続いて挿入する。
 
-$BJ88%I=$K$O!$HV9f$KB3$$$F!$Cx<TL>!$I=Bj!$;(;oL>!J$^$?$O=qL>!K!$4,!$G/9f!$%Z!<(B
-$B%8$J$I$r!$$3$N<j0z$N!V;29MJ88%!W$K$J$i$C$F5-:\$9$k!#$J$*J88%(B[1]$\sim$[6]$B$O2q(B
-$B5DO?$d;(;o$K<}O?$5$l$?O@J8$NNc$G$"$j!$J88%(B[7]$\sim$[9]$B$OC19TK\$NNc$G$"$k!#(B
+文献表には，番号に続いて，著者名，表題，雑誌名（または書名），巻，年号，ペー
+ジなどを，この手引の「参考文献」にならって記載する。なお文献[1]$\sim$[6]は会
+議録や雑誌に収録された論文の例であり，文献[7]$\sim$[9]は単行本の例である。
 
-$B;(;oL>$NN,5-K!$O!$3X2q$K$h$C$F$bB?>/0[$J$k$,!$47MQ$N$b$N$rMQ$$$F$h$$!#$?$@$7(B
-$B<~CN$G$J$$$b$N$O!$$`$7$m;(;oL>$r$=$N$^$^=q$$$?$[$&$,$h$$!#$3$N<j0z$N;29MJ88%(B
-$B$NNc$G$O!$(B[2]$B$N(B``IEEE Trans. Computers''$B$O(B``IEEE Transactions on Computers''
-$B$NN,$G$"$j!$(B[4]$B$N!V?.3XO@(B(D)$B!W$O!$!VEE;R>pJsDL?.3X2qO@J8;o(BD$B!W$NN,$G$"$k!#(B
+雑誌名の略記法は，学会によっても多少異なるが，慣用のものを用いてよい。ただし
+周知でないものは，むしろ雑誌名をそのまま書いたほうがよい。この手引の参考文献
+の例では，[2]の``IEEE Trans. Computers''は``IEEE Transactions on Computers''
+の略であり，[4]の「信学論(D)」は，「電子情報通信学会論文誌D」の略である。
 
-$B;(;o$KBP$7$F$O!$$=$N!V4,!W$H!VH/9TG/!W$N$[$+!$!V9f!W$*$h$S!J$^$?$O!K!V7n!W$r(B
-$BF~$l$?$[$&$,8!:w$KJXMx$G$"$k!#9f$H7n$NF~$lJ}$O$D$.$NNc$K$h$k!#(B
+雑誌に対しては，その「巻」と「発行年」のほか，「号」および（または）「月」を
+入れたほうが検索に便利である。号と月の入れ方はつぎの例による。
 \begin{eqnarray*}
-&\hbox{$BBh(B4$B4,!$Bh(B10$B9f!$(B1995$BG/!$(B10$B7nH/9T$N;(;o(B}\\
+&\hbox{第4巻，第10号，1995年，10月発行の雑誌}\\
 &\Big\Downarrow\\
 &\hbox{Vol.~4, No.~10 (Oct.~1995)}.
 \end{eqnarray*}
 
-\subsection{$BMQ;f$*$h$S;f?t(B}\label{subsec-format}
+\subsection{用紙および紙数}\label{subsec-format}
 
-$BJs9p=q$*$h$SO@J8$O!$(BA4$B$NMQ;f$NJRLL$K0u;z$9$k!#(B{\EM $B?^I=$HJ88%I=$r4^$a$?K\J8$N(B
-$BD9$5$O(B}$B$D$.$N4p=`$K$h$k!#$?$@$7Kg?t$NA}8:$O(B1$B3d0JFb$H$9$k!#(B
+報告書および論文は，A4の用紙の片面に印字する。{\EM 図表と文献表を含めた本文の
+長さは}つぎの基準による。ただし枚数の増減は1割以内とする。
 \begin{itemize}%{
 \item
-$BFCJL8&5fJs9p=q!'(B{\EM 25$BKg(B}
+特別研究報告書：{\EM 25枚}
 \item
-$B=$;NO@J8(B\phantom{$B$"$"$"(B}$B!'(B{\EM 50$BKg(B}$B!J$?$@$71QJ8$N>l9g$K$O(B60$BKg$K$J$C$F$b$h$$!K(B
+修士論文\phantom{あああ}：{\EM 50枚}（ただし英文の場合には60枚になってもよい）
 \end{itemize}%}
-$B$J$*?^I=$NJ,NL$OA4BN$N(B40\,\%$BDxEY$r8BEY$H$7!$$3$l$rD62a$9$k>l9g$OE,59IUO?$K$^(B
-$B$o$9$3$H!#(B
+なお図表の分量は全体の40\,\%程度を限度とし，これを超過する場合は適宜付録にま
+わすこと。
 
-$BF|K\J8!?1QJ8$K$+$+$o$i$:!$%o!<%I%W%m%;%C%5$"$k$$$O(B\LATEX $B$N$h$&$J@=HG%D!<%k(B
-$B$rMQ$$$F@6=q$7!$(B{\EM $B<j=q$-$O5v$5$l$J$$(B}$B!#(B
+日本文／英文にかかわらず，ワードプロセッサあるいは\LATEX のような製版ツール
+を用いて清書し，{\EM 手書きは許されない}。
 
-$BO@J8$N3F%Z!<%8$N(B{\EM $B:8C<(B3\,cm$B$H1&C<(B1\,cm}$B$OI,$:6uGr$H$9$k$3$H!#(B
+論文の各ページの{\EM 左端3\,cmと右端1\,cm}は必ず空白とすること。
 
-$BF|K\J8$N>l9g$O(B12\,pt$B!J$"$k$$$OAjEv$NBg$-$5!K$N%U%)%s%H$rMQ$$!$(B{\EM 1$B9TEv$j(B35 
-$BJ8;z!$(B 1$B%Z!<%8$"$?$j(B32$B9T(B}$B$H$9$k!#$?$@$7%o!<%I%W%m%;%C%5$rMQ$$$k>l9g!$$3$N4p(B
-$B=`$,<i$l$J$$>l9g$O(B1$B%Z!<%8Ev$j$N;z?t$,F1DxEY$H$J$k$h$&$K$7$F!$(B1$B9TEv$j$N;z?t$d!$(B 
-1$B%Z!<%8$"$?$j$N9T?t$rD4@0$7$F$b$h$$!#(B
+日本文の場合は12\,pt（あるいは相当の大きさ）のフォントを用い，{\EM 1行当り35 
+文字， 1ページあたり32行}とする。ただしワードプロセッサを用いる場合，この基
+準が守れない場合は1ページ当りの字数が同程度となるようにして，1行当りの字数や， 
+1ページあたりの行数を調整してもよい。
 
-$B1QJ8$N>l9g$O(B12\,pt$B!J$"$k$$$OAjEv$NBg$-$5!K$N%U%)%s%H$rMQ$$!$(B{\EM 1$B9T$NI}$r(B
-14.2\,cm, 1$B%Z!<%8$"$?$j(B32$B9T(B}$B$H$9$k!#(B
+英文の場合は12\,pt（あるいは相当の大きさ）のフォントを用い，{\EM 1行の幅を
+14.2\,cm, 1ページあたり32行}とする。
 
-$BF|K\J8!?1QJ8$K$+$+$o$i$:!$>O!&@a$N8+=P$7$O(B2$B9TJ,$H$7!$$=$l0J2<$N>.@a$N8+=P$7(B
-$B$O(B1$B9TJ,$H$9$k!#$^$?2U>r=q$NA08e$d9`L\4V$KM>J,$J6uGr$OA^F~$7$J$$$3$H!#(B
+日本文／英文にかかわらず，章・節の見出しは2行分とし，それ以下の小節の見出し
+は1行分とする。また箇条書の前後や項目間に余分な空白は挿入しないこと。
 
-\subsection{$BI=;f!$$H$S$i!$L\<!$J$I(B}\label{subsec-title}
-$BJs9p=q$*$h$SO@J8$K$O!$FbMF9<35$N$^$($K!V$H$S$i!W$r$D$1!$A4BN$r=jDj$N%U%!%$%k(B
-$B$K$H$8$FDs=P$9$k!#(B
+\subsection{表紙，とびら，目次など}\label{subsec-title}
+報告書および論文には，内容梗概のまえに「とびら」をつけ，全体を所定のファイル
+にとじて提出する。
 
-$BI=;f$K$O!$Js9p=q!?=$;NO@J8$NJL!$BjL\!$;XF3650wL>!$=jB03X2J!?@l96L>!$;aL>!$Ds(B
-$B=PG/7n$r5-F~$9$k!#(B
+表紙には，報告書／修士論文の別，題目，指導教員名，所属学科／専攻名，氏名，提
+出年月を記入する。
 
-$B$H$S$i$OK\J8$HF1$8MQ;f$rMQ$$!$I=;f$HF1MM$N;v9`$r5-:\$9$k!#(B
+とびらは本文と同じ用紙を用い，表紙と同様の事項を記載する。
 
-$BFbMF9<35!JF|K\J8!$1QJ8$H$b!K$N;O$a$K$O!$BjL\$*$h$S;aL>$r=q$/!#$^$?L\<!$N;O$a(B
-$B$K$bBjL\$r5-:\$9$k!#(B
+内容梗概（日本文，英文とも）の始めには，題目および氏名を書く。また目次の始め
+にも題目を記載する。
 
-\subsection{$BDs=P(B}\label{subsec-submission}
-$BO@J8$*$h$SJs9p=q$O!$M=9p$5$l$?4|8B$^$G$K40@.$7!$65<<;vL3<<$KDs=P$9$k$3$H!#Ds(B
-$B=P4|F|$O87<i$7$J$1$l$P$J$i$J$$!#(B
+\subsection{提出}\label{subsec-submission}
+論文および報告書は，予告された期限までに完成し，教室事務室に提出すること。提
+出期日は厳守しなければならない。
 
-\subsection{$B$=$NB>$NCm0U(B}\label{subsec-others}
-$BO@J8$N<9I.$K$H$j$+$+$kA0$K!$9=@.$dD9$5$K$D$$$F==J,8!F$$7!$3F8&5f<<$G9T$J$o$l(B
-$B$kH/I=2q$J$I$GB>?M$N0U8+$r$h$/J9$$$F5-=R$9$kFbMF$r6cL#$9$k!#$^$?:G=*E*$J7A$K(B
-$B;E>e$2$k$^$G$K!$<+J,<+?H$G2?EY$b9;@5$r=E$M!$O@;]$NHtLv$dL7=b$N$J$$$h$&$KCm0U(B
-$B$9$k$H$H$b$K!$$h$/J8>O$rN}$j!$8m;z$d8m5-$r=|$/$h$&$K?4$,$1$J$1$l$P$J$i$J$$!#(B
-$B$5$i$K!$$G$-$l$P@hGZ$KL\$rDL$7$F$b$i$C$F!$;W$$0c$$$dITCm0U$K$h$k8m$j$rD{@5$7!$(B
-$B$G$-$k$@$140`z$J$b$N$K$9$k$h$&$KEX$a$k$Y$-$G$"$k!#(B
+\subsection{その他の注意}\label{subsec-others}
+論文の執筆にとりかかる前に，構成や長さについて十分検討し，各研究室で行なわれ
+る発表会などで他人の意見をよく聞いて記述する内容を吟味する。また最終的な形に
+仕上げるまでに，自分自身で何度も校正を重ね，論旨の飛躍や矛盾のないように注意
+するとともに，よく文章を練り，誤字や誤記を除くように心がけなければならない。
+さらに，できれば先輩に目を通してもらって，思い違いや不注意による誤りを訂正し，
+できるだけ完璧なものにするように努めるべきである。
 
-\section{$B$*$o$j$K(B}\label{sec-conclusion}
-$B$3$N<j0z$G$O!$FCJL8&5fJs9p=q$*$h$S=$;NO@J8$r$I$N$h$&$J9=@.$H$9$k$+!$$^$?$I$N(B
-$B$h$&$J7A<0$G:n@.$9$k$+$r@bL@$7$?!#$7$+$7:G=i$K$b=R$Y$?$h$&$K!$<j0z$K=>$$$5$((B
-$B$9$l$P$h$$O@J8$,=q$1$k$H$$$&$b$N$G$O$J$$!#(B
+\section{おわりに}\label{sec-conclusion}
+この手引では，特別研究報告書および修士論文をどのような構成とするか，またどの
+ような形式で作成するかを説明した。しかし最初にも述べたように，手引に従いさえ
+すればよい論文が書けるというものではない。
 
-$B:G$bBg@Z$J$N$O!$<+J,$N8&5f@.2L$rFI<T$KM}2r$7$F$b$i$*$&$H$9$k0UM_$H!$O@J8$r>/(B
-$B$7$G$bM%$l$?$b$N$K$7$h$&$H$9$kG.0U$G$"$k!#$3$N0UM_$HG.0U$H$r;}$C$F!$3F<+$,@.(B
-$B$7?k$2$?8&5f$rDy$a$/$/$i$l$s$3$H$r4j$&!#(B
+最も大切なのは，自分の研究成果を読者に理解してもらおうとする意欲と，論文を少
+しでも優れたものにしようとする熱意である。この意欲と熱意とを持って，各自が成
+し遂げた研究を締めくくられんことを願う。
 
-$B$J$*!$Js9p=q$*$h$SO@J8$N:n@.$K4X$7$FITL@$NE@$,$"$l$P!$;XF3650w$KAjCL$5$l$?$$!#(B
+なお，報告書および論文の作成に関して不明の点があれば，指導教員に相談されたい。
 
-\acknowledgments				% $B<U<-(B
-$BK\<j0z$N:n@.$K$46(NOD:$$$?!$>pJs9)3X65<<$N65413F0L$K?<?S$N<U0U$rI=$9$k!#(B
+\acknowledgments				% 謝辞
+本手引の作成にご協力頂いた，情報工学教室の教官各位に深甚の謝意を表する。
 
 \nocite{*}
-\bibliographystyle{kuisunsrt}			% $BJ88%%9%?%$%k$N;XDj(B
-\bibliography{guide}				% $B;29MJ88%$N=PNO(B
+\bibliographystyle{kuisunsrt}			% 文献スタイルの指定
+\bibliography{guide}				% 参考文献の出力
 
-						% $BIUO?$N3+;O(B
-\Appendix[$BIUO?!'%9%?%$%k%U%!%$%k(B{\tt kuistheis}$B$N;HMQK!(B]
-$B$3$N<j0z$G=R$Y$?65<<=jDj$N7A<0$KE,9g$7$?O@J8$r(B\LaTeX $B$G:n@.$9$k$?$a$K!$%9%?(B
-$B%$%k%U%!%$%k(B\|kuisthesis|$B$,MQ0U$5$l$F$$$k!#0J2<!$(B\|kuisthesis|$B$r;H$&(B
-$B$?$a$N=`Hw$H!$$=$N;HMQK!$K$D$$$F2r@b$9$k!#(B
+						% 付録の開始
+\Appendix[付録：スタイルファイル{\tt kuistheis}の使用法]
+この手引で述べた教室所定の形式に適合した論文を\LaTeX で作成するために，スタ
+イルファイル\|kuisthesis|が用意されている。以下，\|kuisthesis|を使う
+ための準備と，その使用法について解説する。
 
-$B$J$*!$$3$N<j0z<+BN$b(B\|kuisthesis|$B$rMQ$$$F:n@.$7$?$b$N$G$"$k$N$G!$I,MW$K(B
-$B1~$8$F%9%?%$%k%U%!%$%k$H$H$b$KG[I[$5$l$k%=!<%9%U%!%$%k(B\|guide.tex|$B$r;2>H(B
-$B$9$k$H$h$$!#(B
+なお，この手引自体も\|kuisthesis|を用いて作成したものであるので，必要に
+応じてスタイルファイルとともに配布されるソースファイル\|guide.tex|を参照
+するとよい。
 
-$B$^$?!$O@J8:n@.$N:]$K;HMQ$9$k(B\LaTeX $B%3%^%s%I$N$[$H$s$I$OI8=`E*$J$b$N$G$"$k$N(B
-$B$G!$4pK\E*$J;HMQK!$d$3$3$G2r@b$7$F$$$J$$$b$N$K$D$$$F$O(B
+また，論文作成の際に使用する\LaTeX コマンドのほとんどは標準的なものであるの
+で，基本的な使用法やここで解説していないものについては
 \begin{quote}%{
 Lamport, L.: {\em A Document Preparation System {\LaTeX} User's Guide \&
 Reference Manual\/}, Addison Wesley, Reading, Massachusetts (1986).
-(Cooke, E., et al.$BLu!'J8=q=hM}%7%9%F%`(B{\LaTeX}, $B%"%9%-!<=PHG6I(B(1990)).
+(Cooke, E., et al.訳：文書処理システム{\LaTeX}, アスキー出版局(1990)).
 \end{quote}%}
-$B$J$I$rE,59;2>H$5$l$?$$!#(B
+などを適宜参照されたい。
 
-\section{$B=`Hw(B}\label{app-prelim}
-\subsection{$B%9%?%$%k%U%!%$%k$J$I$N<hF@(B}\label{appsub-kit}
-$B%9%?%$%k%U%!%$%k(B\|kuisthesis|$B$d!$$=$NB>$N4XO"$9$k%U%!%$%k$+$i$J$k%-%C%H(B
-$B$O(B
+\section{準備}\label{app-prelim}
+\subsection{スタイルファイルなどの取得}\label{appsub-kit}
+スタイルファイル\|kuisthesis|や，その他の関連するファイルからなるキット
+は
 \begin{itemize}\item[]\small%{
 \|ftp://ftp.kuis.kyoto-u.ac.jp/ku/kuis-thesis/kuisthesis.tar.gz|
 \end{itemize}%}
-$B$K(B\|tar|${}+{}$\|gzip|$B$N7A<0$G<}$a$i$l$F$$$k!#(B
+に\|tar|${}+{}$\|gzip|の形式で収められている。
 
-$B$3$N%-%C%H$K$O!$0J2<$N%U%!%$%k$,3JG<$5$l$F$$$k!#(B
+このキットには，以下のファイルが格納されている。
 \begin{itemize}%{
 \item
 \|kuisthesis.sty|\,:
-$B%9%?%$%k%U%!%$%k(B
+スタイルファイル
 \item
 \|kuisthesis.cls|\,:
-{\LATEXe}$BMQ%9%?%$%k%U%!%$%k(B
+{\LATEXe}用スタイルファイル
 \item
 \|kuissort.bst  |\,:
-jBib\TeX $B%9%?%$%k!JCx<TL>=g!K(B
+jBib\TeX スタイル（著者名順）
 \item
 \|kuisunsrt.bst |\,:
-jBib\TeX $B%9%?%$%k!J=P8==g!K(B
+jBib\TeX スタイル（出現順）
 \item
 \|guide.tex     |\,:
-$B$3$N<j0z$N%=!<%9%U%!%$%k(B
+この手引のソースファイル
 \item
 \|guide.bib     |\,:
-$B$3$N<j0z$NJ88%%j%9%H(B
+この手引の文献リスト
 \item
 \|eguide.tex    |\,:
-$B1QJ8$N<j0z$N%=!<%9%U%!%$%k(B
+英文の手引のソースファイル
 \item
 \|guide.bib     |\,:
-$B1QJ8$N<j0z$NJ88%%j%9%H(B
+英文の手引の文献リスト
 \end{itemize}%}
 
-\subsection[{\protect\LaTeX}$B$N<B9T4D6-(B]{{\protect\LATex}$B$N<B9T4D6-(B}
+\subsection[{\protect\LaTeX}の実行環境]{{\protect\LATex}の実行環境}
 \label{appsub-env}
-$B%9%?%$%k%U%!%$%k$O(BNTT$B$N@FF#9/8J;a$K$h$k(B j{\TeX}$B!J$$$o$f$k(BNTT$BHG!K$H!$%"%9%-!<(B
-$B<R$K$h$kF|K\8l(B {\TeX}$B!J$$$o$f$k%"%9%-!<HG!K$N$I$A$i$K$bBP1~$7$F$$$k$N$G!$Cx<T(B
-$B$N(B {\LaTeX} $B4D6-$K4X$o$i$:F1$8%9%?%$%k%U%!%$%k$r;HMQ$G$-$k!#(B
+スタイルファイルはNTTの斉藤康己氏による j{\TeX}（いわゆるNTT版）と，アスキー
+社による日本語 {\TeX}（いわゆるアスキー版）のどちらにも対応しているので，著者
+の {\LaTeX} 環境に関わらず同じスタイルファイルを使用できる。
 
-NTT$BHG$*$h$S%"%9%-!<HG$N3F!9$K$D$$$F!$0J2<$N%P!<%8%g%s$G$NF0:n3NG'$r9T$J$C$F(B
-$B$$$k!#(B
+NTT版およびアスキー版の各々について，以下のバージョンでの動作確認を行なって
+いる。
 \begin{ITEMIZE}%{
 \item
-NTT$BHG(B${}={}${j\TeX} 1.52${}+{}${\LaTeX} 2.09
+NTT版${}={}${j\TeX} 1.52${}+{}${\LaTeX} 2.09
 \item 
-$B%"%9%-!<HG(B${}={}${\TeX} 2.99-j1.7${}+{}${\LaTeX} 2.09
+アスキー版${}={}${\TeX} 2.99-j1.7${}+{}${\LaTeX} 2.09
 \end{ITEMIZE}%}
-$B$3$l0JA0$NHG$K$D$$$F$bF0:n$9$k$H4|BT$G$-$k$,!$$G$-$l$P?7$7$$HG$r;H$&$3$H!#$^(B
-$B$?(B{\LATEXe}$B$K4X$7$F$O!$0J2<$N%P!<%8%g%s$G$NF0:n3NG'$r9T$J$C$F$$$k!#(B
+これ以前の版についても動作すると期待できるが，できれば新しい版を使うこと。ま
+た{\LATEXe}に関しては，以下のバージョンでの動作確認を行なっている。
 \begin{ITEMIZE}%{
 \item
-NTT$BHG(B${}={}${j\TeX} 1.6${}+{}$%
+NTT版${}={}${j\TeX} 1.6${}+{}$%
 	{\LATEXe} 1994/12/01 patch level 3
 \item 
-$B%"%9%-!<HG(B${}={}${p\TeX} 3.1415 p2.1.4${}+{}$%
+アスキー版${}={}${p\TeX} 3.1415 p2.1.4${}+{}$%
 	{p\LATEXe} 1995/09/01
 \end{ITEMIZE}%}
-$B$$$:$l$K$D$$$F$b!$%M%$%F%#%V!&%b!<%I$H(B{\LaTeX} 2.09 $B8_49%b!<%I$N$I$A$i$G$b;H(B
-$BMQ$9$k$3$H$,$G$-$k!#(B
+いずれについても，ネイティブ・モードと{\LaTeX} 2.09 互換モードのどちらでも使
+用することができる。
 
-$BO@J8$r1QJ8$G=q$/>l9g$K$b!$OBJ8$NFbMF9<35$,I,MW$G$"$k$N$G!$I,$:F|K\8lBP1~$N(B
-\LaTeX $B$r;HMQ$7$J$1$l$P$J$i$J$$!#(B
+論文を英文で書く場合にも，和文の内容梗概が必要であるので，必ず日本語対応の
+\LaTeX を使用しなければならない。
 
-\section{$B%=!<%9%U%!%$%k$N9=@.(B}\label{app-structure}
-$B%=!<%9%U%!%$%k$O0J2<$N7A<0$G:n$k!#(B
+\section{ソースファイルの構成}\label{app-structure}
+ソースファイルは以下の形式で作る。
 \begin{itemize}\item[]%{
-\|\documentclass{kuisthesis}|$B$^$?$O(B\\
-\|\documentclass[master]{kuisthesis}|$B$^$?$O(B\\
+\|\documentclass{kuisthesis}|または\\
+\|\documentclass[master]{kuisthesis}|または\\
 \|\documentclass[master,english]{kuisthesis}|\\
-\null\qquad $BI,MW$J$i$PB>$N%*%W%7%g%s$d%9%?%$%k%U%!%$%k$r;XDj$9$k!#(B\\
-$BI,MW$J$i$P%f!<%6$N%^%/%mDj5A$J$I$r$3$3$K=q$/!#(B\\
-\|\jtitle{|\<$BBjL\!JOBJ8!K(B\>\|}|\\
-\|\etitle{|\<$BBjL\!J1QJ8!K(B\>\|}|\\
-\|\jauthor{|\<$BCx<TL>!JOBJ8!K(B\>\|}|\\
-\|\eauthor{|\<$BCx<TL>!J1QJ8!K(B\>\|}|\\
-\|\supervisor{|\<$B;XF36541L>(B\>\|}|\\
-\|\date{|\<$BDs=PG/7nF|(B\>\|}|\\
-\|\department{|\<$B@l96L>(B\>\|}|\\
+\null\qquad 必要ならば他のオプションやスタイルファイルを指定する。\\
+必要ならばユーザのマクロ定義などをここに書く。\\
+\|\jtitle{|\<題目（和文）\>\|}|\\
+\|\etitle{|\<題目（英文）\>\|}|\\
+\|\jauthor{|\<著者名（和文）\>\|}|\\
+\|\eauthor{|\<著者名（英文）\>\|}|\\
+\|\supervisor{|\<指導教官名\>\|}|\\
+\|\date{|\<提出年月日\>\|}|\\
+\|\department{|\<専攻名\>\|}|\\
 \|\begin{document}|\\
-\|\maketitle|\hfill\rlap{\hskip-.5\linewidth{\tt\%}$B$H$S$i$N=PNO(B}\\
+\|\maketitle|\hfill\rlap{\hskip-.5\linewidth{\tt\%}とびらの出力}\\
 \|\begin{jabstract}|\\
-\null\qquad\<$BFbMF9<35!JOBJ8!K(B\>\\
+\null\qquad\<内容梗概（和文）\>\\
 \|\end{jabstract}|\\
 \|\begin{eabstract}|\\
-\null\qquad\<$BFbMF9<35!J1QJ8!K(B\>\\
+\null\qquad\<内容梗概（英文）\>\\
 \|\end{eabstract}|\\
-\|\tableofcontents|\hfill\rlap{\hskip-.5\linewidth{\tt\%}$BL\<!$N=PNO(B}\\
-\|\section{|\<$BBh(B1$B>O$NI=Bj(B\>\|}|\\
+\|\tableofcontents|\hfill\rlap{\hskip-.5\linewidth{\tt\%}目次の出力}\\
+\|\section{|\<第1章の表題\>\|}|\\
 \null\qquad\hbox to3em{\dotfill}\\
-\null\qquad\<$BK\J8(B\>\\
+\null\qquad\<本文\>\\
 \null\qquad\hbox to3em{\dotfill}\\
 \|\acknowledgments|\\
-\null\qquad\<$B<U<-(B\>\\
-\|\bibliographystyle{kuisunsrt}|\quad $B$^$?$O(B\\
+\null\qquad\<謝辞\>\\
+\|\bibliographystyle{kuisunsrt}|\quad または\\
 \|\bibliographystyle{kuissort}|\\
-\|\bibliography{|\<$BJ88%%G!<%?%Y!<%9(B\>\|}|\\
-$BIUO?$,$"$l$P(B \|\appendix|/\|\Appendix| $B$KB3$$$F$3$3$K5-$9!#(B\\
+\|\bibliography{|\<文献データベース\>\|}|\\
+付録があれば \|\appendix|/\|\Appendix| に続いてここに記す。\\
 \|\end{document}|
 \end{itemize}%}
-$B0J2<!$$=$l$>$l$NMWAG$K$D$$$F@bL@$9$k!#(B
+以下，それぞれの要素について説明する。
 
-\subsection{$B0u;z$N7A<0(B}\label{appsub-format}
-$BO@J8$N3F%Z!<%8$O!$I}(B(\|\textwidth|) 14.2\,cm, $B9b$5(B(\|\textheight|) 
-22.2\,cm$B$NNN0h$K0u:~$5$l$k(B\footnote{NTT$BHG$G$OOBJ8$N>l9g!$I}(B 
-({\tt\string\textwidth})$B$,(B 13.6\,cm$B$H$J$k(B}$B!#$3$NI}$OOBJ8$N>l9g$K$O(B35$BJ8;zJ,$K(B
-$BAjEv$7!$9b$5$OOBJ8!?1QJ8$H$b(B32$B9TJ,$KAjEv$9$k$N$G!$(B\ref{subsec-format}$B@a$K(B
-$B<($7$?4p=`$K9gCW$7$F$$$k!#(B
+\subsection{印字の形式}\label{appsub-format}
+論文の各ページは，幅(\|\textwidth|) 14.2\,cm, 高さ(\|\textheight|) 
+22.2\,cmの領域に印刷される\footnote{NTT版では和文の場合，幅 
+({\tt\string\textwidth})が 13.6\,cmとなる}。この幅は和文の場合には35文字分に
+相当し，高さは和文／英文とも32行分に相当するので，\ref{subsec-format}節に
+示した基準に合致している。
 
-$BOBJ8!?1QJ8$H$b(B\|\normalsize|$B$N%U%)%s%H$O(B12\,pt$B$G$"$j!$$3$l$b(B
-\ref{subsec-format}$B@a$N4p=`$rK~$?$7$F$$$k!#(B
+和文／英文とも\|\normalsize|のフォントは12\,ptであり，これも
+\ref{subsec-format}節の基準を満たしている。
 
-\subsection{$B%*%W%7%g%s!&%9%?%$%k(B}\label{appsub-option}
-\|\documentclass|$B$NI8=`%*%W%7%g%s$H$7$F!$0J2<$N(B3$B$D$N$b$N$,MQ0U$5$l$F$$$k!#(B
+\subsection{オプション・スタイル}\label{appsub-option}
+\|\documentclass|の標準オプションとして，以下の3つのものが用意されている。
 \begin{itemize}%{
 \item
 \|master|\\
-$B=$;NO@J8MQ!#;XDj$,$J$1$l$PFCJL8&5fJs9pMQ$H$J$k!#$J$*N><T$N0c$$$O!$$H$S$i$K0u(B
-$B;z$5$l$kO@J8<oJL$H=jB0$N$_$G$"$j!$%Z!<%8?t$N%A%'%C%/$J$I$O0l@Z9T$J$o$J$$!#(B
+修士論文用。指定がなければ特別研究報告用となる。なお両者の違いは，とびらに印
+字される論文種別と所属のみであり，ページ数のチェックなどは一切行なわない。
 \item
 \|english|\\
-$B1QJ8MQ!#;XDj$,$J$1$l$POBJ8MQ$H$J$k!#FCJL8&5fJs9p=q$OI,$:OBJ8$G$"$k$N$G!$(B 
-\|master|$B$r;XDj$;$:$K(B\|english|$B$r;XDj$9$k$N$O8m$j$G$"$k$,!$FC$K%A%'%C%/$O$7(B
-$B$J$$!#(B
+英文用。指定がなければ和文用となる。特別研究報告書は必ず和文であるので， 
+\|master|を指定せずに\|english|を指定するのは誤りであるが，特にチェックはし
+ない。
 \item
 \|withinsec|\\
-$B?^I=HV9f$d?t<0HV9f$r!$(B``\<$B>OHV9f(B\>.\<$B>OFbHV9f(B\>''$B$N7A<0$H$9$k!#;XDj$,$J$1$l(B
-$B$P!$O@J8A4BN$GDL$7HV9f$H$J$k!#(B
+図表番号や数式番号を，``\<章番号\>.\<章内番号\>''の形式とする。指定がなけれ
+ば，論文全体で通し番号となる。
 \end{itemize}%}
 
-$B$3$NB>$K!$(B\|epsf|$B$J$IJd=uE*$J%9%?%$%k%U%!%$%k$r;XDj$7$F$b$h$$!#$?$@$7%9%?%$(B
-$B%k%U%!%$%k$K$h$C$F$O!$O@J8%9%?%$%k$HL7=b$9$k$h$&$J$b$N$b$"$k$N$G!$%9%?%$%k%U%!(B
-$B%$%k$N@-3J$r$h$/M}2r$7$F;HMQ$9$k$3$H!#$?$H$($P!$(B\|a4|$B$O%Z!<%8$N9b$5$G$"$k(B
-\|\textheight|$B$rJQ99$9$k$N$G!$;HMQ$7$F$O$J$i$J$$!#(B
+この他に，\|epsf|など補助的なスタイルファイルを指定してもよい。ただしスタイ
+ルファイルによっては，論文スタイルと矛盾するようなものもあるので，スタイルファ
+イルの性格をよく理解して使用すること。たとえば，\|a4|はページの高さである
+\|\textheight|を変更するので，使用してはならない。
 
-\subsection{$BBjL\$J$I$N5-=R(B}\label{appsub-title}
-$BO@J8$NBjL\!$Cx<TL>!$$*$h$S;XF36541L>$rA0$K<($7$?=jDj$N%3%^%s%I$G;XDj$7$?8e!$(B
-\|\maketitle|$B$r<B9T$9$k$H!$$H$S$i$,@8@.$5$l$k!#(B
+\subsection{題目などの記述}\label{appsub-title}
+論文の題目，著者名，および指導教官名を前に示した所定のコマンドで指定した後，
+\|\maketitle|を実行すると，とびらが生成される。
 
-$B$H$S$i$K$O!$0J2<$N9`L\$,$=$l$>$l%;%s%?%j%s%0$5$l$F!$=g$K0u;z$5$l$k!#(B
+とびらには，以下の項目がそれぞれセンタリングされて，順に印字される。
 \begin{description}%{
-\item[$BO@J8<oJL(B]
-$B!VFCJL8&5fJs9p!W!$!V=$;NO@J8!W!$$^$?$O(B``Master Thesis''$B$N$$$:$l$+$,!$(B
-\|\documentclass|$B$N%*%W%7%g%s$K$7$?$,$C$F!$(B\|\Large\bf|$B$G0u;z$5$l$k!#(B
+\item[論文種別]
+「特別研究報告」，「修士論文」，または``Master Thesis''のいずれかが，
+\|\documentclass|のオプションにしたがって，\|\Large\bf|で印字される。
 
-\item[$BBjL\(B]
-$BOBJ8$N>l9g$K$O(B\|\jtitle|$B$G!$1QJ8$N>l9g$K$O(B\|\etitle|$B$G;XDj$7$?BjL\$,!$$=$l$>(B
-$B$l(B\|\LARGE\bf|$B$G0u;z$5$l$k!#0l9T$K<}$^$i$J$$>l9g$K$O<+F0E*$K2~9T$5$l$k$,!$E,(B
-$B@Z$J2U=j$K(B\|\\|$B$rA^F~$7$FM[$K2~9T$r;X<($9$k$[$&$,$h$$!#(B
+\item[題目]
+和文の場合には\|\jtitle|で，英文の場合には\|\etitle|で指定した題目が，それぞ
+れ\|\LARGE\bf|で印字される。一行に収まらない場合には自動的に改行されるが，適
+切な箇所に\|\\|を挿入して陽に改行を指示するほうがよい。
 
-\|\jtitle|$B$d(B\|\etitle|$B$G;XDj$7$?BjL\$O!$$H$S$i$@$1$G$O$J$/FbMF9<35$dL\<!$K$b(B
-$B0u;z$5$l$k!#$7$?$,$C$FOBJ8!?1QJ8$K4X$o$i$:!$(B\|\jtitle|$B$H(B\|\etitle|$B$NAPJ}$r;X(B
-$BDj$7$J$1$l$P$J$i$J$$!#$^$?!$$H$S$i$HFbMF9<35!?L\<!$G$O!$BjL\$N2~9T$r0c$&0LCV(B
-$B$G9T$J$$$?$$$3$H$b$"$k$@$m$&!#$=$N>l9g(B
+\|\jtitle|や\|\etitle|で指定した題目は，とびらだけではなく内容梗概や目次にも
+印字される。したがって和文／英文に関わらず，\|\jtitle|と\|\etitle|の双方を指
+定しなければならない。また，とびらと内容梗概／目次では，題目の改行を違う位置
+で行ないたいこともあるだろう。その場合
 \begin{quote}%{
-\|\jtitle[|\<$BFbMF9<35!?L\<!MQ(B\>\|]{|\<$B$H$S$iMQ(B\>\|}|\\
-\|\etitle[|\<$BFbMF9<35!?L\<!MQ(B\>\|]{|\<$B$H$S$iMQ(B\>\|}|
+\|\jtitle[|\<内容梗概／目次用\>\|]{|\<とびら用\>\|}|\\
+\|\etitle[|\<内容梗概／目次用\>\|]{|\<とびら用\>\|}|
 \end{quote}%}
-$B$N$h$&$K!$%*%W%7%g%s0z?t$GFbMF9<35$dL\<!$N%Z!<%8$K0u;z$9$kBjL\$rJLES;XDj$9$k(B
-$B$3$H$,$G$-$k!#Nc$($P$3$N<j0z$G$O(B
+のように，オプション引数で内容梗概や目次のページに印字する題目を別途指定する
+ことができる。例えばこの手引では
 \begin{quote}\begin{verbatim}
-\jtitle[$BFCJL8&5fJs9p=q!&=$;NO@J8<9I.$N<j0z(B]%
-       {$BFCJL8&5fJs9p=q!&=$;NO@J8(B\\$B<9I.$N<j0z(B}
+\jtitle[特別研究報告書・修士論文執筆の手引]%
+       {特別研究報告書・修士論文\\執筆の手引}
 \end{verbatim}\end{quote}
-$B$H$7$F!$$H$S$i$G$O(B2$B9T!$FbMF9<35$dL\<!$G$O(B1$B9T$K$J$k$h$&$K$7$F$$$k!#(B
+として，とびらでは2行，内容梗概や目次では1行になるようにしている。
 
-\item[$B;XF36541L>(B]
-\|\supervisor|$B$G;XDj$7$?;XF36541$N;aL>$H?&L>$r(B\|\large|$B$G0u;z$9$k!#;aL>!??&(B
-$BL>$O!$K\J8$KMQ$$$k8@8l$K1~$8$FE,@Z$K;XDj$9$k$3$H!#(B
+\item[指導教官名]
+\|\supervisor|で指定した指導教官の氏名と職名を\|\large|で印字する。氏名／職
+名は，本文に用いる言語に応じて適切に指定すること。
 
-\item[$B=jB03X2J!?@l96(B]
-\|\documentclass|$B$N%*%W%7%g%s$HF~3XG/<!$K1~$8$F!$0J2<$N$$$:$l$+$,(B\|\large|$B$G(B
-$B0u;z$5$l$k!#(B
+\item[所属学科／専攻]
+\|\documentclass|のオプションと入学年次に応じて，以下のいずれかが\|\large|で
+印字される。
 \begin{itemize}%{
-\item $BFCJL8&5fJs9p=q!JJ?@.(B6$BG/0JA0F~3X!K(B\\
-$B5~ETBg3X9)3XIt>pJs9)3X2J(B
-\item $BFCJL8&5fJs9p=q!JJ?@.(B7$BG/0J9_F~3X!K(B\\
-$B5~ETBg3X9)3XIt>pJs3X2J(B
-\item $B=$;NO@J8!JOBJ8!K(B\\
-$B5~ETBg3XBg3X1!9)3X8&5f2J>pJs9)3X@l96(B
-\item $B=$;NO@J8!J1QJ8!K(B\\
+\item 特別研究報告書（平成6年以前入学）\\
+京都大学工学部情報工学科
+\item 特別研究報告書（平成7年以降入学）\\
+京都大学工学部情報学科
+\item 修士論文（和文）\\
+京都大学大学院工学研究科情報工学専攻
+\item 修士論文（英文）\\
 Department of Information Science,
 Graduate School of Engineering\\
 Kyoto University
 \end{itemize}%}
-$B$J$*3XIt(B4$B2s@8$NF~3XG/<!$O!$(B\LaTeX $B$r<B9T$7$?F|$r$b$H$K!$$=$N(B4$BG/A0$G$"$k$H2>(B
-$BDj$7$F;;=P$7$F$$$k!#2?$i$+$NM}M3$G$3$N2>Dj$,@.$jN)$?$J$$>l9g$K$O(B
+なお学部4回生の入学年次は，\LaTeX を実行した日をもとに，その4年前であると仮
+定して算出している。何らかの理由でこの仮定が成り立たない場合には
 \begin{quote}\begin{verbatim}
 \setcounter{entranceyear}{1993}
 \end{verbatim}\end{quote}
-$B$N$h$&$K!$%+%&%s%?(B\|entranceyear|$B$KF~3XG/<!$r@>Nq$G%;%C%H$9$k$3$H!#(B
+のように，カウンタ\|entranceyear|に入学年次を西暦でセットすること。
 
-\item[$BCx<TL>(B]
-$BOBJ8$N>l9g$K$O(B\|\jauthor|$B$G!$1QJ8$N>l9g$K$O(B\|\eauthor|$B$G;XDj$7$?Cx<TL>$,!$$=(B
-$B$l$>$l(B\|\Large|$B$G0u;z$5$l$k!#BjL\$HF1MM!$(B\|\jauthor|$B$H(B\|\eauthor|$B$OFbMF9<35(B
-$B$N%Z!<%8$K$b0u;z$5$l$k$N$G!$OBJ8!?1QJ8$K4X$o$i$:APJ}$r;XDj$9$k$3$H!#(B
+\item[著者名]
+和文の場合には\|\jauthor|で，英文の場合には\|\eauthor|で指定した著者名が，そ
+れぞれ\|\Large|で印字される。題目と同様，\|\jauthor|と\|\eauthor|は内容梗概
+のページにも印字されるので，和文／英文に関わらず双方を指定すること。
 
-\item[$BDs=PG/7nF|(B]
-\|\date|$B$G;XDj$7$?F|IU$,(B\|\large|$B$G0u;z$5$l$k!#F|IU$O!$K\J8$KMQ$$$k8@8l$K1~(B
-$B$8$FE,@Z$K;XDj$9$k$3$H!#(B
+\item[提出年月日]
+\|\date|で指定した日付が\|\large|で印字される。日付は，本文に用いる言語に応
+じて適切に指定すること。
 
-\item[$B@l96L>(B]
-$B=$;NO@J8$N>l9g!"(B\|\department|$B$G;XDj$7$?@l96L>$,0u;z$5$l$k!#Nc$($P!"(B
-$BOBJ8$N>l9g(B
+\item[専攻名]
+修士論文の場合、\|\department|で指定した専攻名が印字される。例えば、
+和文の場合
 \begin{quote}\begin{verbatim}
-\department{$B<R2q>pJs3X(B}
+\department{社会情報学}
 \end{verbatim}\end{quote}
-$B1QJ8$N>l9g(B
+英文の場合
 \begin{quote}\begin{verbatim}
 \department{Social Informatics}
 \end{verbatim}\end{quote}
-$B$N$h$&$K;XDj$9$k!#(B
+のように指定する。
 \end{description}
-$B$H$S$i$N%Z!<%8$K$O%Z!<%8HV9f$,0u;z$5$l$J$$$,!$=PNO$NJX59$r?^$k$?$a$K(Bdvi$B%U%!(B
-$B%$%k$K$O%Z!<%8HV9f(B1000$B$,IUM?$5$l$F$$$k!#(B
+とびらのページにはページ番号が印字されないが，出力の便宜を図るためにdviファ
+イルにはページ番号1000が付与されている。
 
-\subsection{$BFbMF9<35(B}\label{appsub-abstract}
-$BOBJ8$NFbMF9<35$r(B\|jabstract|$B4D6-$NCf$K!$$^$?1QJ8$NFbMF9<35$r(B\|eabstract|$B4D6-(B
-$B$NCf$K!$$=$l$>$l5-=R$9$k!#$=$l$>$l$NFbMF9<35$NA0$K$O!$A0=R$N(B\|\jtitle|$B$d(B
-\|\etitle|$B$G;XDj$7$?BjL\$H!$(B\|\jauthor|$B$d(B\|\eauthor|$B$G;XDj$7$?Cx<TL>$,=P(B
-$BNO$5$l$k!#(B
+\subsection{内容梗概}\label{appsub-abstract}
+和文の内容梗概を\|jabstract|環境の中に，また英文の内容梗概を\|eabstract|環境
+の中に，それぞれ記述する。それぞれの内容梗概の前には，前述の\|\jtitle|や
+\|\etitle|で指定した題目と，\|\jauthor|や\|\eauthor|で指定した著者名が出
+力される。
 
-$B$=$l$>$l$NFbMF9<35$O!$5-=R$7$?=g=x$G=PNO$5$l$k!#$7$?$,$C$F!$K\J8$,OBJ8$N>l9g(B
-$B$K$OOBJ8(B\,$\to$\,$B1QJ8$N=g$G!$$^$?K\J8$,1QJ8$N>l9g$K$O1QJ8(B\,$\to$\,$BOBJ8$N=g$G(B
-$B5-=R$9$k$N$,E,Ev$G$"$k!#(B
+それぞれの内容梗概は，記述した順序で出力される。したがって，本文が和文の場合
+には和文\,$\to$\,英文の順で，また本文が英文の場合には英文\,$\to$\,和文の順で
+記述するのが適当である。
 
-$BFbMF9<35$N%Z!<%8HV9f$O!$%Z!<%8$N1&8*$K>.J8;z$N%m!<%^?t;z$G0u;z$5$l$k!#$^$?=P(B
-$BNO$NJX59$r?^$k$?$a$K!$(Bdvi$B%U%!%$%k$N3F%Z!<%8$K$O0u;z$5$l$k%Z!<%8HV9f$K(B1000$B$r(B
-$B2C$($?$b$N$,IUM?$5$l$k!#(B
+内容梗概のページ番号は，ページの右肩に小文字のローマ数字で印字される。また出
+力の便宜を図るために，dviファイルの各ページには印字されるページ番号に1000を
+加えたものが付与される。
 
-\subsection{$BL\<!(B}\label{appsub-toc}
-$B%3%^%s%I(B\|\tableofcontents|$B$K$h$j!$L\<!$,@8@.$5$l$k!#L\<!$N:G>eIt$K$O!$A0=R(B
-$B$N(B\|\jtitle|\slash\|\etitle|$B$G;XDj$7$?BjL\$,0u;z$5$l$k!#(B
+\subsection{目次}\label{appsub-toc}
+コマンド\|\tableofcontents|により，目次が生成される。目次の最上部には，前述
+の\|\jtitle|\slash\|\etitle|で指定した題目が印字される。
 
-$B%G%U%)%k%H$G$O!$(B\|\section|, \|\subsection|, $B$*$h$S(B\|\subsubsection|$B$N8+=P$7(B
-$B$H$=$l$i$N%Z!<%8HV9f$,L\<!$K4^$^$l$k!#$3$l$rJQ99$7!$$?$H$($P(B\|\section|$B$H(B
-\|\subsection|$B$N$_$NL\<!$K$7$?$$;~$K$O(B
+デフォルトでは，\|\section|, \|\subsection|, および\|\subsubsection|の見出し
+とそれらのページ番号が目次に含まれる。これを変更し，たとえば\|\section|と
+\|\subsection|のみの目次にしたい時には
 \begin{quote}\begin{verbatim}
 \setcounter{tocdepth}{2}
 \end{verbatim}\end{quote}
-$B$K$h$j!$%+%&%s%?(B\|tocdepth|$B$NCM$rL\<!$K4^$^$l$k:G2<0L$N>O!&@a%l%Y%k(B
-$B$K@_Dj$9$l$P$h$$!#$J$*(B\|\section|$B$N%l%Y%k$O(B1$B$G$"$k!#(B
+により，カウンタ\|tocdepth|の値を目次に含まれる最下位の章・節レベル
+に設定すればよい。なお\|\section|のレベルは1である。
 
-$B$3$NB>!$!V<U<-!W$H!V;29MJ88%!W$bHV9f$N$J$$(B\|\section|$B$H$7$FL\<!$K4^$^$l$k!#(B
-$B$5$i$K!J$b$7$"$l$P!K!VIUO?!W$H!$IUO?$NCf$N(B\|\section|$B$H(B\|\subsection|$B$b4^$^(B
-$B$l$k!#(B
+この他，「謝辞」と「参考文献」も番号のない\|\section|として目次に含まれる。
+さらに（もしあれば）「付録」と，付録の中の\|\section|と\|\subsection|も含ま
+れる。
 
-$BL\<!$N%Z!<%8$K$O%Z!<%8HV9f$r0u;z$7$J$$$,!$(Bdvi$B%U%!%$%k$K$OFbMF9<35$KB3$/(B1000
-$BHVBf$N%Z!<%8HV9f$,IUM?$5$l$k!#(B
+目次のページにはページ番号を印字しないが，dviファイルには内容梗概に続く1000
+番台のページ番号が付与される。
 
-\subsection{$B>O!&@a(B}\label{appsub-sectioning}
-$B>O$d@a$N8+=P$7$K$O!$DL>o$I$*$j(B\|\section|, \|\subsection|, \|\subsubsection|
-$B$J$I$r;HMQ$9$k!#(B
+\subsection{章・節}\label{appsub-sectioning}
+章や節の見出しには，通常どおり\|\section|, \|\subsection|, \|\subsubsection|
+などを使用する。
 
-\|\section|$B$N8+=P$7$O(B2$B9T$r@j$a!$(B\|\Large\bf|$B$G0u;z$5$l$k!#=$;NO@J8$N(B
-$B>l9g$O2~JG$,9T$J$o$l$k!#(B
-\|\subsection|$B$N8+=P$7$O(B1$B9T$N6uGr$rCV$$$?8e$K(B\|\large\bf|$B$G0u;z$5$l!$0z(B
-$B$-B3$/J8>O$H$N4V$K$OM>J,$J6uGr$OA^F~$5$l$J$$!#(B\|\subsubsection|$B$O(B
-$B>eIt$K6uGr$,A^F~$5$l$:!"(B\|\normalsize\bf|$B$G0u;z$5$l$k!#(B
+\|\section|の見出しは2行を占め，\|\Large\bf|で印字される。修士論文の
+場合は改頁が行なわれる。
+\|\subsection|の見出しは1行の空白を置いた後に\|\large\bf|で印字され，引
+き続く文章との間には余分な空白は挿入されない。\|\subsubsection|は
+上部に空白が挿入されず、\|\normalsize\bf|で印字される。
 
-$B%G%U%)%k%H$G$O!$>e5-$N(B3$B$D$N%3%^%s%I$K$h$k>O!&@a$N8+=P$7$K!$>OHV9f$d@aHV9f$,(B
-$BIU$1$i$l!$2<0L$N>O!&@a%3%^%s%I$G$"$k(B\|\paragraph|, \|\subparagraph|$B$K$h$k8+(B
-$B=P$7$K$OHV9f$,IU$1$i$l$J$$!#$^$?!$$3$l$i$N2<0L%3%^%s%I$K$h$k8+=P$7$H0z$-B3$/(B
-$BJ8>O$N4V$G$O2~9T$,9T$J$o$l$J$$!#(B
+デフォルトでは，上記の3つのコマンドによる章・節の見出しに，章番号や節番号が
+付けられ，下位の章・節コマンドである\|\paragraph|, \|\subparagraph|による見
+出しには番号が付けられない。また，これらの下位コマンドによる見出しと引き続く
+文章の間では改行が行なわれない。
 
-\subsection{$B?^I=(B}\label{appsub-figure}
-$B?^$dI=$O!$DL>o$HF1$8$/(B\|figure|$B$d(B\|table|$B4D6-$NCf$K5-=R$9$k!#?^I=$NHV9f$O!$(B
-$B%G%U%)%k%H$G$OO@J8A4BN$NDL$7HV9f$G$"$k$,!$A0=R$N(B\|\documentclass|$B$N%*%W%7%g(B
-$B%s(B\|withinsec|$B$r;HMQ$9$k$H!$>O$NCf$GHV9f$E$1$,9T$J$o$l!$>OHV9f$HAH$_9g$o$5$l(B
-$B$k!#(B
+\subsection{図表}\label{appsub-figure}
+図や表は，通常と同じく\|figure|や\|table|環境の中に記述する。図表の番号は，
+デフォルトでは論文全体の通し番号であるが，前述の\|\documentclass|のオプショ
+ン\|withinsec|を使用すると，章の中で番号づけが行なわれ，章番号と組み合わされ
+る。
 
-$B;fLL$N@aLs$N$?$a$K!$?^I=$r2#$KJB$Y$FCV$-$?$$$3$H$,$"$k!#$3$N$h$&$J>l9g$N$?$a(B
-$B$K!$(B\|subfigure|$B$H(B\|subtable|$B$H$$$&(B2$B$D$N4D6-$,MQ0U$5$l$F$$$k!#$?$H$($P?^(B
-\ref{fig-example}$B$HI=(B\ref{tab-example}$B$O(B
+紙面の節約のために，図表を横に並べて置きたいことがある。このような場合のため
+に，\|subfigure|と\|subtable|という2つの環境が用意されている。たとえば図
+\ref{fig-example}と表\ref{tab-example}は
 \begin{quote}%{
 \|\begin{figure}|\\
 \|\begin{subfigure}{0.6\textwidth}|\\
-\null\qquad\<$B?^(B\ref{fig-example}$B$NCf?H(B\>\\
-\|\caption{$B?^$NNc(B}|\\
+\null\qquad\<図\ref{fig-example}の中身\>\\
+\|\caption{図の例}|\\
 \|\end{subfigure}|\\
 \|\begin{subtable}{0.4\textwidth}|\\
-\|\caption{$BI=$NNc(B}|\\
-\null\qquad\<$BI=(B\ref{tab-example}$B$NCf?H(B\>\\
+\|\caption{表の例}|\\
+\null\qquad\<表\ref{tab-example}の中身\>\\
 \|\end{subtable}|\\
 \|\end{figure}|
 \end{quote}%}
-$B$K$h$j@8@.$7$?$b$N$G$"$k!#$J$*$3$NNc$G$O(B\|figure|$B4D6-$NCf$K(B\|subfigure|$B$H(B
-\|subtable|$B$rF~$l$F$$$k$,!$(B\|table|$B4D6-$NCf$KF~$l$F$b$h$$!#(B
+により生成したものである。なおこの例では\|figure|環境の中に\|subfigure|と
+\|subtable|を入れているが，\|table|環境の中に入れてもよい。
 
-\|subfigure|$B$H(B\|subtable|$B$N;EMM$O!$(B\|minipage|$B$HF1MM$G$"$j(B
+\|subfigure|と\|subtable|の仕様は，\|minipage|と同様であり
 \begin{itemize}\item[]%{
-\|\begin{subfigure}[|\<$B0LCV(B\>\|]{|\<$B2#I}(B\>\|}|\quad\<$BCf?H(B\>\quad
+\|\begin{subfigure}[|\<位置\>\|]{|\<横幅\>\|}|\quad\<中身\>\quad
 \|\end{subfigure}|\\
-\|\begin{subtable}[|\<$B0LCV(B\>\|]{|\<$B2#I}(B\>\|}|\quad\<$BCf?H(B\>\quad
+\|\begin{subtable}[|\<位置\>\|]{|\<横幅\>\|}|\quad\<中身\>\quad
 \|\end{subtable}|
 \end{itemize}%}
-$B$G$"$k!#$^$?4D6-Cf$N(B\|\caption|$B%3%^%s%I$K$h$j!$$=$l$>$l$N8+=P$7$,@8@.$5$l$k!#(B
+である。また環境中の\|\caption|コマンドにより，それぞれの見出しが生成される。
 
-$B2#$KJB$Y$k(B\|subfigure|\slash\|subtable|$B$N2#I}$N9g7W$,!$(B
-\|\textwidth|$B$K0lCW$9$k$h$&$K$9$k$N$,K>$^$7$$(B\footnote{$B3F!9$N4V$K(B
-{\tt\string\hspace\char`\{\string\fill\char`\}}$B$rA^F~$9$k$J$I$7$F!$4V3V$rCV$/(B
-$B$3$H$b$G$-$k!#(B}$B!#(B
+横に並べる\|subfigure|\slash\|subtable|の横幅の合計が，
+\|\textwidth|に一致するようにするのが望ましい\footnote{各々の間に
+{\tt\string\hspace\char`\{\string\fill\char`\}}を挿入するなどして，間隔を置く
+こともできる。}。
 
 \begin{figure}%{
 \begin{subfigure}{.6\textwidth}
 \centerline{\fbox{\vbox to.1\textheight{\vss
 	\hbox to.8\textwidth{\hss This is a figure\hss}\vss}}}
-\caption{$B?^$NNc(B}\label{fig-example}
+\caption{図の例}\label{fig-example}
 \end{subfigure}
 \begin{subtable}{.4\textwidth}
-\caption{$BI=$NNc(B}\label{tab-example}
+\caption{表の例}\label{tab-example}
 \centerline{\begin{tabular}{r|c|l}
 This&is&a table\\\hline
 placed&beside&a figure.
@@ -686,77 +686,77 @@ placed&beside&a figure.
 \end{subtable}
 \end{figure}%}
 
-\subsection{$B2U>r=q(B}\label{appsub-itemizing}
-\LaTeX $B$N2U>r=q4D6-$G$"$k(B\|\enumerate|, \|\itemize|, \|\description|$B$J$I$O!$(B
-$B$9$Y$F$=$N$^$^;HMQ$9$k$3$H$,$G$-$k!#$?$@$7!$4D6-$NA08e$d!$9`L\$N4V$K$OM>J,$J(B
-$B6uGr$,A^F~$5$l$J$$!#(B
+\subsection{箇条書}\label{appsub-itemizing}
+\LaTeX の箇条書環境である\|\enumerate|, \|\itemize|, \|\description|などは，
+すべてそのまま使用することができる。ただし，環境の前後や，項目の間には余分な
+空白が挿入されない。
 
-\subsection{$B5SCm(B}\label{appsub-footnote}
-$B5SCm$K$O!$(B\LaTeX $B$NI8=`%3%^%s%I(B\|\footnote|$B$rMQ$$$k!#5SCm$N%^!<%/$O!$$3$3$K(B
-$B<($9$h$&$K(B\footnote{$B5SCm$NNc(B}$B$d(B\footnote{$B$b$&0l$D$N5SCm(B}$B$G$"$k!#$^$?!$$3$N%Z!<(B
-$B%8$HA0$N%Z!<%8$r8+$k$H$o$+$k$h$&$K!$5SCmHV9f$O%Z!<%8$4$H$KIU$1$i$l$k!#$?$@$7!$(B
-$B@5$7$$5SCmHV9f$rF@$k$?$a$K$O!$(B\LaTeX $B$r(B2$B2s<B9T$9$kI,MW$,$"$k!#(B
+\subsection{脚注}\label{appsub-footnote}
+脚注には，\LaTeX の標準コマンド\|\footnote|を用いる。脚注のマークは，ここに
+示すように\footnote{脚注の例}や\footnote{もう一つの脚注}である。また，このペー
+ジと前のページを見るとわかるように，脚注番号はページごとに付けられる。ただし，
+正しい脚注番号を得るためには，\LaTeX を2回実行する必要がある。
 
-\subsection{$B<U<-(B}\label{appsub-acknowlegments}
-$B<U<-$O!$%3%^%s%I(B\|\acknowledgments| $B$KB3$$$F5-=R$9$k!#8+=P$7!V<U<-!W$^$?$O(B
-``Acknowledgments''$B$O<+F0E*$K@8@.$5$l!$L\<!$K$bEPO?$5$l$k!#(B
+\subsection{謝辞}\label{appsub-acknowlegments}
+謝辞は，コマンド\|\acknowledgments| に続いて記述する。見出し「謝辞」または
+``Acknowledgments''は自動的に生成され，目次にも登録される。
 
-\subsection{$B;29MJ88%(B}\label{appsub-references}
-$B$9$Y$F$N;29MJ88%$r4^$`$h$&$J(BBib\TeX $B$NJ88%%G!<%?%Y!<%9$r:n@.$7!$J88%%9%?%$%k(B
-$B%U%!%$%k(B\|kuisunsrt|$B$^$?$O(B\|kuissort|$B$rMQ$$$F=hM}$9$l$P!$(B
-\ref{subsec-references}$B@a$K<($7$?7A<0$NJ88%I=$,F@$i$l$k!#$J$*(B\|kuisunsrt|$B$OJ8(B
-$B8%$r=P8==g$KJB$Y!$(B\|kuissort|$B$OCx<TL>$N%"%k%U%!%Y%C%H=g$KJB$Y$k!#(B
+\subsection{参考文献}\label{appsub-references}
+すべての参考文献を含むようなBib\TeX の文献データベースを作成し，文献スタイル
+ファイル\|kuisunsrt|または\|kuissort|を用いて処理すれば，
+\ref{subsec-references}節に示した形式の文献表が得られる。なお\|kuisunsrt|は文
+献を出現順に並べ，\|kuissort|は著者名のアルファベット順に並べる。
 
-$B2?$i$+$NM}M3$G(BBib\TeX $B$rMxMQ$G$-$J$$>l9g$O!$(B\|thebibliography|$B4D6-$rMQ$$$FJ8(B
-$B8%I=$r:n$C$F$b$h$$$,!$$3$N<j0z$NJ88%I=$r;29M$K$7$F;XDj$5$l$?7A<0$K=>$&$3$H!#(B
+何らかの理由でBib\TeX を利用できない場合は，\|thebibliography|環境を用いて文
+献表を作ってもよいが，この手引の文献表を参考にして指定された形式に従うこと。
 
-$B$J$*!$$$$:$l$N>l9g$K$b!$8+=P$7!V;29MJ88%!W$^$?$O(B``References''$B$,<+F0E*$K@8@.(B
-$B$5$l!$L\<!$K$bEPO?$5$l$k!#(B
+なお，いずれの場合にも，見出し「参考文献」または``References''が自動的に生成
+され，目次にも登録される。
 
-\subsection{$BIUO?(B}\label{appsub-appendix}
-$BIUO?$,$b$7$"$l$P!$%3%^%s%I(B\|\appendix|$B$^$?$O(B\|\Appendix|$B$K0z$-B3$$$F5-=R$9$k!#(B
-$BN><T$N0c$$$O%Z!<%8IU$1$G$"$j!$(B\|\appendix|$B$G$OIUO?$N3F%Z!<%8$dL\<!$K%Z!<%8(B
-$BHV9f$,0u;z$5$l$J$$!#0lJ}(B\|\Appendix|$B$G$O!$IUO?$N@hF,%Z!<%8$r(BA-1$B$H$7!$=g(B
-$B$K(BA-2, A-3$B$H$$$&%Z!<%8HV9f$,0u;z$5$l$k!#$J$*$$$:$l$N>l9g$K$b!$(Bdvi$B%U%!%$%k$K(B
-$B$O(B2001$B$+$i;O$^$k%Z!<%8HV9f$,IUM?$5$l$k!#(B
+\subsection{付録}\label{appsub-appendix}
+付録がもしあれば，コマンド\|\appendix|または\|\Appendix|に引き続いて記述する。
+両者の違いはページ付けであり，\|\appendix|では付録の各ページや目次にページ
+番号が印字されない。一方\|\Appendix|では，付録の先頭ページをA-1とし，順
+にA-2, A-3というページ番号が印字される。なおいずれの場合にも，dviファイルに
+は2001から始まるページ番号が付与される。
 
-$B$I$A$i$N%3%^%s%I$b%*%W%7%g%s0z?t$r;}$A!$IUO?A4BN$N8+=P$7$r$D$1$k$3$H$,$G$-$k!#(B
-$B$?$H$($P!$$3$NIUO?$O(B
+どちらのコマンドもオプション引数を持ち，付録全体の見出しをつけることができる。
+たとえば，この付録は
 \begin{quote}
-\|\Appendix[$BIUO?!'%9%?%$%k%U%!%$%k(B{\tt kuisthesis}$B$N;H$$J}(B]|
+\|\Appendix[付録：スタイルファイル{\tt kuisthesis}の使い方]|
 \end{quote}
-$B$G;O$^$C$F$$$k!#%*%W%7%g%s0z?t$,$J$$>l9g$K$O!$IUO?A4BN$N8+=P$7$OC1$K!VIUO?!W(B
-$B$^$?$O(B``Appendix''$B$G$"$k!#(B
+で始まっている。オプション引数がない場合には，付録全体の見出しは単に「付録」
+または``Appendix''である。
 
-$BIUO?$NCf$N(B\|\section|, \|\subsection|$B$J$I$O!$(B1$B%l%Y%k2<$N%3%^%s%I$HF1$8F0:n$r(B
-$B$9$k!#$^$?$3$l$i$NHV9f$O!$(B``A.1''$B$d(B``A.2.3''$B$N$h$&$K!$@hF,$K(B``A.''$B$,IU2C$5$l(B
-$B$?$b$N$H$J$k!#F1MM$K!$?^I=$d?t<0$NHV9f$K$b!$@hF,$K(B``A.''$B$,IU2C$5$l$k(B
-\footnote{$B$3$NHV9fIU$1$O(B{\tt\string\documentclass}$B$N(B{\tt withinsec}$B%*%W%7%g%s$H(B
-$B$OL54X78$G$"$k!#(B}$B!#(B
+付録の中の\|\section|, \|\subsection|などは，1レベル下のコマンドと同じ動作を
+する。またこれらの番号は，``A.1''や``A.2.3''のように，先頭に``A.''が付加され
+たものとなる。同様に，図表や数式の番号にも，先頭に``A.''が付加される
+\footnote{この番号付けは{\tt\string\documentclass}の{\tt withinsec}オプションと
+は無関係である。}。
 
-\section{$B$=$NB>$NCm0U(B}\label{app-others}
-\LaTeX $B$NBg$-$JFCD'$N0l$D$O!$J8=q=hM}$K4X$9$k$5$^$6$^$J5!G=$d%Q%i%a!<%?$r%+(B
-$B%9%?%^%$%:$G$-$k$3$H$G$"$k!#$7$?$,$C$F!$>/$7$G$bO@J8$r=q$-$d$9$/$9$k$?$a$K!$(B
-$B3X@8=t7/$NAO0U$H9)IW$G8D?MMQ$N5!G=$rDI2C$7$?$j$9$k$N$O$b$A$m$s<+M3$G$"$j!$$`(B
-$B$7$m?d>)$5$l$k!#$7$+$70lJ}$G$O!$65<<$GDj$a$i$l$?7A<0$r<i$k$3$H$bI,MW$G$"$j!$(B
-$B%+%9%?%^%$%:$N:]$K$O$3$NE@$KCm0U$7$J$1$l$P$J$i$J$$!#(B
+\section{その他の注意}\label{app-others}
+\LaTeX の大きな特徴の一つは，文書処理に関するさまざまな機能やパラメータをカ
+スタマイズできることである。したがって，少しでも論文を書きやすくするために，
+学生諸君の創意と工夫で個人用の機能を追加したりするのはもちろん自由であり，む
+しろ推奨される。しかし一方では，教室で定められた形式を守ることも必要であり，
+カスタマイズの際にはこの点に注意しなければならない。
 
-$B$I$N$h$&$J%+%9%?%^%$%:$,5v$5$l$k$+$r0lHLE*$K=R$Y$k$N$O:$Fq$G$"$k$,!$0l$D$N6K(B
-$BC<$J4p=`$O!$%9%?%$%k%U%!%$%k$rFI$s$G$_$FBg>fIW$@$H3N?.$,;}$F$k$3$H0J30$O$7$J(B
-$B$$!$$H$$$&$b$N$G$"$k!#FC$K(B\LaTeX{}nician$B$G$"$k$h$&$J=t7/$K$O!$$3$N4p=`$r87<i(B
-$B$7$F$b$i$$$?$$!#(B
+どのようなカスタマイズが許されるかを一般的に述べるのは困難であるが，一つの極
+端な基準は，スタイルファイルを読んでみて大丈夫だと確信が持てること以外はしな
+い，というものである。特に\LaTeX{}nicianであるような諸君には，この基準を厳守
+してもらいたい。
 
-$B0lHL$N3X@8=t7/$N$?$a$N$b$&>/$74K$d$+$J4p=`$H$7$F!$%3%^%s%I$d%Q%i%a!<%?$N:FDj(B
-$B5A!?:F@_Dj$r9T$J$o$J$$!$$H$$$&$b$N$b5s$2$i$l$k!#%9%?%$%k%U%!%$%k$rFI$`$N$,LL(B
-$BE]$@$C$?$j!$FI$s$G$b$h$/$o$+$i$J$+$C$?$j$9$k>l9g$K$O!$$3$N4p=`$r<i$C$F$b$i$$(B
-$B$?$$!#(B
+一般の学生諸君のためのもう少し緩やかな基準として，コマンドやパラメータの再定
+義／再設定を行なわない，というものも挙げられる。スタイルファイルを読むのが面
+倒だったり，読んでもよくわからなかったりする場合には，この基準を守ってもらい
+たい。
 
-$B%9%?%$%k%U%!%$%k$N:n@.$KEv$?$C$F$O!$%P%0$,$J$$$h$&$K:Y?4$NCm0U$rJ'$C$F$$$k$,!$(B
-% $BE,MQNc$,>/$J$$$3$H$b$"$j!$(B
-$B40`z$J$b$N$H$J$C$F$$$k$H$OCG8@$G$-$J$$!#(B
-% $B$b$72?$+Ld(B
-% $BBj$,5/$3$C$?>l9g$K$O!$65<<$N%m!<%+%k!&%K%e!<%9!&%0%k!<%W(B\|is.misc| $B$KEj(B
-% $B9F$5$l$?$$!#$^$?%9%?%$%k%U%!%$%k$N2~HG$J$I$NDLCN$b!$F1$8%K%e!<%9!&%0%k!<%W$K(B
-% $BEj9F$5$l$k$N$G!$Cm0U$7$F$*$/$3$H!#$J$*!$C4Ev6541$J$I$X$ND>@\$N<ALd$K$O0l@Z1~(B
-% $B$8$J$$!#(B
+スタイルファイルの作成に当たっては，バグがないように細心の注意を払っているが，
+% 適用例が少ないこともあり，
+完璧なものとなっているとは断言できない。
+% もし何か問
+% 題が起こった場合には，教室のローカル・ニュース・グループ\|is.misc| に投
+% 稿されたい。またスタイルファイルの改版などの通知も，同じニュース・グループに
+% 投稿されるので，注意しておくこと。なお，担当教官などへの直接の質問には一切応
+% じない。
 \end{document}
