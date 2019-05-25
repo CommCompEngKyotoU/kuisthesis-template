@@ -1,0 +1,41 @@
+diff kuisthesis2007/eguide.tex kuisthesis/eguide.tex
+185c185
+< references should be placed just after the main text (just before
+---
+> references should be placed at the end of the main text (just before
+321,325c321,325
+< A list of cited literatures should be compiled and should be placed just
+< after the main text (and just before the appendices, if any).  Each item of
+< the list has a bracketed serial number, like [1], [2], etc.  In the main
+< text, the number also appears at the end of the phrase in which
+< corresponding literature is referred.  A word, such as the name of a person,
+---
+> A list of cited literatures should be compiled and should be placed at the 
+> end of the main text (and just before the appendices, if any).  Each item of
+> the list has a bracketed serial number, like [1], [2], etc. 
+> The number also appears at the end of the phrase in which
+> corresponding literature is referred to. A word, such as the name of a person,
+351,352c351,352
+< text including figures and tables} must have the following pages, allowing
+< 10\,\% excess or shortage.
+---
+> text including figures, tables, and references} must have the following
+> pages, allowing 10\,\% excess or shortage.
+diff kuisthesis2007/guide.tex kuisthesis/guide.tex
+146c146
+< 表の挿入場所は本文の末尾（付録がある場合には，本文と付録の間）とする。
+---
+> 表の挿入場所は本文の末尾（付録がある場合には，付録の前）とする。
+257,258c257,258
+< 引用文献は本文に続いて（付録があればそのまえに），表の形にまとめる。本文との
+< 対応は[1], [2]のように，[ ]つきの通し番号による。この番号は，該当する文章
+---
+> 引用文献は本文の末尾に（付録があればそのまえに），表の形にまとめる。文献の
+> 参照は[1], [2]のように，[ ]つきの通し番号による。この番号は，該当する文章
+279,280c279,281
+< 報告書および論文は，A4の用紙の片面に印字する。{\EM 図表を含めた本文の長さは}
+< つぎの基準による。ただし枚数の増減は1割以内とする。
+---
+> 
+> 報告書および論文は，A4の用紙の片面に印字する。{\EM 図表と文献表を含めた本文の
+> 長さは}つぎの基準による。ただし枚数の増減は1割以内とする。

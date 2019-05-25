@@ -1,0 +1,18 @@
+2011/12/6 by yasugi@kuis.kyoto-u.ac.jp
+	guide.tex と eguide.tex について、
+	参考文献は本文に含まれると分かるように修正．
+2007/2/9 by sumi@i.kyoto-u.ac.jp
+	guide.tex と eguide.tex について、
+	\documentstyle を使う記述から \documentclass を使う記述に変更。
+2005/12/9 by igarashi@kuis.kyoto-u.ac.jp
+	表紙の「指導教官」→「指導教員」
+	guide.tex typo 修正
+1999/12/14 by tarumi@kuis.kyoto-u.ac.jp
+	ver 2.10 に合わせて、guide.tex, eguide.tex を改訂。
+	guide.tex の TYPO 修正
+1998/11/9 by kameyama@kuis.kyoto-u.ac.jp
+	kuissort.bst の修正 (sogo@ishida.kuis の示唆による)
+	FUNCTION {is.kanji.or.empty} を追加
+1998/11/9 by kameyama@kuis.kyoto-u.ac.jp
+	guide.tex の TYPO の修正
+

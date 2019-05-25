@@ -1,0 +1,851 @@
+\documentclass[master,english]{kuisthesis}
+
+\def\LATEX{{\rm (L\kern-.36em\raise.3ex\hbox{\sc a})\TeX}}
+\def\LATex{\iLATEX\small}
+\def\iLATEX#1{L\kern-.36em\raise.3ex\hbox{#1\bf A}\kern-.15em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}
+\def\LATEXe{\ifx\LaTeXe\undefined \LaTeX 2e\else\LaTeXe\fi}
+\def\LATExe{\ifx\LaTeXe\undefined \iLATEX\scriptsize 2e\else\LaTeXe\fi}
+\let\EM\bf
+\def\|{\verb|}
+\def\<{\(\langle\)}
+\def\>{\(\rangle\)}
+\def\CS#1{{\tt\string#1}}
+
+\jtitle{特別研究報告書・修士論文執筆の手引}	% Title in Japanese
+\etitle[How to Write Your B.E./M.E. Thesis]%	% Title for Abstract/TOC
+	{How to Write\\Your B.E./M.E. Thesis}	% Title for title page
+\jauthor{中島 浩}				% Author name in Japanese
+\eauthor{Hiroshi NAKASHIMA}			% Author name in English
+\supervisor{Professor Toru Ishida}		% Name of your Supervisor
+\date{Feburary 15, 1996}			% Submission date
+\department{Social Informatics}			% Dept. name
+
+\begin{document}
+\maketitle					% Output title page
+
+\begin{eabstract}				% Abstract in English
+This guide gives instructions for writing your B.E. or M.E. theses following
+the standard of the Department of Information Science.  The
+standard includes the structure and format which you must obey on writing
+your theses.
+
+This guide also explains how to use a \LaTeX{} style file for theses, named
+\verb|kuisthesis|, with which you can easily produce well-formatted results.
+Since this guide itself is produced with the style file, it will help you to
+refer its source file \verb|eguide.tex| as an example.
+
+Note for graduate students: This document is written for students of
+old graduate school of information science, not for graudate school of
+informatics. Writers of master thesis belonging to graduate school
+of informatics must obey rules given by each department.
+
+\par\bigskip\centerline{\bf NOTE}
+\begin{quote}
+This guide is translated from ``特別研究報告・修士論文作成の手引'' in order
+to provide an example written in English.  Although you may regard this
+guide as giving the same guidelines and instructions which the Japanese
+version gives, remember that the Japanese version is solely and formally
+established by the Department.
+\end{quote}
+\end{eabstract}
+
+\begin{jabstract}				% Abstract in Japanese
+この手引では，特別研究報告書および修士論文をどのような構成とするか，またどの
+ような形式で作成するかを説明したものである。また，当教室で定めた形式に則った
+論文を日本語\LaTeX を用いて作成するためのスタイル・ファイルである， 
+\verb|kuisthesis|の使い方についても説明している。なお，この手引自体も
+\verb|kuisthesis|を用い，定められた形式に従って作成されているので，必要に応じ
+てソース・ファイル\verb|eguide.tex|を参照されたい。
+
+\par\bigskip\centerline{\bf 注意}
+\begin{quote}
+この手引は，英文論文の例として用いるために日本語版の「特別研究報告・修士論文
+作成の手引」を翻訳したものである。この手引に示されている指示などは，日本語版
+のものと同一であると考えてもよいが，正式には日本語版のみが教室で定められたも
+のであることに注意すること。
+\end{quote}
+\end{jabstract}
+
+\tableofcontents				% Output table of contents
+
+\section{Introduction}\label{sec-intro}		% Here the main text starts
+As you graduate the B.E. or M.E. course, you have to submit your graduation
+research report (aka B.E. thesis) or M.E. thesis in which the results of
+your research work in the course are compiled.  Thus, your thesis should be
+respected as an important milestone on finishing the course.  Your thesis
+will be kept in the Department library long years so that teaching staffs
+and student refer it.
+
+Your thesis must describes your research work clearly keeping a given page
+limit.  You must pay close and great attention to the structure of your
+thesis and every sentences, phrases and words.  This guide shows guidelines
+of writing theses and instructions to make theses meet the standard of the
+Department.  Following these guidelines and instructions, however, are not
+sufficient to write a good thesis, but they should be regarded as minimum
+requirements.  The objective of writing a thesis is not to meet a standard
+but to make readers understand your research works correctly and clearly.
+Therefore, it is strongly recommended to read good research papers so that
+you develop your faculty for description and expression.
+
+In the following sections, the standard structure of a thesis is shown, and
+then detailed instructions on writing a thesis are given.  In appendix, a
+\LaTeX{} style file for theses, \verb|kuisthesis|, and how to use it are
+explained.
+
+\par\bigskip\centerline{\bf NOTE}
+\begin{quote}
+This guide is translated from ``特別研究報告・修士論文作成の手引'' in order
+to provide an example written in English.  Although you may regard this
+guide as giving the same guidelines and instructions which the Japanese
+version gives, remember that the Japanese version is solely and formally
+established by the Department.
+\end{quote}
+
+\section{Structure of Thesis}\label{sec-structure}
+A thesis must consist of an abstract, a table of contents and the main text.
+Appendices may be added if necessary.  Since each component has its own role,
+a component must be separated clearly from others and must have description
+appropriate to its role.
+
+\subsection{Abstract}\label{subsec-abstract}
+The abstract of a thesis summarizes what the research work aimed at and what
+conclusion was formed.  Thus, the abstract is not a condensed version of the
+thesis, but has to be essence of the thesis.  Also note that an abstract
+is not an introduction.
+
+The standard of the Department requires that a thesis must have both
+Japanese and English abstracts, each of which is compiled in two pages,
+irrespective of language in which the main text is written.
+
+\subsection{Table of Contents}\label{subsec-toc}
+The table of contents has a form like ordinary text books and is placed just
+before the main text.  The table is useful to readers not only in looking up
+a section, but also in grasping the structure of your thesis.
+
+\subsection{Main Text}\label{subsec-main}
+The main text should be self-contained.  Although your thesis may have
+appendices, your thesis must be understandable by reading the main text
+only.
+
+It is strongly recommended that the main text has an introduction, the main
+issue, and a conclusion.
+
+\subsubsection{Introduction}\label{subsubsec-intro}
+The introduction describes what position your research work occupies in a
+research area, what the research aims at, and how the research is
+characterized.   Through those descriptions, readers will grasp the
+significance of your research work before reading the main issue.
+
+Note that an introduction is different from an abstract in which the essence
+of a thesis is described.  Rather, the introduction makes readers {\em
+warmed-up} and ready to proceed to the main issue.  Thus, it may be
+necessary to show the past and/or current state of the activities in the
+research area as a background, and to mention the relationship and
+difference between your work and other related works.
+
+\subsubsection{Main Issue}\label{subsubsec-main}
+Since the main issue is obviously the body of your thesis, most of pages of
+the thesis should be given to the main issue.  You must make much account of
+the completeness and consistency of the thesis, while emphasizing important
+issues.  Also you must keep conscientious description in your mind, strictly
+and clearly separating what you did and what others did.
+
+In order to keep the clearness of your thesis, which is the most important
+feature, take account of the following advice.
+\begin{itemize}%{
+\item
+Split the main issue into chapters and sections lining up them appropriately
+and giving them good titles.  A section may be split further into smaller
+pieces that should have appropriate titles too.
+\item
+Make each chapter and section complete, and keep natural relationship
+between them.
+\item
+Use simple and concise expressions.  Emphasize important and/or original
+issues describing them in detail, while summarize other parts.
+\item
+Define meaning of symbols used in your thesis clearly and accurately.
+Arrange the order and detailedness of formulae in a derivation carefully.
+If a derivation has long and complicated formulae, leave some important ones
+in the main text, while moving others to an appendix.
+\item
+Show bases of approximated and/or experimental equations, if any, clearly.
+\item
+Use figures and tables, which are often very important components of a
+thesis, to give explanations and/or conclusions.  If a figure or table is
+quoted, indicate its source.
+\item
+Draw figures and tables carefully and accurately, taking account of the
+appropriateness of symbols in them.  Give a good heading, which is a title
+or a short explanation, to each figure and table.
+\item
+Cite selected important literatures that are tightly related to your work,
+instead of making a lengthy and redundant bibliography.  The list of
+references should be placed at the end of the main text (just before
+appendices, if any).
+\end{itemize}%}
+
+\subsubsection{Conclusions}\label{subsubsec-conclusion}
+The concluding section summarizes the main results of your research work.
+Thus this part is naturally the essence of the main issue and concludes the
+thesis in a more lofty style than the abstract.
+
+If you found derivative and/or unsolved subproblems that are left for
+future works, they should be mentioned in the concluding section.
+
+The authors of papers traditionally express their thanks to the people who
+give them guidance, suggestions and supports on their research works.  Thus,
+it is strongly recommended to follow the tradition and to record your
+acknowledgments to such people after the conclusions.
+
+\subsection{Appendices}\label{subsec-appendix}
+In principle, a thesis must be completed by the components shown above.
+However, you may add appendices to supplement the main text.
+
+The following are examples that should be moved to appendices, and advice
+on compiling appendices.
+\begin{itemize}%{
+\item
+Long and complicated formula derivations, which are hardly included in the
+main text because of their length and readability.  Give cross references
+both in the main text and the appendix to show the correspondence between
+them.
+\item
+Proofs of theorems, similarly.  If the objective of your research work is to
+prove these theorems, however, the proofs (or simplified versions, at least)
+should be in the main text.
+\item
+Huge results of observations and/or numerical computations.  Although such a
+result that supports arguments in a thesis is preferably in the main text,
+huge one should be moved in an appendix leaving a summary in the main text.
+\item
+Long source program lists.
+\item
+If an extremely huge data or a program list is really necessary to be shown,
+it may be attached as a separate volume.  In this case, the separate volume
+should have a form similar to the main volume for the convenience of keeping
+and referring.
+\item
+Each appendix, especially for that in a separated volume, should has an
+appropriate title and a brief explanation so that readers grasp what the
+appendix shows.
+\end{itemize}%}
+
+\section{Instructions on Writing Theses}\label{sec-instruction}
+\subsection{Languages}\label{subsec-language}
+A graduation research report should be written in {\EM Japanese}.
+
+A master thesis may be written in either {\EM Japanese or English}.
+
+Since you will have many opportunities to present your research works in
+international conferences, writing your thesis in English might be a good
+training.  On the other hand, writing a good and correct Japanese thesis is
+also important for a student who will work in Japan.  Therefore, the
+Department judged that writing a report in Japanese is appropriate and
+reasonable for a undergraduate student.
+
+Regardless of language that you choose for the main text, {\EM both
+Japanese and English abstracts} must be given, as described in
+Section~\ref{subsec-abstract}.
+
+Technical terms must be spelled correctly.  Good examples of technical terms
+will be found in transactions and journals on your research area.  If you
+cannot find a standard translation of a term, use the original word, or
+write a non-standard translation with the original word.  A proper noun
+should be spelled in the original word or in Japanese Katakana.  In the
+latter case, it is recommended to show the original word at its first
+appearance.
+
+\subsection{Symbols and Units}\label{subsec-symbol}
+It is strongly recommended that a thesis with a lot of mathematics is
+typeset using \LATEX{} or other tool that is good at math handling.  If
+you have to use an ordinary word-processor, choose fonts for math formulae
+carefully and pay close attention to the positions of subscripts and
+superscripts.
+
+Symbols used in your thesis must be defined clearly, as mentioned before.
+If you use many symbols, you may define them in a ``table of symbols''
+inserted in an appropriate place.
+
+Abbreviated symbols for measuring units should be those standardized
+and\slash or used in transactions and journals widely.  As for a unit whose
+standard symbol has not been fixed, show what it stands for (in a footnote,
+for example).
+
+\subsection{Figures and Tables}\label{subsec-figure}
+Figures and tables must be inserted in the main text.  Arrange the position
+of a figure or a table so that it is as close as possible to the text that
+refers it.
+
+The number of a table, like ``Table~1.3'' and its heading must appear above
+the table.  In case of a figure, its number, such as ``Figure 2.1'', and its
+heading must be placed below the figure.
+
+Use some computer-aided drawing tool, if available, for figures.  Otherwise,
+hand-written figures must be drawn with very much care, as if they are used
+to make typographical plates.  Note that pencil-drawn figures are not
+acceptable.
+
+In general, a figure or a table must be self-understandable.  On the other
+hand, some description of a figure/table must appear in the main text with
+the reference of its number.
+
+If you want to show huge results of observations and/or numerical
+computations, move them to an appendix leaving some important ones in the
+main text.
+
+\subsection{Footnotes}\label{subsec-footnote}
+Footnotes are {\em not} recommended.  It is occasionally acceptable,
+however, to use a footnote for a short annotation in order to make the main
+text less complicated.
+
+A footnote must have a number to show its correspondence to a part of the
+main text, as shown in the example below.
+
+A footnote may also be used to cite a literature describing, for example, a
+proof that is not a part of the main arguments of a thesis.  However,
+remember this citation style is quite exceptional and the recommended style
+is to use a bibliography list that is explained later.
+
+\begin{description}
+\item[Example {\rm(Main Text)}]\leavevmode\par
+\ldots this sequential approximation method is used in the proof of a theorem
+that state differential equations has solutions\footnote{This concept is
+introduced by Picard, et al. (1890).}, and \ldots\ is known as a general
+feature\footnote{This proof is given in ``Modern Analysis'' by Whittaker and
+Watson, p.~123.}.
+\end{description}
+
+\subsection{Literatures}\label{subsec-references}
+A list of cited literatures should be compiled and should be placed at the 
+end of the main text (and just before the appendices, if any).  Each item of
+the list has a bracketed serial number, like [1], [2], etc. 
+The number also appears at the end of the phrase in which
+corresponding literature is referred to. A word, such as the name of a person,
+may also be followed by the number.
+
+For each literature in the list, the name of its author(s), its title, the
+name of the journal in which it appears, volume number and pages, and
+published year are recorded, as shown in the bibliography list of this guide.
+The literatures [1] to [3] appear in journals and proceedings, while [4] is
+a book.
+
+If a journal has a well-known abbreviation, its full name can be replaced
+with the abbreviation.  In the list of this guide, the article [2]
+appears in ``IEEE Trans. Computers'' whose full name is ``IEEE Transactions
+on Computers''.
+
+For an article in a journal, it is recommended to add the issue number and
+published month of the journal together with the volume number and published
+year.  The following is an example of the issue number and published month.
+\begin{eqnarray*}
+&\hbox{The tenth issue in volume four of a journal, published on October 1995.}
+\\
+&\Big\Downarrow\\
+&\hbox{Vol.~4, No.~10 (Oct.~1995)}.
+\end{eqnarray*}
+
+\subsection{Printed Form and Pages}\label{subsec-format}
+A thesis must be printed on single sides of A4 form papers.  {\EM The main
+text including figures, tables, and references} must have the following
+pages, allowing 10\,\% excess or shortage.
+\begin{itemize}%{
+\item
+Graduation research report\ \dotfill\ 25 pages\hbox to10em{}
+\item
+Master thesis\ \dotfill\ 50 pages\hbox to10em{}\\
+\hbox{}\hfill(a thesis written in English may have 60 pages)
+\end{itemize}%}
+Figures and tables may occupy up to about 40\,\%, and should be moved to
+appendices if exceeded.
+
+A thesis must be printed by a typesetting tool, like \LATEX, or a
+word-processor.  Note that {\EM hand-written theses will not be accepted}.
+
+Each page must have {\EM 3\,cm left margin and 1\,cm right margin} at least.
+
+For a thesis written in Japanese, use 12\,pt (or similar size) fonts to form
+{\EM lines of 35 characters and pages of 32 lines}.  If you use a
+word-processor and have troubles to keep this line/page format, you may
+change characters per line and lines per page unless the number of
+characters in a page are not (greatly) changed.
+
+For a thesis written in English, use 12\,pt (or similar size) fonts to form
+{\EM lines of 14.2\,cm wide and pages of 32 lines}.
+
+Regardless of language in which your thesis is written, give two lines to a
+top or second level section heading, while one line to a third or lower
+level.  Do not insert empty lines nor vertical spaces above/below a
+itemization nor between items in it.
+
+\subsection{Cover, Title Page and Table of Contents}\label{subsec-title}
+A title page must be attached at the very beginning of a thesis (i.e. just
+before the abstract).  Whole thesis must be bound up in the binder that the
+Department designates.
+
+On the cover of the binder, paste a cover sheet to show the type of your
+thesis (i.e. B.~E or M.~E thesis), its title, your supervisor name, the name
+of Department that you belong, your name, and submission date.  The
+same items must be printed on the title page too.
+
+At the top of both Japanese and English abstract pages, show the title of
+your thesis and your name.  The title must appear at the top of the first
+page for table of contents.
+
+\subsection{Submission}\label{subsec-submission}
+Complete your thesis and submit it to the Department office no latter than
+the date that will be announced beforehand.  Keep the deadline strictly.
+
+\subsection{Other Suggestions}\label{subsec-others}
+Before you start writing your thesis, take enough time to plan its structure
+and length.  Discussion on the contents of your thesis in your laboratory is
+also required.  Before finishing, proofread your thesis again and again by
+yourself to make the thesis free from logical leaps and inconsistency.  The
+proofreading is also required to polish sentences and to remove typos.  It
+is recommended to ask senior members in your laboratory to correct errors
+caused by your misunderstanding and/or carelessness.
+
+\section{Concluding Remarks}\label{sec-conclusion}
+This guide described how to structure your thesis and how to form it.
+However, this guide is far from a fully-automatic procedure to write a good
+thesis, as mentioned at the very beginning.
+
+The most important thing that you must have in your mind on writing your
+thesis is a strong will to let readers understand your research work.
+Having enthusiasm for improvement your thesis is also important.  We hope
+you conclude your research work with strong will and enthusiasm.
+
+Finally, if you have any questions on writing your thesis, ask your
+supervisor.
+
+\acknowledgments				% Acknowledgments
+The author of this guide would like express his thanks to all the teaching
+staffs in the Department of Information Science for their
+contribution.
+
+\nocite{*}
+\bibliographystyle{kuisunsrt}			% BibTeX style
+\bibliography{eguide}				% Output references
+
+						% Here an appendix starts
+\Appendix[Appendix: How to Use Style File {\tt kuisthesis}]
+In order to produce a well-formatted thesis following the guidelines and
+instructions given in this guide, a \LaTeX{} style file, named \|kuisthesis|
+is provided.  This appendix explains what you have to do before use the style
+file and how to use it.
+
+Since this guide itself is produced with the style file, it will help you to
+refer its source file \verb|eguide.tex| as an example.
+
+Most of \LaTeX{} commands that will be used in your thesis source file are
+standard ones.  Therefore, see the following book or other textbooks for
+basic usage of commands and \LaTeX{} features not explained here.
+\begin{quote}%{
+Lamport, L.: {\em A Document Preparation System {\LaTeX} User's Guide \&
+Reference Manual\/}, Addison Wesley, Reading, Massachusetts (1986).
+\end{quote}%}
+
+\par\bigskip\centerline{\bf NOTE}
+\begin{quote}
+In the following explanation, it is assumed that you intend to write your
+thesis in English.  Otherwise, see the Japanese version of the guide.
+\end{quote}
+
+\section{Preliminaries}\label{app-prelim}
+\subsection{Obtaining Thesis Kit}\label{appsub-kit}
+The style file \|kuisthesis| and other related files are packaged in a
+\|tar|'ed and \|gzip|'ed file;
+\begin{itemize}\item[]\small%{
+\|ftp://ftp.kuis.kyoto-u.ac.jp/ku/kuis-thesis/kuisthesis.tar.gz|\quad.
+\end{itemize}%}
+
+This package consists of the following files:
+\begin{itemize}%{
+\item
+\|kuisthesis.sty|\,:
+Style file.
+\item
+\|kuisthesis.cls|\,:
+Style file for \LATEXe.
+\item
+\|kuissort.bst  |\,:
+Bib\TeX{} style file (sorted).
+\item
+\|kuisunsrt.bst |\,:
+Bib\TeX{} style file (unsorted).
+\item
+\|eguide.tex    |\,:
+Source file of this guide. 
+\item
+\|guide.bib     |\,:
+Bib\TeX{} database file for this guide.
+\item
+\|guide.tex     |\,:
+Source file of Japanese version.
+\item
+\|guide.bib     |\,:
+Bib\TeX{} database file for Japanese version.
+\end{itemize}%}
+
+\subsection[{\protect\LaTeX} Environment]{{\protect\LATex} Environment}
+\label{appsub-env}
+Although your thesis is written in English, an abstract in Japanese must be
+included in it.  Therefore, you have to use one of Japanese {\LaTeX}
+systems, that based on j{\TeX} (or NTT version) developed by Saito of NTT,
+or on Japanese {\TeX} (or ASCII version) provided from ASCII corporation.
+Since the style file cope with both versions, you may use what is available
+to you.
+
+The style files are confirmed to be worked with the following versions.
+\begin{itemize}%{
+\item
+NTT${}={}${j\TeX} 1.52${}+{}${\LaTeX} 2.09
+\item 
+ASCII${}={}${\TeX} 2.99-j1.7${}+{}${\LaTeX} 2.09
+\end{itemize}%}
+Although we expect the style file will work with older versions, it is
+strongly recommended to use the versions shown above.
+
+As for {\LATEXe}, the style file is workable with the following versions.
+\begin{itemize}%{
+\item
+NTT${}={}${j\TeX} 1.6${}+{}$%
+	{\LATEXe} 1994/12/01 patch level 3
+\item 
+ASCII${}={}${p\TeX} 3.1415 p2.1.4${}+{}$%
+	{p\LATEXe} 1995/09/01
+\end{itemize}%}
+You may use the styles in either native-mode or {\LaTeX} 2.09 compatible
+mode.
+
+\section{Configuration of Source File}\label{app-structure}
+A source file must have the following format.
+\begin{itemize}\item[]\it%{
+\|\documentclass[master,english]{kuisthesis}|\\
+\null\qquad Specify other options/styles if necessary.\\
+Define your own macros, etc., if necessary.\\
+\|\jtitle{|\<title in Japanese\>\|}|\\
+\|\etitle{|\<title in English\>\|}|\\
+\|\jauthor{|\<author's name in Japanese\>\|}|\\
+\|\eauthor{|\<author's name in English\>\|}|\\
+\|\supervisor{|\<supervisor's name\>\|}|\\
+\|\date{|\<submission date\>\|}|\\
+\|\department{|\<department name\>\|}|\\
+\|\begin{document}|\\
+\|\maketitle|\hfill\rlap{\hskip-.5\linewidth{\tt\%} output title page}\\
+\|\begin{eabstract}|\\
+\null\qquad\<abstract in English\>\\
+\|\end{eabstract}|\\
+\|\begin{jabstract}|\\
+\null\qquad\<abstract in Japanese\>\\
+\|\end{jabstract}|\\
+\|\tableofcontents|\hfill
+	\rlap{\hskip-.5\linewidth{\tt\%} output table of contents}\\
+\|\section{|\<1st section heading\>\|}|\\
+\null\qquad\hbox to3em{\dotfill}\\
+\null\qquad\<main text\>\\
+\null\qquad\hbox to3em{\dotfill}\\
+\|\acknowledgments|\\
+\null\qquad\<acknowledgments\>\\
+\|\bibliographystyle{kuisunsrt}|\quad or\\
+\|\bibliographystyle{kuissort}|\\
+\|\bibliography{|\<Bib\TeX{} database file\>\|}|\\
+Put appendices here following \|\appendix| or \|\Appendix|, if any.\\
+\|\end{document}|
+\end{itemize}%}
+Each component is explained in the following sections.
+
+\subsection{Page Format}\label{appsub-format}
+Each page of a thesis is printed in a area whose width (\|\textwidith|) is
+14.2\,cm and height (\|\textheight|) is 22.2\,cm.  The hight is just enough
+to contain 32 lines, which is the regulation of a page shown in
+Section~\ref{subsec-format}.
+
+Fonts in \|\normalsize| is the size of 12\,pt, which also satisfies the
+regulation.
+
+\subsection{Option Styles}\label{appsub-option}
+The following three style options are available to be specified in the
+optional argument of \|\documentclass|.
+\begin{itemize}%{
+\item
+\|master|\\
+For a master thesis.  You must specify it because you intend to write a
+master thesis.  Otherwise, your thesis will be regarded as a graduation
+research report mistakingly.
+\item
+\|english|\\
+For a thesis written in English, which you must be on writing.  If omitted,
+the result will have stuff in Japanese, which you do not want to have.
+\item
+\|withinsec|\\
+Produce numbers of figures, tables and math formulae in the form of
+``\<S\>.\<N\>'' where $S$ is the \|\section| number in which a figure etc.\
+appears, and $N$ is its serial number in a \|\section|.  If omitted,
+numbering will runs through the whole of a thesis.
+\end{itemize}%}
+
+In the optional argument of \|\documentclass| (or the mandatory argument of
+\|\usepackage|), you may specify supplementary style files such as \|epsf|.
+Note that style files may be incompatible to the style of theses.  For
+example, you cannot use \|a4| style because it modifies the height of a page
+unexpectedly.
+
+\subsection{Specifying Title, etc.}\label{appsub-title}
+The title of your thesis, you name, and your supervisor's name have to be
+defined by appropriate commands shown at the beginning of this section.
+After the definitions, do \|\maketitle| to make a title page.
+
+In the title page, the following items are centered and printed in order.
+\begin{description}%{
+\item[type of thesis]
+Since you specified \|master| and \|english| option in the argument of
+\|\documentclass|, the type of your thesis, ``Master Thesis'', is printed
+using \|\Large\bf| font.
+
+\item[title]
+The title specified by \|\etitle| is printed using \|\LARGE\bf| font.  If
+the title is long, put \|\\| in the title string to show a line break point,
+instead of depending on automatic line breaking.
+
+The title is also put on the pages of abstract and table of contents.  Since
+your thesis must have a Japanese abstract with a Japanese title, give the
+Japanese title using \|\jtitle|.  Desirable line break points of the title
+in abstract and table of contents may be different from those in the title
+page.  To cope this, \|\etitle| can have an optional argument to specify the
+title string for abstract and table of contents as;
+\begin{quote}%{
+\|\etitle[|\<opt-title\>\|]{|\<title\>\|}|
+\end{quote}%}
+where \<opt-title\> is the title for abstract and table of contents, while
+\<title\> is put in the title page.  For example, the title of this guide is
+specified by;
+\begin{quote}\begin{verbatim}
+\etitle[How to Write Your B.E./M.E. thesis]%
+       {How to Write//Your B.E./M.E. thesis}
+\end{verbatim}\end{quote}
+to force line break only in the title page.
+
+\item[supervisor name]
+The name of your supervisor and his/her title (e.g. ``Professor''), which
+are specified by \|\supervisor|, are printed using \|\large| font.
+
+\item[affiliation]
+You certainly are a master course student and thus belong to ``Department of
+Information Science, Graduate School of Engineering, Kyoto University''.
+Therefore, this string is printed using \|\large| font.
+
+\item[author name]
+Your name given in the argument of \|\eauthor| is printed using \|\Large|
+font.  Similar to the title of your thesis, your name also appear in the
+abstract pages and you must show your name with Japanese characters using
+\|\jauthor| command.
+
+\item[submission date]
+The command \|\date| is to specify the date on which you submit your thesis.
+The date is printed using \|\large| font.
+
+\item[department name]
+You should specify the name of department like
+\begin{quote}\begin{verbatim}
+\department{Social Informatics}
+\end{verbatim}\end{quote}
+to print it in the title page.
+
+\end{description}%}
+In the title page, its page number is not printed.  However, the page in
+\|dvi| file has an imaginary page number 1000 for convenience of printing
+procedure.
+
+\subsection{Abstract}\label{appsub-abstract}
+An abstract in English should be given in \|eabstract| environment, while
+its Japanese counterpart \|jabstract| is for a Japanese abstract.  At the
+top of the first page of each abstract, the title given by
+\|\etitle|\slash\|\jtitle| and your name specified by
+\|\eauthor|\slash\|\jauthor| are printed.
+
+The order of printing two abstracts is that of your source file.  Thus, it is
+natural to put \|eabstract| environment before \|jabstract|.
+
+The page number of each abstract page is printed at the right-upper corner in
+lowercase Roman numeral.  Although the page numbers are ``i'', ``ii'' and so
+on, naturally, 1000 is added to those in \|dvi| file to distinguish them
+from pages of the main text in printing.
+
+\subsection{Table of Contents}\label{appsub-toc}
+A command \|\tableofcontents| produce a table of contents.  At the top of
+its first page, the title specified by \|\etitle| is printed.
+
+In default, the table contains headings and page numbers of \|\section|,
+\|\subsection| and \|\subsubsection|.  If you want to eliminate
+\|\subsubsection|, for example, do;
+\begin{quote}\begin{verbatim}
+\setcounter{tocdepth}{2}
+\end{verbatim}\end{quote}
+to set the counter \|tocdepth| to 2 so that only level-1 (\|\section|)
+and level-2 (\|\subsection|) sections appear in the table.
+
+Additionally, ``Acknowledgments'' and ``References'' are included in the
+table as numberless \|\section|.  If your thesis has an appendix,
+``Appendix'' and its \|\section| and \|\subsection| are also included.
+
+Page numbers are not printed for the table of contents, but \|dvi| file
+pages have 1000-plus numbers following abstract pages.
+
+\subsection{Sectioning}\label{appsub-sectioning}
+As in usual \LaTeX{} documents, sectioning is done by \|\section|,
+\|\subsection|, \|\subsubsection| and so on.
+
+A heading given by \|\section| is in two lines and is
+printed using \|\Large\bf| font.  A \|\subsection| heading is printed using
+\|\large|\allowbreak\|\bf| font, leaving one blank line above it and no
+extra spaces below it.  The command \|\subsubsection| acts as \|\subsection|
+but no blank lines are not inserted above and the font size is \|\normalsize|.
+
+In default, a heading given by one of these three commands will have a
+section number, while lower level commands \|\paragraph| and
+\|\subparagraph| will not show section numbers.  Those lower level commands
+will not break lines after headings specified by them.
+
+\subsection{Figures and Tables}\label{appsub-figure}
+Figures and tables are contained in \|figure| and \|table| environments,
+respectively, as usual.  Figure (or table) numbers run through the whole of
+main text in default.  If you use \|withinsec| option of \|\documentclass|,
+however, numbers runs only through a \|\section| and are shown combined with
+a \|\section| number.
+
+Sometimes, you may want to line up two or more figures and/or tables
+horizontally to saving space.  Two environments \|subfigure| and \|subtable|
+aims at this horizontal placement.  For example, Figure~\ref{fig-example} and
+Table~\ref{tab-example} are produced by the following command sequence.
+\begin{quote}%{
+\|\begin{figure}|\\
+\|\begin{subfigure}{0.6\textwidth}|\\
+\null\qquad\<body of Figure~\ref{fig-example}\>\\
+\|\caption{Example of Figure}|\\
+\|\end{subfigure}|\\
+\|\begin{subtable}{0.4\textwidth}|\\
+\|\caption{Example of Table}|\\
+\null\qquad\<body of Table~\ref{tab-example}\>\\
+\|\end{subtable}|\\
+\|\end{figure}|
+\end{quote}%}
+In this example, \|subfigure| and \|subtable| are enclosed by \|figure|
+environment.  However, you may enclose them by \|table|.
+
+The environments \|subfigure| and \|subtable| have the following
+specifications, similar to \|minipage|.
+\begin{itemize}\item[]%{
+\|\begin{subfigure}[|\<position\>\|]{|\<width\>\|}|\quad\<body\>\quad
+\|\end{subfigure}|\\
+\|\begin{subtable}[|\<position\>\|]{|\<width\>\|}|\quad\<body\>\quad
+\|\end{subtable}|
+\end{itemize}%}
+The command \|\caption| in an environment produce a heading appropriate to
+the environment.
+
+It is recommended that the sum of widths of \|subfigure|\slash\|subtable| is
+equal to \|\textwidth|\footnote{You may put spaces between them by, for
+example, {\tt\string\hspace\char`\{\string\fill\char`\}}}.
+
+\begin{figure}%{
+\begin{subfigure}{.6\textwidth}
+\centerline{\fbox{\vbox to.1\textheight{\vss
+	\hbox to.8\textwidth{\hss This is a figure\hss}\vss}}}
+\caption{Example of Figure}\label{fig-example}
+\end{subfigure}
+\begin{subtable}{.4\textwidth}
+\caption{Example of Table}\label{tab-example}
+\centerline{\begin{tabular}{r|c|l}
+This&is&a table\\\hline
+placed&beside&a figure.
+\end{tabular}}
+\end{subtable}
+\end{figure}%}
+
+\subsection{Itemizing}\label{appsub-itemizing}
+Standard \LaTeX{} itemizing environments, \|enumerate|, \|itemize|,
+\|description| and so on, are available as usual.  Note that no extra
+vertical spaces are inserted above\slash below an environment nor between
+two \|\item|s.
+
+\subsection{Footnotes}\label{appsub-footnote}
+A \LaTeX{} standard command \|\footnote| will make a footnote.  A footnote
+marks is this\footnote{An example of footnote.} or this\footnote{Another
+footnote example.} or those like them.  Observing this page and pages having
+footnotes, you will find that footnote numbers runs only through a page.
+Remember that you need to run \LaTeX{} twice to have correct footnote
+numbers.
+
+\subsection{Acknowledgments}\label{appsub-acknowlegments}
+Your acknowledgments must follow a command \|\acknowledgments|.  The heading
+``Acknowledgments'' is automatically produced and is included in the table
+of contents.
+
+\subsection{Bibliography}\label{appsub-references}
+Use Bib\TeX{} to make a list of references easily.  First, make a database
+file that includes bibliographic informations of all the literatures cited in
+your thesis.  Then process it with a bibliographic style \|kuisunsrt| or
+\|kuissort| to have a well-formatted list like that shown in
+Section~\ref{subsec-references} and the list of this guide.  The order of
+items in a list is that of appearance if you use \|kuisunsrt|, while
+\|kuisort| sorts items alphabetically using author names as keys.
+
+If you cannot use Bib\TeX, you may make the list by \|thebibliograhpy|
+environment, carefully following the style of the list in this guide.
+
+Whether you use Bib\TeX{} or \|thebibliography|, the heading ``References'' is
+automatically produced and is included in the table of contents.
+
+\subsection{Appendices}\label{appsub-appendix}
+If your thesis has an appendix, it must follows a command \|\appendix| or
+\|\Appendix|.  These two commands act similarly, except for page numbering.
+The command \|\appendix| inhibits page number printing on each page nor each
+line of the table of contents.  On the other hand, \|\Appendix| will produce
+appendix pages numbered A-1, A-2, and so on.  In both cases, pages in \|dvi|
+file have imaginary page numbers from 2001.
+
+Both commands have an optional argument to specify the heading of an
+appendix itself.  For example, this appendix starts with
+\begin{itemize}\item[]
+\|\Appendix[Appendix: How to Use Style File {\tt kuisthesis}]|\quad.
+\end{itemize}
+If the optional argument is not given, the heading of an appendix is simply
+``Appendix''.
+
+Each sectioning command in an appendix pretends as if it is ranked one level
+down.  For example, a \|\section| acts as a \|\subsection|.  Each section
+number has a prefix ``A.'', and thus it will be ``A.1'' or ``A.2.3'' or like
+them.  Similarly, the number of a figure, a table or a math formula also has
+the prefix ``A.''\footnote{This prefixing is independent from {\tt withinsec}
+option of {\tt\string\documentclass}.}.
+
+\section{Other Suggestions}\label{app-others}
+One of the important feature of \LaTeX{} is its capability of customizing
+functions and parameters for document processing.  Thus, it is not forbidden
+but rather recommended that you add and devise your own functions in order
+to help yourself in writing a thesis.  On the other hand, your own functions
+must not break the thesis format specified by the Department.  Thus, it is
+necessary to balance innovation with conservation.
+
+There are no simple and general guideline to judge whether a customization
+is allowed.  One extreme guideline is that you do something only if you have
+confidence to do it after fully understanding the style file.  If you feel
+proud that you are a \LaTeX{}nician, follow this guideline.
+
+For other students, a not-so-extreme guideline might be that existing
+commands and parameters cannot be redefined.  If you feel reading the
+style file to be troublesome, or you cannot understand the style file,
+follow this guideline.
+
+The author of the style file made all possible efforts in order that the
+style file is bug-free.  However, the author must confess that the style
+file may not be perfect, mainly because of lack of much application
+experience.  If you have any trouble on using the style file, feel free to
+post your problem to the local news group \|is.misc| of the Department.
+An announcement of new version release and other important notifications will
+be posted to the news group too.  Remember that a teaching staff who is
+responsible for maintenance of the style file will {\em NOT} accept direct
+inquiries to him/her.
+\end{document}

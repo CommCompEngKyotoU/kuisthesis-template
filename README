@@ -1,0 +1,13 @@
+The package `kuisthesis.tar' contains the following files:
+
+kuisthesis.sty		LaTeX style file
+kuissort.bst		BibTeX style file (sorted)
+kuisunsrt.bst		BibTeX style file (unsorted)
+guide.tex		LaTeX source of the guide (Japanese)
+guide.bib		BibTeX bib for the guide (Japanese)
+eguide.tex		LaTeX source of the guide (English)
+eguide.bib		BibTeX bib for the guide (English)
+
+<<IMPORTANT NOTE for graduate students>>
+guide.* and eguide.* files are just exapmles of LaTeX input.
+They are not written for students of graduate school of informatics.

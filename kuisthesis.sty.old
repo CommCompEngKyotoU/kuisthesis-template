@@ -1,0 +1,869 @@
+% Copyright (C) 1996 by Dept. Information Science, Kyoto University
+% Copyright (C) 1999 by Computer Science Course,
+%	Scool of Informatics and Mathematical Science
+% kuisthesis.sty 14-Dec-99 by Hiroyuki Tarumi   (ver 2.10)
+%
+% kuisthesis.sty 30-Jan-97 by Hiroshi Nakashima (ver 2.02)
+% kuisthesis.sty  9-Jan-97 by Hiroshi Nakashima (ver 2.01)
+% kuisthesis.sty  1-Apr-96 by Hiroshi Nakashima (ver 2.00)
+% kuisthesis.sty 26-Jan-96 by Hiroshi Nakashima (ver 1.01)
+% kuisthesis.sty 16-Jan-96 by Hiroshi Nakashima (ver 1.00)
+% ipsjpapers.sty 16-Nov-95 by Hiroshi Nakashima (ver 1.05)
+% ipsjpapers.sty 3-Feb-93 by Yaski Saito
+% compsoft.sty 22-April-92 by Yaski Saito
+% compsoft.sty 18-July-90 by Hideki Isozaki 
+% j-article.sty 10-Feb-89 from report.sty 16-Mar-88
+%
+% REVISION
+% ver 2.10 14-Dec-99 by Hiroyuki Tarumi
+% (1) Font sizes for \section and \subsection are enlarged, and \section
+%     causes \clearpage.
+% (2) Bug fix: a space is inserted after each 'Figure' and `Table' in
+%     a caption, for English master theses.
+% (3) Department name is made to be customizable.    
+%
+% ver 2.02 30-Jan-97 by Hiroshi Nakashima
+% (1) Modify \mkt@department for Japanese as;
+%     ``京都大学大学院工学研究科\\修士課程情報工学専攻''.
+%
+% ver 2.01  9-Jan-97 by Hiroshi Nakashima
+% (1) ``Division'' is replaced with ``Department'' in \mkt@department
+%
+% ver 2.00  1-Apr-96 by Hiroshi Nakashima
+% (1) To make the style compatible to LaTeX2e (both native/compatible modes),
+%     new flags \if@LaTeX@e (true if LaTeX2e) and \if@LaTeX@eN (true if
+%     2e-native) are introduced.
+% (2) In 2e-native, option handling follows 2e's standard.  The banner is
+%     \typeout'ed only if the style is input directly (not thorough .cls).
+%     \kuis@warning is introduced to use \ClassWarning in 2e-native.
+% (3) In 2e-native, font shape commands are defined by
+%     \DaclareOldFontCommand.  In ASCII, \dg and \dm are simply \def'ed as
+%     \gt and \mc.  In NTT, \defjinterkanjiskip and its relatives are called
+%     if \setjglues is defined (i.e. some recent versions), and font-id is
+%     gotten by \kuis@declare@font if 2e.
+% (4) The forth arg \@setsize in \Large was \xviipt, but should be \@xviipt
+%     instead.  It is real bug.
+% (5) In 2e, \normalsize is \let-equal to \@normalsize.  In NTT, \setjglues
+%     is called after the first \@normalsize, if available.  Redefinition of
+%     \bf is done only in NTT 2.09.
+% (6) \@@topmargin is set to \topmargin, to cope with the bug of non-recent
+%     version of ASCII 2e.
+%
+% REVISION
+% ver 1.01 26-Jan-96 by Hiroshi Nakashima
+% (1) Remove optional argument of \newcounter for `figure' and `table' when
+%     the \documentstyle option `withinsec' is not given.  In the older
+%     version, those counters are mistakingly reset when the counter
+%     `section' is stepped.
+
+%%%%%% LaTeX Version %%%%%%
+
+%% \ifASCII is true if ASCII version Japanese TeX, which doesn't have
+%% \jintercharskip
+
+% 2.00 (1)>>
+\newif\ifASCII \ASCIIfalse
+\ifx\jintercharskip\undefined\ASCIItrue\fi
+\newif\if@LaTeX@e \@LaTeX@efalse
+\newif\if@LaTeX@eN \@LaTeX@eNfalse
+\def\@tempa{LaTeX2e}
+\ifx\fmtname\@tempa \@LaTeX@etrue
+\ifx\xpt\undefined \@LaTeX@eNtrue \fi\fi
+% 2.00 (1)<<
+
+
+%%%%%% Document Styles %%%%%%
+
+% style options :
+%	"english"   ... Written in english.  Default is Japanese.
+%	"master"    ... Master thesis.  Default is B.E. thesis.
+%	"withinsec" ... Make counters run in a \section.
+
+\newif\ifDS@english \DS@englishfalse
+\newif\ifDS@master \DS@masterfalse
+\newif\ifDS@withinsec \DS@withinsecfalse
+
+\def\opt@warning{\kuis@warning{pt size option is ignored. 12pt is used}}
+
+\if@LaTeX@eN							% 2.00(2)>>
+\def\kuis@warning{\ClassWarning{kuisthesis}}
+\newskip \old@latex@skip
+\let\@maxsep\old@latex@skip
+\let\@dblmaxsep\old@latex@skip
+\DeclareOption{english}{\DS@englishtrue}
+\DeclareOption{master}{\DS@mastertrue}
+\DeclareOption{withinsec}{\DS@withinsectrue}
+\DeclareOption{10pt}{\def\@ptsize{0}\opt@warning}
+\DeclareOption{11pt}{\def\@ptsize{1}\opt@warning}
+\DeclareOption{12pt}{\def\@ptsize{2}\opt@warning}
+\ProcessOptions
+
+\else
+\expandafter\ifx\csname ver@kuisthesis.cls\endcsname\relax
+\typeout{Document Style `kuisthesis' (ver 2.02) <29 Jan 97>.}
+\fi
+
+\let\kuis@warning\@warning
+\def\ds@english{\DS@englishtrue}
+\def\ds@master{\DS@mastertrue}
+\def\ds@withinsec{\DS@withinsectrue}
+
+% default and ordained size is 12pt, but 10/11pt are defined to cope with
+% some special style files.
+
+\def\@ptsize{2}
+\@namedef{ds@10pt}{\def\@ptsize{0}\opt@warning}
+\@namedef{ds@11pt}{\def\@ptsize{1}\opt@warning}
+\@namedef{ds@12pt}{\def\@ptsize{2}\opt@warning}
+
+\@options
+\fi								% 2.00(2)<<
+
+
+%%%%%% Basics %%%%%%
+
+\lineskip1pt \normallineskip1pt
+\lineskiplimit\z@ \normallineskiplimit\z@
+
+\def\baselinestretch{1}
+
+%%%%%% Fonts %%%%%%
+
+\ifASCII
+
+% To use \jspaceskip
+\let\latex@setsize\@setsize
+\def\@setsize#1#2#3#4{\latex@setsize{#1}{#2}{#3}{#4}\jspaceskip1zw}
+
+% For compatibility to NTT jTeX
+\newcount\jfsize
+\let\setjglues\relax
+\let\jintercharskip\kanjiskip
+\let\jasciikanjiskip\xkanjiskip
+\let\jmathkanjiskip\xkanjiskip
+\newdimen\jspaceskip
+
+% Following NTT primitives are not simulated.
+\def\defjintercharskip#1#2#3#4{\@asciiwarning{\defjintercharskip}}
+\def\defjasciikanjiskip#1#2#3#4{\@asciiwarning{\defjasciicharskip}}
+\def\defmathkanjiskip#1#2#3#4{\@asciiwarning{\defmathcharskip}}
+\def\defjspaceskip#1#2#3#4{\@asciiwarning{\defjspaceskip}}
+
+\def\@asciiwarning#1{\@warning{\string#1\space
+	is not supported in ASCII version}}
+
+\if@LaTeX@eN							% 2.00(3)>>
+\DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
+\DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
+\fi
+
+\def\dg{\gt}
+\def\dm{\mc}
+
+\else		% NTT
+\if@LaTeX@e
+\def\kuis@declare@font#1#2#3{{\fontsize{#3}{\z@}#2\selectfont
+	\xdef#1{\expandafter\noexpand\csname\jf@ntn@me\endcsname}}}
+\kuis@declare@font\fn@twelvedm\dm\@xiipt
+\kuis@declare@font\fn@twelvedg\dg\@xiipt
+\else
+\def\fn@twelvedm{\twelvedm}
+\def\fn@twelvedg{\twelvedg}
+\fi
+\ifx\setjglues\undefined\else
+\expandafter\defjintercharskip\fn@twelvedm{0pt}{.4pt}{0.5pt}
+\expandafter\defjintercharskip\fn@twelvedg{0pt}{.4pt}{0.5pt}
+\expandafter\defjasciikanjiskip\fn@twelvedm{2.5pt}{1pt}{1pt}
+\expandafter\defjasciikanjiskip\fn@twelvedg{2.5pt}{1pt}{1pt}
+\expandafter\defjmathkanjiskip\fn@twelvedm{2.5pt}{1pt}{1pt}
+\expandafter\defjmathkanjiskip\fn@twelvedg{2.5pt}{1pt}{1pt}
+\fi
+\ifDS@english\else\tolerance2000\hbadness2000\fi
+\fi
+
+\if@LaTeX@eN
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\DeclareRobustCommand*{\cal}{\@fontswitch{\relax}{\mathcal}}
+\DeclareRobustCommand*{\mit}{\@fontswitch{\relax}{\mathnormal}}
+\fi								% 2.00(3)<<
+
+%%%%%% Font Size Macros %%%%%%
+
+% \baselineskip's are almost 1.25 times those defined in NTT jart12.
+
+\def\@normalsize{\@setsize\normalsize{20pt}\xiipt\@xiipt
+	\abovedisplayskip 12pt plus3pt minus7pt %
+	\belowdisplayskip\abovedisplayskip
+	\abovedisplayshortskip\z@ plus3pt %
+	\belowdisplayshortskip 6.5pt plus3.5pt minus3pt}
+\def\small{\@setsize\small{17pt}\xipt\@xipt
+	\abovedisplayskip 11pt plus3pt minus6pt %
+	\belowdisplayskip\abovedisplayskip
+	\abovedisplayshortskip\z@ plus3pt %
+	\belowdisplayshortskip 6.5pt plus3.5pt minus3pt}
+\def\footnotesize{\@setsize\footnotesize{14pt}\xpt\@xpt
+	\abovedisplayskip 10pt plus2pt minus5pt %
+	\belowdisplayskip\abovedisplayskip
+	\abovedisplayshortskip\z@ plus3pt %
+	\belowdisplayshortskip 6pt plus3pt minus3pt}
+\def\scriptsize{\@setsize\scriptsize{11.875pt}\viiipt\@viiipt}
+\def\tiny{\@setsize\tiny{8.75pt}\vipt\@vipt}
+\def\large{\@setsize\large{20pt}\xivpt\@xivpt}
+\def\Large{\@setsize\Large{25pt}\xviipt\@xviipt}		% 2.00(4)
+\def\LARGE{\@setsize\LARGE{25pt}\xxpt\@xxpt}
+\def\huge{\@setsize\huge{30pt}\xxvpt\@xxvpt}
+\let\Huge\LARGE
+
+\if@LaTeX@e							% 2.00(5)>>
+\let\normalsize\@normalsize
+\fi								% 2.00(5)<<
+
+\let\fs@sec\Large						% 2.10 (1)
+\let\fs@subsec\large						% 2.10 (1)
+\let\fs@subsubsec\normalsize					% 2.10 (1)
+
+\@normalsize 
+
+\ifASCII\else							% 2.00(5)>>
+\@nameuse{setjglues}
+\if@LaTeX@e\else
+\def\bf{\protect\pdg\protect\pbf}
+\fi\fi								% 2.00(5)<<
+
+
+%%%%%% Page Layout Parameters %%%%%%
+
+\newdimen\@Kwidth \@Kwidth\jspaceskip
+
+\headheight1pc
+\headsep2pc
+
+\setbox0\hbox{$\displaystyle X^X$}
+\topskip\ht0
+
+% 1 page = 32 lines
+\textheight31\baselineskip \advance\textheight\topskip \advance\textheight100sp
+
+% \topmargin is (A4height-\textheight)/2 - (\headheight + \headsep) - 1in
+\topmargin296mm \advance\topmargin-\textheight \divide\topmargin\tw@
+\advance\topmargin-\headheight \advance\topmargin-\headsep
+\advance\topmargin-1in
+\ifASCII\if@LaTeX@e\@@topmargin\topmargin\fi\fi			% 2.00(7)
+
+\footskip 1.5\baselineskip
+
+\ifDS@english
+\textwidth14.2cm
+\else
+% 1 page = 35 Kanji chars
+\textwidth35\@Kwidth
+\fi
+
+% \oddsidemargin is (A4width-\textwidth)/2 - 1in
+\oddsidemargin210mm \advance\oddsidemargin-\textwidth \divide\oddsidemargin\tw@
+\advance\oddsidemargin-1in
+
+% As jart12
+\footnotesep10pt
+\skip\footins 10.8pt plus 4pt minus 2pt 
+\def\footnoterule{\kern-3\p@ \hrule width.4\columnwidth \kern2.6\p@}
+
+\floatsep \baselineskip \textfloatsep \baselineskip 
+\intextsep \baselineskip \@maxsep \baselineskip
+\dblfloatsep \baselineskip \dbltextfloatsep \baselineskip
+\@dblmaxsep \baselineskip
+\@fptop 0pt plus 1fil \@fpsep 0pt plus 2fil \@fpbot 0pt plus 1fil 
+\@dblfptop 0pt plus 1fil \@dblfpsep 0pt plus 2fil \@dblfpbot 0pt plus 1fil
+
+\parskip\z@
+\@lowpenalty 51 \@medpenalty 151 \@highpenalty 301 
+\@beginparpenalty -\@lowpenalty \@endparpenalty -\@lowpenalty
+\@itempenalty -\@lowpenalty 
+
+\ifDS@english \parindent1.5em \else \parindent\@Kwidth \fi
+
+
+%%%%%% Page Header and Footer %%%%%% 
+
+\mark{{}{}} 
+
+\def\ps@plain{\let\@mkboth\@gobbletwo
+	\def\@oddhead{}\let\@evenhead\@oddhead
+	\def\@oddfoot{\rm \hfil\thepage\hfil}\let\@evenfoot\@oddfoot}
+\def\ps@abstractpage{\let\@mkboth\@gobbletwo
+	\def\@oddhead{\advance\c@page-\@m\rm \hfill\roman{page}}
+	\let\@evenhead\@oddhead
+	\def\@oddfoot{}\let\@evenfoot\@oddfoot}
+\let\ps@appendix\ps@empty
+\let\ps@Appendix\ps@plain
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\ifDS@english\else
+\def\today{\the\year 年 \the\month 月 \the\day 日}
+\fi
+
+
+%%%%%% Title, Author, Abstract %%%%%%
+
+\long\def\jtitle{\@dblarg{\@xjtitle}}
+\long\def\@xjtitle[#1]#2{\gdef\@jtitleforabst{#1}\gdef\@jtitle{#2}}
+\long\def\etitle{\@dblarg{\@xetitle}}
+\long\def\@xetitle[#1]#2{\gdef\@etitleforabst{#1}\gdef\@etitle{#2}}
+
+\def\jauthor#1{\gdef\@jauthor{#1}}
+\def\eauthor#1{\gdef\@eauthor{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\date#1{\gdef\@date{#1}}
+\def\department#1{\gdef\@department{#1}}		% 2.10 (3)
+
+\def\@jtitle{\mkt@warning\jtitle}
+\def\@etitle{\mkt@warning\etitle}
+\def\@jauthor{\mkt@warning\jauthor}
+\def\@eauthor{\mkt@warning\eauthor}
+\def\@supervisor{\mkt@warning\supervisor}
+\def\@date{\mkt@warning\date}
+
+\ifDS@english
+\def\@title{\@etitle} \def\@titleforabst{\@etitleforabst}
+\def\@author{\@eauthor}
+\def\mkt@masterthesis{Master Thesis}
+\def\mkt@supervisor{Supervisor}
+\def\mkt@department{Department of \@department \\		% 2.10 (3)
+	Graduate School of Informatics\\
+	Kyoto University}
+\else
+\def\@title{\@jtitle} \def\@titleforabst{\@jtitleforabst}
+\def\@author{\@jauthor}
+\def\mkt@masterthesis{修士論文}
+\def\mkt@supervisor{指導教官}
+\def\mkt@department{京都大学大学院情報学研究科\\修士課程\@department 専攻}
+								% 2.10 (3)
+\fi
+
+% for compatibility
+\let\title\etitle \let\author\eauthor
+
+\def\mkt@warning#1{\kuis@warning{Missing \string#1}}		% 2.00(1)
+
+\newcounter{entranceyear}
+\c@entranceyear\year
+\ifDS@master
+\advance\c@entranceyear-\tw@
+\else
+\advance\c@entranceyear-4
+\fi
+
+\def\maketitle{\newpage\thispagestyle{empty}\global\c@page\@m
+	\begin{center}\large
+	{\Large\bf \ifDS@master \mkt@masterthesis \else 特別研究報告書\fi}\par
+	\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+	{\LARGE\bf \leavevmode\@title\par}
+	\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+	{\mkt@supervisor\qquad \@supervisor}
+	\vfill
+	\ifDS@master \mkt@department\else
+		\ifnum\c@entranceyear<1995\relax
+			京都大学工学部情報工学科\else
+			京都大学工学部情報学科\fi\fi\par
+	\bigskip\bigskip
+	{\Large \@author}\par
+	\bigskip\bigskip\bigskip\bigskip
+	\@date
+	\end{center}\newpage}
+
+\def\jabstract{\@abstract\@jtitleforabst\@jauthor{内容梗概}
+	\ifASCII\else\tolerance2000\hbadness2000\fi
+	\parindent\@Kwidth\indent\ignorespaces}
+\def\eabstract{\@abstract\@etitleforabst\@eauthor{Abstract}\parindent1.5em
+	\noindent\ignorespaces}
+\let\endabstract\newpage
+\let\endjabstract\endabstract
+\let\endeabstract\endabstract
+
+% for compatibility
+\let\abstract\eabstract
+
+\def\@abstract#1#2#3{\newpage\pagestyle{abstractpage}
+	\begin{center}\large\bf\leavevmode#1\end{center}
+	\rightline{#2}
+	\noindent{\bf#3}\par}
+
+
+%%%%%% Table of Contents %%%%%%
+
+\setcounter{tocdepth}{3}	% \subsubsection will appear in TOC
+
+\settowidth\@tempdima{\bf00\ }
+\edef\@pnumwidth{\the\@tempdima}
+\advance\@tempdima1em
+\edef\@tocrmarg{\the\@tempdima}
+\def\@dotsep{3}
+
+% \@mkboth will have no effect.
+\def\tableofcontents{\newpage\pagestyle{empty}
+	\begin{center}\large\bf\leavevmode\@titleforabst\end{center}
+	\section*{\name@toc\@mkboth{\name@toc}{\name@toc}}
+	\@starttoc{toc}\newpage\pagestyle{plain}\global\c@page\@ne}
+
+\ifDS@english						% 2.10(1) >>
+\def\l@section#1#2{\addpenalty\@secpenalty \addvspace\medskipamount
+	\begingroup \parindent\z@ \rightskip\@pnumwidth\relax
+	\parfillskip-\rightskip \settowidth\@tempdima{\bf Chapter~1\quad}
+	\leftskip\@tempdima
+	\bf \leavevmode \hskip-\leftskip#1\nobreak\hfil\nobreak
+	\hbox to\rightskip{\hss#2}\par \endgroup}
+\else
+\def\l@section#1#2{\addpenalty\@secpenalty \addvspace\medskipamount
+	\begingroup \parindent\z@ \rightskip\@pnumwidth\relax
+	\parfillskip-\rightskip \settowidth\@tempdima{\bf 第1章\quad}
+	\leftskip\@tempdima
+	\bf \leavevmode \hskip-\leftskip#1\nobreak\hfil\nobreak
+	\hbox to\rightskip{\hss#2}\par \endgroup}
+\fi							% 2.10(1) <<
+
+\settowidth\@tempdima{\bf0\quad} \settowidth\@tempdimb{0.00\quad}
+\edef\l@subsection{\noexpand\@dottedtocline{2}{\the\@tempdima}{\the\@tempdimb}}
+\advance\@tempdima\@tempdimb \settowidth\@tempdimb{0.0.00\quad}
+\edef\l@subsubsection
+	{\noexpand\@dottedtocline{3}{\the\@tempdima}{\the\@tempdimb}}
+
+% \(sub)paragraph will not appear in TOC usually, and will be ugly if appear.
+\advance\@tempdima\@tempdimb \settowidth\@tempdimb{0.0.0.00\quad}
+\edef\l@paragraph
+	{\noexpand\@dottedtocline{4}{\the\@tempdima}{\the\@tempdimb}}
+\advance\@tempdima\@tempdimb \settowidth\@tempdimb{0.0.0.0.00\quad}
+\edef\l@subparagraph
+	{\noexpand\@dottedtocline{5}{\the\@tempdima}{\the\@tempdimb}}
+
+\let\toc@contentsline\contentsline
+\def\startappendixtoc{%
+	\def\contentsline##1##2##3{\toc@contentsline{##1}{##2}{}}
+	\let\@dottedtocline\app@tocline}
+\def\startAppendixtoc{\settowidth\@tempdima{\bf A-00\ }%
+	\edef\@pnumwidth{\the\@tempdima}}
+
+\let\latex@dottedtocline\@dottedtocline
+\def\app@tocline#1#2#3#4#5{{\def\leaders##1##2{}%
+	\latex@dottedtocline{#1}{#2}{#3}{#4}{#5}}}
+
+% LOF/LOT will not appear, but are defined.
+\def\listoffigures{\pagestyle{empty}
+	\section*{\name@lof\@mkboth{\name@lof}{\name@lof}}
+	\@starttoc{lof}\newpage\pagestyle{plain}\global\c@page\@ne}
+\def\listoffigures{\pagestyle{empty}
+	\section*{\name@lot\@mkboth{\name@lot}{\name@lot}}
+	\@starttoc{lot}\newpage\pagestyle{plain}\global\c@page\@ne}
+\settowidth\@tempdima{0.0\quad}
+\edef\l@figure{\noexpand\@dottedtocline{1}{\z@}{\the\@tempdima}}
+\let\l@table\l@figure
+
+% Usually, \beginbody is not necessary, but defined for unpredictable
+% unusural cases.
+\def\beginbody{\clearpage\pagestyle{plain}\global\c@page\@ne}
+
+
+%%%%%% Sectioning Commands %%%%%%
+
+\ifDS@english
+\def\sec@minus{-}
+\def\sec@noskip{-1sp}
+\else
+\def\sec@minus{}
+\def\sec@noskip{1sp}
+\fi
+\@tempdima.55\baselineskip
+\edef\sec@aboveskip{\sec@minus\the\@tempdima}
+\@tempdima.45\baselineskip
+\edef\sec@belowskip{\the\@tempdima}
+\edef\sec@subsecaboveskip{\sec@minus\the\baselineskip}
+
+\ifDS@master							% 2.10 (1)
+\def\section{\clearpage \@startsection				% 2.10 (1)
+	{section}{1}{\z@}{\sec@aboveskip}{\sec@belowskip}{\fs@sec\bf}}
+\else
+\def\section{\@startsection
+	{section}{1}{\z@}{\sec@aboveskip}{\sec@belowskip}{\fs@sec\bf}}
+\fi
+\def\subsection{\@startsection
+	{subsection}{2}{\z@}{\sec@subsecaboveskip}{1sp}{\fs@subsec\bf}}
+\def\subsubsection{\@startsection
+	{subsubsection}{3}{\z@}{\sec@noskip}{1sp}{\fs@subsubsec\bf}}	% 2.10 (1)
+\def\paragraph{\@startsection
+	{paragraph}{4}{\z@}{\sec@noskip}{-1em}{\fs@subsubsec\bf}}	% 2.10 (1)
+\def\subparagraph{\@startsection
+	{paragraph}{5}{\z@}{\sec@noskip}{-1em}{\fs@subsubsec\bf}}	% 2.10 (1)
+
+\newcounter{section}
+\newcounter{subsection}[section]
+\newcounter{subsubsection}[subsection]
+\newcounter{paragraph}[subsubsection]
+\newcounter{subparagraph}[paragraph]
+
+\ifDS@english						% 2.10 (1) >>
+\def\thesection{Chapter~\arabic{section}}
+\else	
+\def\thesection{第\arabic{section}章}
+\fi							% 2.10 (1) <<
+\def\thesubsection{\arabic{section}.\arabic{subsection}}	% 2.10 (1)
+\def\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+\def\theparagraph {\thesubsubsection.\arabic{paragraph}}
+\def\thesubparagraph {\theparagraph.\arabic{subparagraph}}
+
+\setcounter{secnumdepth}{3}
+
+\newcount\app@page
+\def\appendix{\clearpage\addtocontents{toc}{\protect\startappendixtoc}%
+	\pagestyle{appendix}\sec@appendix}
+\def\Appendix{\clearpage\addtocontents{toc}{\protect\startAppendixtoc}%
+	\pagestyle{Appendix}\sec@appendix}
+
+\let\latex@outputpage\@outputpage
+\def\@outputpage{\latex@outputpage\global\advance\app@page\@ne}
+
+\def\sec@appendix{\global\c@page2001 \global\app@page\@ne
+	\def\thepage{A-\number\app@page}
+	\let\sec@sec\section
+	\let\section\subsection
+	\let\subsection\subsubsection
+	\let\subsubsection\pargraph
+	\let\paragraph\subparagraph
+	\def\thesubsection{\appendixprefix\arabic{subsection}}%
+	\def\sec@section@postfix{\appendixpostfix}
+	\stepcounter{section}\setcounter{section}{0}
+	\setcounter{figure}{0}\setcounter{table}{0}\setcounter{equation}{0}
+	\def\thefigure{\appendixprefix\arabic{figure}}
+	\def\thetable{\appendixprefix\arabic{table}}
+	\def\theequation{\appendixprefix\arabic{equation}}
+	\@ifnextchar[%]
+		     {\sec@oappendix}{\sec@xappendix}}
+\def\sec@xappendix{\sec@emptysection{\name@app}}
+\def\sec@oappendix[#1]{\sec@emptysection{#1}}
+\def\appendixprefix{A.}
+\def\appendixpostfix{}
+
+\def\acknowledgments{\sec@emptysection{\name@ack}}
+
+\def\thebibliography#1{\sec@emptysection{\name@bib}
+	\list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}
+		\leftmargin\labelwidth \advance\leftmargin\labelsep
+		\usecounter{enumi}}
+	\def\newblock{\hskip.11em plus.33em minus.07em}
+	\sloppy \frenchspacing \clubpenalty4000 \widowpenalty4000}
+\let\endthebibliography\endlist
+
+\let\sec@sec\section
+\def\sec@emptysection#1{\sec@sec*{#1\@mkboth{#1}{#1}}
+	\addcontentsline{toc}{section}{\numberline{}#1}}
+
+
+%%%%%% List-like Environments %%%%%%
+%
+%		LM	RM	LW	LS	LPI	II
+% default	2K	0	0.75K	0.25K	0	0
+% \enumerate	2K	0	2K	0	0	0
+% \Enumerate	0	0	2K	0	0	2K
+% \ENUMERATE	0	0	2K	0	0	3K
+% \enumerate*	1K	0	2K	0	0	1K
+% \itemize	2K	0	2K	0	0	0
+% \Itemize	0	0	2K	0	0	2K
+% \ITEMIZE	0	0	2K	0	0	3K
+% \itemize*	1K	0	2K	0	0	1K
+% \description	2K	0	0	1K	0	-1K
+% \Description	0	0	0	1K	0	1K
+% \DESCRIPTION	0	0	0	1K	0	2K
+% \description*	1K	0	0	1K	0	0
+% \verse	3K	2K	0.75K	0.25K	-1K	-1K
+% \quotation	2K	2K	0.75K	0.25K	1K	1K
+% \quote	2K	2K	0.75K	0.25K	0	0
+%
+% where LM is \leftmargin, RM is \rightmargin, LW is \labelwidth, LS is
+% \labelsep, \LPI is \listparindent, II is \itemindent, and K is Kanji char
+% width (\@Kwidth).
+%
+% All vertical space parameters, \topsep, \partopsep, \itemsep and \parsep,
+% are 0pt.
+
+\leftmargini2\@Kwidth
+\leftmarginii2\@Kwidth
+\leftmarginiii2\@Kwidth
+\leftmarginiv2\@Kwidth
+\leftmarginv2\@Kwidth
+\leftmarginvi2\@Kwidth
+
+\def\lst@listi{\labelsep.75\@Kwidth \labelwidth.25\@Kwidth
+	\rightmargin\z@ \listparindent\z@ \itemindent\z@
+	\partopsep\z@ \parsep\z@ \topsep\z@ \itemsep\z@}
+\def\@listi{\leftmargin\leftmargini \lst@listi}
+\def\@listii{\leftmargin\leftmarginii \lst@listi}
+\def\@listiii{\leftmargin\leftmarginiii \lst@listi}
+\def\@listiv{\leftmargin\leftmarginiv \lst@listi}
+\def\@listv{\leftmargin\leftmarginv \lst@listi}
+\def\@listvi{\leftmargin\leftmarginvi \lst@listi}
+
+\@listi
+
+\def\labelenumi{\theenumi.} 
+\def\theenumi{\arabic{enumi}} 
+\def\labelenumii{(\theenumii)}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi}
+\def\labelenumiii{\theenumiii.}
+\def\theenumiii{\roman{enumiii}}
+\def\p@enumiii{\theenumi(\theenumii)}
+\def\labelenumiv{\theenumiv.}
+\def\theenumiv{\Alph{enumiv}}
+\def\p@enumiv{\p@enumiii\theenumiii}
+%\def\enumerate{\ifnum \@enumdepth >3 \@toodeep\else
+%	\advance\@enumdepth \@ne 
+%	\edef\@enumctr{enum\romannumeral\the\@enumdepth}
+%	\list{\csname label\@enumctr\endcsname}{\usecounter
+%		{\@enumctr}\def\makelabel##1{##1\hss}%
+%		\labelwidth2\@Kwidth \labelsep\z@}\fi}
+%\let\endenumerate\endlist
+
+\def\labelitemi{$\bullet$}
+\def\labelitemii{\bf --}
+\def\labelitemiii{$\ast$}
+\def\labelitemiv{$\cdot$}
+%\def\itemize{\ifnum \@itemdepth >3 \@toodeep\else \advance\@itemdepth \@ne
+%	\edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+%	\list{\csname\@itemitem\endcsname}{\def\makelabel##1{\hss##1\hss}%
+%		\labelwidth2\@Kwidth \labelsep\z@}\fi}
+%\let\enditemize\endlist
+
+\def\description{\list{}{\labelwidth\z@ \labelsep\@Kwidth
+	\itemindent\labelsep \advance\itemindent-\leftmargin
+	\def\makelabel##1{\bf ##1}}}
+\let\enddescription\endlist
+
+\let\latex@trivlist\@trivlist
+\def\lst@trivlist#1#2{\leftmargin#1\relax
+	\itemindent\labelwidth \advance\itemindent\labelsep
+	\advance\itemindent#2\relax
+	\let\@trivlist\latex@trivlist \@trivlist}
+
+\def\lst@Trivlist{\def\@trivlist{\lst@trivlist\z@\z@}}
+\def\Enumerate{\lst@Trivlist \enumerate}
+\let\endEnumerate\endlist
+\def\Itemize{\lst@Trivlist \itemize}
+\let\endItemize\endlist
+\def\Description{\lst@Trivlist \description}
+\let\endDescription\endlist
+
+\def\lst@TRIVLIST{\def\@trivlist{\lst@trivlist\z@\@Kwidth}}
+\def\ENUMERATE{\lst@TRIVLIST \enumerate}
+\let\endENUMERATE\endlist
+\def\ITEMIZE{\lst@TRIVLIST \itemize}
+\let\endITEMIZE\endlist
+\def\DESCRIPTION{\lst@TRIVLIST \description}
+\let\endDESCRIPTION\endlist
+
+\def\lst@strivlist{\def\@trivlist{\lst@trivlist\@Kwidth{-\@Kwidth}}}
+\@namedef{enumerate*}{\lst@strivlist \enumerate}
+\@namedef{endenumerate*}{\endlist}
+\@namedef{itemize*}{\lst@strivlist \itemize}
+\@namedef{enditemize*}{\endlist}
+\@namedef{description*}{\lst@strivlist \description}
+\@namedef{enddescription*}{\endlist}
+
+\def\verse{\let\\=\@centercr 
+	\list{}{\itemindent-\@Kwidth \listparindent\itemindent 
+	\rightmargin\leftmargin \advance\leftmargin\@Kwidth}\item[]}
+\let\endverse\endlist
+\def\quotation{\list{}{\listparindent\@Kwidth \itemindent\listparindent
+	\rightmargin\leftmargin}\item[]}
+\let\endquotation\endlist
+\def\quote{\list{}{\rightmargin\leftmargin}\item[]}
+\let\endquote\endlist
+
+\def\newtheorem{\@ifstar
+	{\theo@newtheorem{\theo@it}{\ }}{\theo@newtheorem{}{\theo@sp}}}
+\def\theo@newtheorem#1#2#3{\@namedef{theo@it@#3}{#1}\@namedef{theo@sp@#3}{#2}%
+	\@ifnextchar[%]
+		     {\@othm{#3}}{\@nthm{#3}}}
+\def\@begintheorem#1#2{\DESCRIPTION \csname theo@it@\@currenvir\endcsname
+	\item[#1\csname theo@sp@\@currenvir\endcsname #2]}
+\def\@opargbegintheorem#1#2#3{\DESCRIPTION
+	\csname theo@style@\@currenvir\endcsname
+	\item[#1\csname theo@sp@\@currenvir\endcsname #2\ (#3)]}
+\let\@endtheorem\endlist					% 1.02(2)
+\ifDS@english
+\let\theo@it\it \let\theo@sp\ %
+\else
+\let\theo@it\relax \let\theo@sp\relax
+\fi
+
+
+%%%%%% Floats %%%%%%
+
+% You may need to change following parameters
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{8}
+\setcounter{dbltopnumber}{4}
+\def\topfraction{.9}
+\def\bottomfraction{.9}
+\def\textfraction{.1}
+\def\dbltopfraction{.9}
+\def\floatpagefraction{.5}
+\def\dblfloatpagefraction{.5}
+
+\ifDS@withinsec
+\newcounter{figure}[section]
+\newcounter{table}[section]
+\def\thefigure{\arabic{section}.\@arabic\c@figure}	% 2.10 (1)
+\def\thetable{\arabic{section}.\@arabic\c@table}	% 2.10 (1)
+\else
+\newcounter{figure}					% 1.01(1)
+\newcounter{table}					% 1.01(1)
+\def\thefigure{\@arabic\c@figure}
+\def\thetable{\@arabic\c@table}
+\fi
+\def\fps@figure{tbp}
+\def\fps@table{tbp}
+\def\ftype@figure{1}
+\def\ftype@table{2}
+\def\ext@figure{lof}
+\def\ext@table{lot}
+\def\fnum@figure{\name@fig\thefigure}
+\def\fnum@table{\name@tab\thetable}
+
+\def\figure{\let\cap@afterskip\relax \@float{figure}}
+\def\endfigure{\end@float}
+\def\table{\let\cap@beforeskip\relax \@float{table}}
+\def\endtable{\end@float}
+\@namedef{figure*}{\figure}
+\@namedef{endfigure*}{\endfigure}
+\@namedef{table*}{\table}
+\@namedef{endfigure*}{\endtable}
+
+\def\cap@beforeskip{\nointerlineskip\vskip10pt}
+\let\cap@@beforeskip\cap@beforeskip
+\def\cap@afterskip{\nointerlineskip\vskip10pt}
+\let\cap@@afterskip\cap@afterskip
+
+\long\def\@makecaption#1#2{\par\cap@beforeskip
+	\setbox\@tempboxa\hbox{#1: #2}
+	\ifdim\wd\@tempboxa>\hsize #1: #2\par
+	\else\centerline{\box\@tempboxa}\fi
+	\cap@afterskip}
+
+\def\subfigure{\let\cap@beforeskip\cap@@beforeskip
+	\let\cap@afterskip\relax \def\@captype{figure}\minipage}
+\def\endsubfigure{\endminipage\global\@ignoretrue}
+\def\subtable{\let\cap@afterskip\cap@@afterskip
+	\let\cap@beforeskip\relax \def\@captype{table}\minipage}
+\def\endsubtable{\endminipage\global\@ignoretrue}
+
+
+%%%%%% Footnote %%%%%%
+
+%% The following codes are from pfnote.sty, by H. Nakashima of Kyoto Univ.,
+%% to reset footnote counter at the begining of every page.
+
+\def\footnote{\@ifnextchar[%]
+	{\@xfootnote}{\PF@adjustfnote \stepcounter{\@mpfn}%
+		\xdef\@thefnmark{\thempfn}\@footnotemark\@footnotetext}}
+\def\footnotemark{\@ifnextchar[%]
+	{\@xfootnotemark}{\PF@adjustfnote \stepcounter{footnote}%
+		\xdef\@thefnmark{\thefootnote}\@footnotemark}}
+
+\newcount\PF@fnotectr\global\PF@fnotectr=\z@
+\newcount\PF@page\global\PF@page=-\@M
+\def\PF@thepage{\number\c@page}
+\def\PF@adjustfnote{\global\advance\PF@fnotectr\@ne
+	\expandafter\ifx\csname PF@fn\number\PF@fnotectr\endcsname\relax
+		\global\c@footnote\z@\else
+	\expandafter\@tempcnta\csname PF@fn\number\PF@fnotectr\endcsname\relax
+	\ifnum\@tempcnta=\PF@page\else
+		\global\PF@page\@tempcnta \global\c@footnote\z@ \fi\fi
+	\if@filesw{\let\PF@thepage\relax
+		\xdef\@gtempa{\write\@auxout{\string\PF@fnpage
+		{\the\PF@fnotectr}{\PF@thepage}}}}\@gtempa\fi}
+\def\PF@fnpage#1#2{\global\@namedef{PF@fn#1}{#2}}
+
+%% End of quote from pfnote.sty.
+
+\let\fn@rpar)
+\def\@makefnmark{\hbox{$^{\@thefnmark\fn@rpar}$}}
+\long\def\@makefntext#1{\leftskip1.5em\noindent\llap{\@makefnmark\ }#1}
+
+
+%%%%%% Name Definition %%%%%%
+
+\ifDS@english
+\def\name@toc{Contents}
+\def\name@lof{List of Figures}
+\def\name@lot{List of Tables}
+\def\name@app{Appendix}
+\def\name@ack{Acknowledgments}
+\def\name@bib{References}
+\def\name@fig{Figure~}				% 2.10 (2)
+\def\name@tab{Table~}				% 2.10 (2)
+\else
+\def\name@toc{目次}
+\def\name@lof{図一覧}
+\def\name@lot{表一覧}
+\def\name@app{付録}
+\def\name@ack{謝辞}
+\def\name@bib{参考文献}
+\def\name@fig{図}
+\def\name@tab{表}
+\fi
+
+
+%%%%%% Miscellaneous %%%%%%
+
+\raggedbottom
+
+\arraycolsep5pt \tabcolsep6pt \arrayrulewidth.4pt \doublerulesep1pt 
+\tabbingsep.5\@Kwidth
+
+\skip\@mpfootins\skip\footins
+\fboxsep3pt \fboxrule.4pt 
+
+%% We simply allow (not encourage) club and widow lines. (H.N.)
+\clubpenalty\z@ \widowpenalty\z@ \displaywidowpenalty\z@
+
+% The following redefinition influences \linebreak etc.
+\def\sloppy{\tolerance9999\hbadness9999\hfuzz.5\p@ \vfuzz.5\p@}
+
+\ifDS@withinsec
+\@addtoreset{equation}{section} 
+\def\theequation{\arabic{section}.\arabic{equation}}	% 2.10 (1)
+\else
+\def\theequation{\arabic{equation}}
+\fi
+
+\newif\if@restonecol
+\def\titlepage{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \else \newpage \fi \thispagestyle{empty}\c@page\z@}
+\def\endtitlepage{\if@restonecol\twocolumn \else \newpage \fi}
+
+\ifDS@english\else
+\def\today{\number\year 年 \number\month 月 \number\day 日}
+\fi
+
+\ifASCII\else
+\let\jtiny=\tiny
+\let\jscriptsize=\scriptsize
+\let\jfootnotesize=\footnotesize
+\let\jnormalsize=\normalsize
+\let\jlarge=\large
+\let\jLarge=\Large
+\let\jLARGE=\LARGE
+\let\jhuge=\huge
+\let\jHuge=\Huge
+\fi
+
+\marginparsep 10pt 
+
+\endinput
