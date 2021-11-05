@@ -75,7 +75,7 @@
 \ifx\xpt\undefined \@LaTeX@eNtrue \fi\fi
 % 2.00 (1)<<
 
-
+
 %%%%%% Document Styles %%%%%%
 
 % style options :
@@ -123,14 +123,14 @@
 \@options
 \fi								% 2.00(2)<<
 
-
+
 %%%%%% Basics %%%%%%
 
 \lineskip1pt \normallineskip1pt
 \lineskiplimit\z@ \normallineskiplimit\z@
 
 \def\baselinestretch{1}
-
+
 %%%%%% Fonts %%%%%%
 
 \ifASCII
@@ -196,7 +196,7 @@
 \DeclareRobustCommand*{\cal}{\@fontswitch{\relax}{\mathcal}}
 \DeclareRobustCommand*{\mit}{\@fontswitch{\relax}{\mathnormal}}
 \fi								% 2.00(3)<<
-
+
 %%%%%% Font Size Macros %%%%%%
 
 % \baselineskip's are almost 1.25 times those defined in NTT jart12.
@@ -240,7 +240,6 @@
 \def\bf{\protect\pdg\protect\pbf}
 \fi\fi								% 2.00(5)<<
 
-
 %%%%%% Page Layout Parameters %%%%%%
 
 \newdimen\@Kwidth \@Kwidth\jspaceskip
@@ -292,7 +291,7 @@
 
 \ifDS@english \parindent1.5em \else \parindent\@Kwidth \fi
 
-
+
 %%%%%% Page Header and Footer %%%%%% 
 
 \mark{{}{}} 
@@ -314,7 +313,7 @@
 \def\today{\the\year 年 \the\month 月 \the\day 日}
 \fi
 
-
+
 %%%%%% Title, Author, Abstract %%%%%%
 
 \long\def\jtitle{\@dblarg{\@xjtitle}}
@@ -338,7 +337,7 @@
 \ifDS@english
 \def\@title{\@etitle} \def\@titleforabst{\@etitleforabst}
 \def\@author{\@eauthor}
-\def\mkt@masterthesis{Master Thesis}
+\def\mkt@masterthesis{Master's Thesis}
 \def\mkt@supervisor{Supervisor}
 \def\mkt@department{Department of \@department \\		% 2.10 (3)
 	Graduate School of Informatics\\
@@ -400,7 +399,7 @@
 	\rightline{#2}
 	\noindent{\bf#3}\par}
 
-
+
 %%%%%% Table of Contents %%%%%%
 
 \setcounter{tocdepth}{3}	% \subsubsection will appear in TOC
@@ -477,7 +476,7 @@
 % unusural cases.
 \def\beginbody{\clearpage\pagestyle{plain}\global\c@page\@ne}
 
-
+
 %%%%%% Sectioning Commands %%%%%%
 
 \ifDS@english
@@ -576,7 +575,7 @@
 \def\sec@emptysection#1{\sec@sec*{#1\@mkboth{#1}{#1}}
 	\addcontentsline{toc}{section}{\numberline{}#1}}
 
-
+
 %%%%%% List-like Environments %%%%%%
 %
 %		LM	RM	LW	LS	LPI	II
@@ -714,7 +713,7 @@
 \let\theo@it\relax \let\theo@sp\relax
 \fi
 
-
+
 %%%%%% Floats %%%%%%
 
 % You may need to change following parameters
@@ -776,7 +775,7 @@
 	\let\cap@beforeskip\relax \def\@captype{table}\minipage}
 \def\endsubtable{\endminipage\global\@ignoretrue}
 
-
+
 %%%%%% Footnote %%%%%%
 
 %% The following codes are from pfnote.sty, by H. Nakashima of Kyoto Univ.,
@@ -808,7 +807,6 @@
 \let\fn@rpar)
 \def\@makefnmark{\hbox{$^{\@thefnmark\fn@rpar}$}}
 \long\def\@makefntext#1{\leftskip1.5em\noindent\llap{\@makefnmark\ }#1}
-
 
 %%%%%% Name Definition %%%%%%
 
@@ -832,7 +830,7 @@
 \def\name@tab{表}
 \fi
 
-
+
 %%%%%% Miscellaneous %%%%%%
 
 \raggedbottom

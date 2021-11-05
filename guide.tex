@@ -433,416 +433,416 @@ make sure that you follow the standard specified by your department.
 \bibliography{guide}				% 参考文献の出力
 
 						% 付録の開始
-\Appendix[付録：スタイルファイル{\tt kuistheis}の使用法]
-この手引で述べた教室所定の形式に適合した論文を\LaTeX で作成するために，スタ
-イルファイル\|kuisthesis|が用意されている．以下，\|kuisthesis|を使う
-ための準備と，その使用法について解説する．
+% \Appendix[付録：スタイルファイル{\tt kuistheis}の使用法]
+% この手引で述べた教室所定の形式に適合した論文を\LaTeX で作成するために，スタ
+% イルファイル\|kuisthesis|が用意されている．以下，\|kuisthesis|を使う
+% ための準備と，その使用法について解説する．
 
-なお，この手引自体も\|kuisthesis|を用いて作成したものであるので，必要に
-応じてスタイルファイルとともに配布されるソースファイル\|guide.tex|を参照
-するとよい．
+% なお，この手引自体も\|kuisthesis|を用いて作成したものであるので，必要に
+% 応じてスタイルファイルとともに配布されるソースファイル\|guide.tex|を参照
+% するとよい．
 
-また，論文作成の際に使用する\LaTeX コマンドのほとんどは標準的なものであるの
-で，基本的な使用法やここで解説していないものについては
-\begin{quote}%{
-Lamport, L.: {\em A Document Preparation System {\LaTeX} User's Guide \&
-Reference Manual\/}, Addison Wesley, Reading, Massachusetts (1986).
-(Cooke, E., et al.訳：文書処理システム{\LaTeX}, アスキー出版局(1990)).
-\end{quote}%}
-などを適宜参照されたい．
+% また，論文作成の際に使用する\LaTeX コマンドのほとんどは標準的なものであるの
+% で，基本的な使用法やここで解説していないものについては
+% \begin{quote}%{
+% Lamport, L.: {\em A Document Preparation System {\LaTeX} User's Guide \&
+% Reference Manual\/}, Addison Wesley, Reading, Massachusetts (1986).
+% (Cooke, E., et al.訳：文書処理システム{\LaTeX}, アスキー出版局(1990)).
+% \end{quote}%}
+% などを適宜参照されたい．
 
-\section{準備}\label{app-prelim}
-\subsection{スタイルファイルなどの取得}\label{appsub-kit}
-スタイルファイル\|kuisthesis|や，その他の関連するファイルからなるキット
-は
-\begin{itemize}\item[]\small%{
-\|ftp://ftp.kuis.kyoto-u.ac.jp/ku/kuis-thesis/kuisthesis.tar.gz|
-\end{itemize}%}
-に\|tar|${}+{}$\|gzip|の形式で収められている．
+% \section{準備}\label{app-prelim}
+% \subsection{スタイルファイルなどの取得}\label{appsub-kit}
+% スタイルファイル\|kuisthesis|や，その他の関連するファイルからなるキット
+% は
+% \begin{itemize}\item[]\small%{
+% \|ftp://ftp.kuis.kyoto-u.ac.jp/ku/kuis-thesis/kuisthesis.tar.gz|
+% \end{itemize}%}
+% に\|tar|${}+{}$\|gzip|の形式で収められている．
 
-このキットには，以下のファイルが格納されている．
-\begin{itemize}%{
-\item
-\|kuisthesis.sty|\,:
-スタイルファイル
-\item
-\|kuisthesis.cls|\,:
-{\LATEXe}用スタイルファイル
-\item
-\|kuissort.bst  |\,:
-jBib\TeX スタイル（著者名順）
-\item
-\|kuisunsrt.bst |\,:
-jBib\TeX スタイル（出現順）
-\item
-\|guide.tex     |\,:
-この手引のソースファイル
-\item
-\|guide.bib     |\,:
-この手引の文献リスト
-\item
-\|eguide.tex    |\,:
-英文の手引のソースファイル
-\item
-\|guide.bib     |\,:
-英文の手引の文献リスト
-\end{itemize}%}
-
-\subsection[{\protect\LaTeX}の実行環境]{{\protect\LATex}の実行環境}
-\label{appsub-env}
-スタイルファイルはNTTの斉藤康己氏による j{\TeX}（いわゆるNTT版）と，アスキー
-社による日本語 {\TeX}（いわゆるアスキー版）のどちらにも対応しているので，著者
-の {\LaTeX} 環境に関わらず同じスタイルファイルを使用できる．
+% このキットには，以下のファイルが格納されている．
+% \begin{itemize}%{
+% \item
+% \|kuisthesis.sty|\,:
+% スタイルファイル
+% \item
+% \|kuisthesis.cls|\,:
+% {\LATEXe}用スタイルファイル
+% \item
+% \|kuissort.bst  |\,:
+% jBib\TeX スタイル（著者名順）
+% \item
+% \|kuisunsrt.bst |\,:
+% jBib\TeX スタイル（出現順）
+% \item
+% \|guide.tex     |\,:
+% この手引のソースファイル
+% \item
+% \|guide.bib     |\,:
+% この手引の文献リスト
+% \item
+% \|eguide.tex    |\,:
+% 英文の手引のソースファイル
+% \item
+% \|guide.bib     |\,:
+% 英文の手引の文献リスト
+% \end{itemize}%}
+% 
+% \subsection[{\protect\LaTeX}の実行環境]{{\protect\LATex}の実行環境}
+% \label{appsub-env}
+% スタイルファイルはNTTの斉藤康己氏による j{\TeX}（いわゆるNTT版）と，アスキー
+% 社による日本語 {\TeX}（いわゆるアスキー版）のどちらにも対応しているので，著者
+% の {\LaTeX} 環境に関わらず同じスタイルファイルを使用できる．
 
-NTT版およびアスキー版の各々について，以下のバージョンでの動作確認を行なって
-いる．
-\begin{ITEMIZE}%{
-\item
-NTT版${}={}${j\TeX} 1.52${}+{}${\LaTeX} 2.09
-\item 
-アスキー版${}={}${\TeX} 2.99-j1.7${}+{}${\LaTeX} 2.09
-\end{ITEMIZE}%}
-これ以前の版についても動作すると期待できるが，できれば新しい版を使うこと．ま
-た{\LATEXe}に関しては，以下のバージョンでの動作確認を行なっている．
-\begin{ITEMIZE}%{
-\item
-NTT版${}={}${j\TeX} 1.6${}+{}$%
-	{\LATEXe} 1994/12/01 patch level 3
-\item 
-アスキー版${}={}${p\TeX} 3.1415 p2.1.4${}+{}$%
-	{p\LATEXe} 1995/09/01
-\end{ITEMIZE}%}
-いずれについても，ネイティブ・モードと{\LaTeX} 2.09 互換モードのどちらでも使
-用することができる．
+% NTT版およびアスキー版の各々について，以下のバージョンでの動作確認を行なって
+% いる．
+% \begin{ITEMIZE}%{
+% \item
+% NTT版${}={}${j\TeX} 1.52${}+{}${\LaTeX} 2.09
+% \item 
+% アスキー版${}={}${\TeX} 2.99-j1.7${}+{}${\LaTeX} 2.09
+% \end{ITEMIZE}%}
+% これ以前の版についても動作すると期待できるが，できれば新しい版を使うこと．ま
+% た{\LATEXe}に関しては，以下のバージョンでの動作確認を行なっている．
+% \begin{ITEMIZE}%{
+% \item
+% NTT版${}={}${j\TeX} 1.6${}+{}$%
+% 	{\LATEXe} 1994/12/01 patch level 3
+% \item 
+% アスキー版${}={}${p\TeX} 3.1415 p2.1.4${}+{}$%
+% 	{p\LATEXe} 1995/09/01
+% \end{ITEMIZE}%}
+% いずれについても，ネイティブ・モードと{\LaTeX} 2.09 互換モードのどちらでも使
+% 用することができる．
 
-論文を英文で書く場合にも，和文の内容梗概が必要であるので，必ず日本語対応の
-\LaTeX を使用しなければならない．
-
-\section{ソースファイルの構成}\label{app-structure}
-ソースファイルは以下の形式で作る．
-\begin{itemize}\item[]%{
-\|\documentclass{kuisthesis}|または\\
-\|\documentclass[master]{kuisthesis}|または\\
-\|\documentclass[master,english]{kuisthesis}|\\
-\null\qquad 必要ならば他のオプションやスタイルファイルを指定する．\\
-必要ならばユーザのマクロ定義などをここに書く．\\
-\|\jtitle{|\<題目（和文）\>\|}|\\
-\|\etitle{|\<題目（英文）\>\|}|\\
-\|\jauthor{|\<著者名（和文）\>\|}|\\
-\|\eauthor{|\<著者名（英文）\>\|}|\\
-\|\supervisor{|\<指導教官名\>\|}|\\
-\|\date{|\<提出年月日\>\|}|\\
-\|\department{|\<専攻名\>\|}|\\
-\|\begin{document}|\\
-\|\maketitle|\hfill\rlap{\hskip-.5\linewidth{\tt\%}とびらの出力}\\
-\|\begin{jabstract}|\\
-\null\qquad\<内容梗概（和文）\>\\
-\|\end{jabstract}|\\
-\|\begin{eabstract}|\\
-\null\qquad\<内容梗概（英文）\>\\
-\|\end{eabstract}|\\
-\|\tableofcontents|\hfill\rlap{\hskip-.5\linewidth{\tt\%}目次の出力}\\
-\|\section{|\<第1章の表題\>\|}|\\
-\null\qquad\hbox to3em{\dotfill}\\
-\null\qquad\<本文\>\\
-\null\qquad\hbox to3em{\dotfill}\\
-\|\acknowledgments|\\
-\null\qquad\<謝辞\>\\
-\|\bibliographystyle{kuisunsrt}|\quad または\\
-\|\bibliographystyle{kuissort}|\\
-\|\bibliography{|\<文献データベース\>\|}|\\
-付録があれば \|\appendix|/\|\Appendix| に続いてここに記す．\\
-\|\end{document}|
-\end{itemize}%}
-以下，それぞれの要素について説明する．
-
-\subsection{印字の形式}\label{appsub-format}
-論文の各ページは，幅(\|\textwidth|) 14.2\,cm, 高さ(\|\textheight|) 
-22.2\,cmの領域に印刷される\footnote{NTT版では和文の場合，幅 
-({\tt\string\textwidth})が 13.6\,cmとなる}．この幅は和文の場合には35文字分に
-相当し，高さは和文／英文とも32行分に相当するので，\ref{subsec-format}節に
-示した基準に合致している．
+% 論文を英文で書く場合にも，和文の内容梗概が必要であるので，必ず日本語対応の
+% \LaTeX を使用しなければならない．
+% 
+% \section{ソースファイルの構成}\label{app-structure}
+% ソースファイルは以下の形式で作る．
+% \begin{itemize}\item[]%{
+% \|\documentclass{kuisthesis}|または\\
+% \|\documentclass[master]{kuisthesis}|または\\
+% \|\documentclass[master,english]{kuisthesis}|\\
+% \null\qquad 必要ならば他のオプションやスタイルファイルを指定する．\\
+% 必要ならばユーザのマクロ定義などをここに書く．\\
+% \|\jtitle{|\<題目（和文）\>\|}|\\
+% \|\etitle{|\<題目（英文）\>\|}|\\
+% \|\jauthor{|\<著者名（和文）\>\|}|\\
+% \|\eauthor{|\<著者名（英文）\>\|}|\\
+% \|\supervisor{|\<指導教官名\>\|}|\\
+% \|\date{|\<提出年月日\>\|}|\\
+% \|\department{|\<専攻名\>\|}|\\
+% \|\begin{document}|\\
+% \|\maketitle|\hfill\rlap{\hskip-.5\linewidth{\tt\%}とびらの出力}\\
+% \|\begin{jabstract}|\\
+% \null\qquad\<内容梗概（和文）\>\\
+% \|\end{jabstract}|\\
+% \|\begin{eabstract}|\\
+% \null\qquad\<内容梗概（英文）\>\\
+% \|\end{eabstract}|\\
+% \|\tableofcontents|\hfill\rlap{\hskip-.5\linewidth{\tt\%}目次の出力}\\
+% \|\section{|\<第1章の表題\>\|}|\\
+% \null\qquad\hbox to3em{\dotfill}\\
+% \null\qquad\<本文\>\\
+% \null\qquad\hbox to3em{\dotfill}\\
+% \|\acknowledgments|\\
+% \null\qquad\<謝辞\>\\
+% \|\bibliographystyle{kuisunsrt}|\quad または\\
+% \|\bibliographystyle{kuissort}|\\
+% \|\bibliography{|\<文献データベース\>\|}|\\
+% 付録があれば \|\appendix|/\|\Appendix| に続いてここに記す．\\
+% \|\end{document}|
+% \end{itemize}%}
+% 以下，それぞれの要素について説明する．
+% 
+% \subsection{印字の形式}\label{appsub-format}
+% 論文の各ページは，幅(\|\textwidth|) 14.2\,cm, 高さ(\|\textheight|) 
+% 22.2\,cmの領域に印刷される\footnote{NTT版では和文の場合，幅 
+% ({\tt\string\textwidth})が 13.6\,cmとなる}．この幅は和文の場合には35文字分に
+% 相当し，高さは和文／英文とも32行分に相当するので，\ref{subsec-format}節に
+% 示した基準に合致している．
 
-和文／英文とも\|\normalsize|のフォントは12\,ptであり，これも
-\ref{subsec-format}節の基準を満たしている．
-
-\subsection{オプション・スタイル}\label{appsub-option}
-\|\documentclass|の標準オプションとして，以下の3つのものが用意されている．
-\begin{itemize}%{
-\item
-\|master|\\
-修士論文用．指定がなければ特別研究報告用となる．なお両者の違いは，とびらに印
-字される論文種別と所属のみであり，ページ数のチェックなどは一切行なわない．
-\item
-\|english|\\
-英文用．指定がなければ和文用となる．特別研究報告書は必ず和文であるので， 
-\|master|を指定せずに\|english|を指定するのは誤りであるが，特にチェックはし
-ない．
-\item
-\|withinsec|\\
-図表番号や数式番号を，``\<章番号\>.\<章内番号\>''の形式とする．指定がなけれ
-ば，論文全体で通し番号となる．
-\end{itemize}%}
+% 和文／英文とも\|\normalsize|のフォントは12\,ptであり，これも
+% \ref{subsec-format}節の基準を満たしている．
+% 
+% \subsection{オプション・スタイル}\label{appsub-option}
+% \|\documentclass|の標準オプションとして，以下の3つのものが用意されている．
+% \begin{itemize}%{
+% \item
+% \|master|\\
+% 修士論文用．指定がなければ特別研究報告用となる．なお両者の違いは，とびらに印
+% 字される論文種別と所属のみであり，ページ数のチェックなどは一切行なわない．
+% \item
+% \|english|\\
+% 英文用．指定がなければ和文用となる．特別研究報告書は必ず和文であるので， 
+% \|master|を指定せずに\|english|を指定するのは誤りであるが，特にチェックはし
+% ない．
+% \item
+% \|withinsec|\\
+% 図表番号や数式番号を，``\<章番号\>.\<章内番号\>''の形式とする．指定がなけれ
+% ば，論文全体で通し番号となる．
+% \end{itemize}%}
 
-この他に，\|epsf|など補助的なスタイルファイルを指定してもよい．ただしスタイ
-ルファイルによっては，論文スタイルと矛盾するようなものもあるので，スタイルファ
-イルの性格をよく理解して使用すること．たとえば，\|a4|はページの高さである
-\|\textheight|を変更するので，使用してはならない．
-
-\subsection{題目などの記述}\label{appsub-title}
-論文の題目，著者名，および指導教官名を前に示した所定のコマンドで指定した後，
-\|\maketitle|を実行すると，とびらが生成される．
+% この他に，\|epsf|など補助的なスタイルファイルを指定してもよい．ただしスタイ
+% ルファイルによっては，論文スタイルと矛盾するようなものもあるので，スタイルファ
+% イルの性格をよく理解して使用すること．たとえば，\|a4|はページの高さである
+% \|\textheight|を変更するので，使用してはならない．
+% 
+% \subsection{題目などの記述}\label{appsub-title}
+% 論文の題目，著者名，および指導教官名を前に示した所定のコマンドで指定した後，
+% \|\maketitle|を実行すると，とびらが生成される．
 
-とびらには，以下の項目がそれぞれセンタリングされて，順に印字される．
-\begin{description}%{
-\item[論文種別]
-「特別研究報告」，「修士論文」，または``Master Thesis''のいずれかが，
-\|\documentclass|のオプションにしたがって，\|\Large\bf|で印字される．
+% とびらには，以下の項目がそれぞれセンタリングされて，順に印字される．
+% \begin{description}%{
+% \item[論文種別]
+% 「特別研究報告」，「修士論文」，または``Master Thesis''のいずれかが，
+% \|\documentclass|のオプションにしたがって，\|\Large\bf|で印字される．
 
-\item[題目]
-和文の場合には\|\jtitle|で，英文の場合には\|\etitle|で指定した題目が，それぞ
-れ\|\LARGE\bf|で印字される．一行に収まらない場合には自動的に改行されるが，適
-切な箇所に\|\\|を挿入して陽に改行を指示するほうがよい．
+% \item[題目]
+% 和文の場合には\|\jtitle|で，英文の場合には\|\etitle|で指定した題目が，それぞ
+% れ\|\LARGE\bf|で印字される．一行に収まらない場合には自動的に改行されるが，適
+% 切な箇所に\|\\|を挿入して陽に改行を指示するほうがよい．
 
-\|\jtitle|や\|\etitle|で指定した題目は，とびらだけではなく内容梗概や目次にも
-印字される．したがって和文／英文に関わらず，\|\jtitle|と\|\etitle|の双方を指
-定しなければならない．また，とびらと内容梗概／目次では，題目の改行を違う位置
-で行ないたいこともあるだろう．その場合
-\begin{quote}%{
-\|\jtitle[|\<内容梗概／目次用\>\|]{|\<とびら用\>\|}|\\
-\|\etitle[|\<内容梗概／目次用\>\|]{|\<とびら用\>\|}|
-\end{quote}%}
-のように，オプション引数で内容梗概や目次のページに印字する題目を別途指定する
-ことができる．例えばこの手引では
-\begin{quote}\begin{verbatim}
-\jtitle[特別研究報告書・修士論文執筆の手引]%
-       {特別研究報告書・修士論文\\執筆の手引}
-\end{verbatim}\end{quote}
-として，とびらでは2行，内容梗概や目次では1行になるようにしている．
+% \|\jtitle|や\|\etitle|で指定した題目は，とびらだけではなく内容梗概や目次にも
+% 印字される．したがって和文／英文に関わらず，\|\jtitle|と\|\etitle|の双方を指
+% 定しなければならない．また，とびらと内容梗概／目次では，題目の改行を違う位置
+% で行ないたいこともあるだろう．その場合
+% \begin{quote}%{
+% \|\jtitle[|\<内容梗概／目次用\>\|]{|\<とびら用\>\|}|\\
+% \|\etitle[|\<内容梗概／目次用\>\|]{|\<とびら用\>\|}|
+% \end{quote}%}
+% のように，オプション引数で内容梗概や目次のページに印字する題目を別途指定する
+% ことができる．例えばこの手引では
+% \begin{quote}\begin{verbatim}
+% \jtitle[特別研究報告書・修士論文執筆の手引]%
+%        {特別研究報告書・修士論文\\執筆の手引}
+% \end{verbatim}\end{quote}
+% として，とびらでは2行，内容梗概や目次では1行になるようにしている．
 
-\item[指導教官名]
-\|\supervisor|で指定した指導教官の氏名と職名を\|\large|で印字する．氏名／職
-名は，本文に用いる言語に応じて適切に指定すること．
+% \item[指導教官名]
+% \|\supervisor|で指定した指導教官の氏名と職名を\|\large|で印字する．氏名／職
+% 名は，本文に用いる言語に応じて適切に指定すること．
 
-\item[所属学科／専攻]
-\|\documentclass|のオプションと入学年次に応じて，以下のいずれかが\|\large|で
-印字される．
-\begin{itemize}%{
-\item 特別研究報告書（平成6年以前入学）\\
-京都大学工学部情報工学科
-\item 特別研究報告書（平成7年以降入学）\\
-京都大学工学部情報学科
-\item 修士論文（和文）\\
-京都大学大学院工学研究科情報工学専攻
-\item 修士論文（英文）\\
-Department of Information Science,
-Graduate School of Engineering\\
-Kyoto University
-\end{itemize}%}
-なお学部4回生の入学年次は，\LaTeX を実行した日をもとに，その4年前であると仮
-定して算出している．何らかの理由でこの仮定が成り立たない場合には
-\begin{quote}\begin{verbatim}
-\setcounter{entranceyear}{1993}
-\end{verbatim}\end{quote}
-のように，カウンタ\|entranceyear|に入学年次を西暦でセットすること．
+% \item[所属学科／専攻]
+% \|\documentclass|のオプションと入学年次に応じて，以下のいずれかが\|\large|で
+% 印字される．
+% \begin{itemize}%{
+% \item 特別研究報告書（平成6年以前入学）\\
+% 京都大学工学部情報工学科
+% \item 特別研究報告書（平成7年以降入学）\\
+% 京都大学工学部情報学科
+% \item 修士論文（和文）\\
+% 京都大学大学院工学研究科情報工学専攻
+% \item 修士論文（英文）\\
+% Department of Information Science,
+% Graduate School of Engineering\\
+% Kyoto University
+% \end{itemize}%}
+% なお学部4回生の入学年次は，\LaTeX を実行した日をもとに，その4年前であると仮
+% 定して算出している．何らかの理由でこの仮定が成り立たない場合には
+% \begin{quote}\begin{verbatim}
+% \setcounter{entranceyear}{1993}
+% \end{verbatim}\end{quote}
+% のように，カウンタ\|entranceyear|に入学年次を西暦でセットすること．
 
-\item[著者名]
-和文の場合には\|\jauthor|で，英文の場合には\|\eauthor|で指定した著者名が，そ
-れぞれ\|\Large|で印字される．題目と同様，\|\jauthor|と\|\eauthor|は内容梗概
-のページにも印字されるので，和文／英文に関わらず双方を指定すること．
+% \item[著者名]
+% 和文の場合には\|\jauthor|で，英文の場合には\|\eauthor|で指定した著者名が，そ
+% れぞれ\|\Large|で印字される．題目と同様，\|\jauthor|と\|\eauthor|は内容梗概
+% のページにも印字されるので，和文／英文に関わらず双方を指定すること．
 
-\item[提出年月日]
-\|\date|で指定した日付が\|\large|で印字される．日付は，本文に用いる言語に応
-じて適切に指定すること．
+% \item[提出年月日]
+% \|\date|で指定した日付が\|\large|で印字される．日付は，本文に用いる言語に応
+% じて適切に指定すること．
 
-\item[専攻名]
-修士論文の場合、\|\department|で指定した専攻名が印字される．例えば、
-和文の場合
-\begin{quote}\begin{verbatim}
-\department{社会情報学}
-\end{verbatim}\end{quote}
-英文の場合
-\begin{quote}\begin{verbatim}
-\department{Social Informatics}
-\end{verbatim}\end{quote}
-のように指定する．
-\end{description}
-とびらのページにはページ番号が印字されないが，出力の便宜を図るためにdviファ
-イルにはページ番号1000が付与されている．
-
-\subsection{内容梗概}\label{appsub-abstract}
-和文の内容梗概を\|jabstract|環境の中に，また英文の内容梗概を\|eabstract|環境
-の中に，それぞれ記述する．それぞれの内容梗概の前には，前述の\|\jtitle|や
-\|\etitle|で指定した題目と，\|\jauthor|や\|\eauthor|で指定した著者名が出
-力される．
+% \item[専攻名]
+% 修士論文の場合、\|\department|で指定した専攻名が印字される．例えば、
+% 和文の場合
+% \begin{quote}\begin{verbatim}
+% \department{社会情報学}
+% \end{verbatim}\end{quote}
+% 英文の場合
+% \begin{quote}\begin{verbatim}
+% \department{Social Informatics}
+% \end{verbatim}\end{quote}
+% のように指定する．
+% \end{description}
+% とびらのページにはページ番号が印字されないが，出力の便宜を図るためにdviファ
+% イルにはページ番号1000が付与されている．
+% 
+% \subsection{内容梗概}\label{appsub-abstract}
+% 和文の内容梗概を\|jabstract|環境の中に，また英文の内容梗概を\|eabstract|環境
+% の中に，それぞれ記述する．それぞれの内容梗概の前には，前述の\|\jtitle|や
+% \|\etitle|で指定した題目と，\|\jauthor|や\|\eauthor|で指定した著者名が出
+% 力される．
 
-それぞれの内容梗概は，記述した順序で出力される．したがって，本文が和文の場合
-には和文\,$\to$\,英文の順で，また本文が英文の場合には英文\,$\to$\,和文の順で
-記述するのが適当である．
+% それぞれの内容梗概は，記述した順序で出力される．したがって，本文が和文の場合
+% には和文\,$\to$\,英文の順で，また本文が英文の場合には英文\,$\to$\,和文の順で
+% 記述するのが適当である．
 
-内容梗概のページ番号は，ページの右肩に小文字のローマ数字で印字される．また出
-力の便宜を図るために，dviファイルの各ページには印字されるページ番号に1000を
-加えたものが付与される．
-
-\subsection{目次}\label{appsub-toc}
-コマンド\|\tableofcontents|により，目次が生成される．目次の最上部には，前述
-の\|\jtitle|\slash\|\etitle|で指定した題目が印字される．
+% 内容梗概のページ番号は，ページの右肩に小文字のローマ数字で印字される．また出
+% 力の便宜を図るために，dviファイルの各ページには印字されるページ番号に1000を
+% 加えたものが付与される．
+% 
+% \subsection{目次}\label{appsub-toc}
+% コマンド\|\tableofcontents|により，目次が生成される．目次の最上部には，前述
+% の\|\jtitle|\slash\|\etitle|で指定した題目が印字される．
 
-デフォルトでは，\|\section|, \|\subsection|, および\|\subsubsection|の見出し
-とそれらのページ番号が目次に含まれる．これを変更し，たとえば\|\section|と
-\|\subsection|のみの目次にしたい時には
-\begin{quote}\begin{verbatim}
-\setcounter{tocdepth}{2}
-\end{verbatim}\end{quote}
-により，カウンタ\|tocdepth|の値を目次に含まれる最下位の章・節レベル
-に設定すればよい．なお\|\section|のレベルは1である．
+% デフォルトでは，\|\section|, \|\subsection|, および\|\subsubsection|の見出し
+% とそれらのページ番号が目次に含まれる．これを変更し，たとえば\|\section|と
+% \|\subsection|のみの目次にしたい時には
+% \begin{quote}\begin{verbatim}
+% \setcounter{tocdepth}{2}
+% \end{verbatim}\end{quote}
+% により，カウンタ\|tocdepth|の値を目次に含まれる最下位の章・節レベル
+% に設定すればよい．なお\|\section|のレベルは1である．
 
-この他，「謝辞」と「参考文献」も番号のない\|\section|として目次に含まれる．
-さらに（もしあれば）「付録」と，付録の中の\|\section|と\|\subsection|も含ま
-れる．
+% この他，「謝辞」と「参考文献」も番号のない\|\section|として目次に含まれる．
+% さらに（もしあれば）「付録」と，付録の中の\|\section|と\|\subsection|も含ま
+% れる．
 
-目次のページにはページ番号を印字しないが，dviファイルには内容梗概に続く1000
-番台のページ番号が付与される．
-
-\subsection{章・節}\label{appsub-sectioning}
-章や節の見出しには，通常どおり\|\section|, \|\subsection|, \|\subsubsection|
-などを使用する．
+% 目次のページにはページ番号を印字しないが，dviファイルには内容梗概に続く1000
+% 番台のページ番号が付与される．
+% 
+% \subsection{章・節}\label{appsub-sectioning}
+% 章や節の見出しには，通常どおり\|\section|, \|\subsection|, \|\subsubsection|
+% などを使用する．
 
-\|\section|の見出しは2行を占め，\|\Large\bf|で印字される．修士論文の
-場合は改頁が行なわれる．
-\|\subsection|の見出しは1行の空白を置いた後に\|\large\bf|で印字され，引
-き続く文章との間には余分な空白は挿入されない．\|\subsubsection|は
-上部に空白が挿入されず、\|\normalsize\bf|で印字される．
+% \|\section|の見出しは2行を占め，\|\Large\bf|で印字される．修士論文の
+% 場合は改頁が行なわれる．
+% \|\subsection|の見出しは1行の空白を置いた後に\|\large\bf|で印字され，引
+% き続く文章との間には余分な空白は挿入されない．\|\subsubsection|は
+% 上部に空白が挿入されず、\|\normalsize\bf|で印字される．
 
-デフォルトでは，上記の3つのコマンドによる章・節の見出しに，章番号や節番号が
-付けられ，下位の章・節コマンドである\|\paragraph|, \|\subparagraph|による見
-出しには番号が付けられない．また，これらの下位コマンドによる見出しと引き続く
-文章の間では改行が行なわれない．
-
-\subsection{図表}\label{appsub-figure}
-図や表は，通常と同じく\|figure|や\|table|環境の中に記述する．図表の番号は，
-デフォルトでは論文全体の通し番号であるが，前述の\|\documentclass|のオプショ
-ン\|withinsec|を使用すると，章の中で番号づけが行なわれ，章番号と組み合わされ
-る．
+% デフォルトでは，上記の3つのコマンドによる章・節の見出しに，章番号や節番号が
+% 付けられ，下位の章・節コマンドである\|\paragraph|, \|\subparagraph|による見
+% 出しには番号が付けられない．また，これらの下位コマンドによる見出しと引き続く
+% 文章の間では改行が行なわれない．
+% 
+% \subsection{図表}\label{appsub-figure}
+% 図や表は，通常と同じく\|figure|や\|table|環境の中に記述する．図表の番号は，
+% デフォルトでは論文全体の通し番号であるが，前述の\|\documentclass|のオプショ
+% ン\|withinsec|を使用すると，章の中で番号づけが行なわれ，章番号と組み合わされ
+% る．
 
-紙面の節約のために，図表を横に並べて置きたいことがある．このような場合のため
-に，\|subfigure|と\|subtable|という2つの環境が用意されている．たとえば図
-\ref{fig-example}と表\ref{tab-example}は
-\begin{quote}%{
-\|\begin{figure}|\\
-\|\begin{subfigure}{0.6\textwidth}|\\
-\null\qquad\<図\ref{fig-example}の中身\>\\
-\|\caption{図の例}|\\
-\|\end{subfigure}|\\
-\|\begin{subtable}{0.4\textwidth}|\\
-\|\caption{表の例}|\\
-\null\qquad\<表\ref{tab-example}の中身\>\\
-\|\end{subtable}|\\
-\|\end{figure}|
-\end{quote}%}
-により生成したものである．なおこの例では\|figure|環境の中に\|subfigure|と
-\|subtable|を入れているが，\|table|環境の中に入れてもよい．
+% 紙面の節約のために，図表を横に並べて置きたいことがある．このような場合のため
+% に，\|subfigure|と\|subtable|という2つの環境が用意されている．たとえば図
+% \ref{fig-example}と表\ref{tab-example}は
+% \begin{quote}%{
+% \|\begin{figure}|\\
+% \|\begin{subfigure}{0.6\textwidth}|\\
+% \null\qquad\<図\ref{fig-example}の中身\>\\
+% \|\caption{図の例}|\\
+% \|\end{subfigure}|\\
+% \|\begin{subtable}{0.4\textwidth}|\\
+% \|\caption{表の例}|\\
+% \null\qquad\<表\ref{tab-example}の中身\>\\
+% \|\end{subtable}|\\
+% \|\end{figure}|
+% \end{quote}%}
+% により生成したものである．なおこの例では\|figure|環境の中に\|subfigure|と
+% \|subtable|を入れているが，\|table|環境の中に入れてもよい．
 
-\|subfigure|と\|subtable|の仕様は，\|minipage|と同様であり
-\begin{itemize}\item[]%{
-\|\begin{subfigure}[|\<位置\>\|]{|\<横幅\>\|}|\quad\<中身\>\quad
-\|\end{subfigure}|\\
-\|\begin{subtable}[|\<位置\>\|]{|\<横幅\>\|}|\quad\<中身\>\quad
-\|\end{subtable}|
-\end{itemize}%}
-である．また環境中の\|\caption|コマンドにより，それぞれの見出しが生成される．
+% \|subfigure|と\|subtable|の仕様は，\|minipage|と同様であり
+% \begin{itemize}\item[]%{
+% \|\begin{subfigure}[|\<位置\>\|]{|\<横幅\>\|}|\quad\<中身\>\quad
+% \|\end{subfigure}|\\
+% \|\begin{subtable}[|\<位置\>\|]{|\<横幅\>\|}|\quad\<中身\>\quad
+% \|\end{subtable}|
+% \end{itemize}%}
+% である．また環境中の\|\caption|コマンドにより，それぞれの見出しが生成される．
 
-横に並べる\|subfigure|\slash\|subtable|の横幅の合計が，
-\|\textwidth|に一致するようにするのが望ましい\footnote{各々の間に
-{\tt\string\hspace\char`\{\string\fill\char`\}}を挿入するなどして，間隔を置く
-こともできる．}．
-
-\begin{figure}%{
-\begin{subfigure}{.6\textwidth}
-\centerline{\fbox{\vbox to.1\textheight{\vss
-	\hbox to.8\textwidth{\hss This is a figure\hss}\vss}}}
-\caption{図の例}\label{fig-example}
-\end{subfigure}
-\begin{subtable}{.4\textwidth}
-\caption{表の例}\label{tab-example}
-\centerline{\begin{tabular}{r|c|l}
-This&is&a table\\\hline
-placed&beside&a figure.
-\end{tabular}}
-\end{subtable}
-\end{figure}%}
-
-\subsection{箇条書}\label{appsub-itemizing}
-\LaTeX の箇条書環境である\|\enumerate|, \|\itemize|, \|\description|などは，
-すべてそのまま使用することができる．ただし，環境の前後や，項目の間には余分な
-空白が挿入されない．
-
-\subsection{脚注}\label{appsub-footnote}
-脚注には，\LaTeX の標準コマンド\|\footnote|を用いる．脚注のマークは，ここに
-示すように\footnote{脚注の例}や\footnote{もう一つの脚注}である．また，このペー
-ジと前のページを見るとわかるように，脚注番号はページごとに付けられる．ただし，
-正しい脚注番号を得るためには，\LaTeX を2回実行する必要がある．
-
-\subsection{謝辞}\label{appsub-acknowlegments}
-謝辞は，コマンド\|\acknowledgments| に続いて記述する．見出し「謝辞」または
-``Acknowledgments''は自動的に生成され，目次にも登録される．
-
-\subsection{参考文献}\label{appsub-references}
-すべての参考文献を含むようなBib\TeX の文献データベースを作成し，文献スタイル
-ファイル\|kuisunsrt|または\|kuissort|を用いて処理すれば，
-\ref{subsec-references}節に示した形式の文献表が得られる．なお\|kuisunsrt|は文
-献を出現順に並べ，\|kuissort|は著者名のアルファベット順に並べる．
+% 横に並べる\|subfigure|\slash\|subtable|の横幅の合計が，
+% \|\textwidth|に一致するようにするのが望ましい\footnote{各々の間に
+% {\tt\string\hspace\char`\{\string\fill\char`\}}を挿入するなどして，間隔を置く
+% こともできる．}．
+% 
+% \begin{figure}%{
+% \begin{subfigure}{.6\textwidth}
+% \centerline{\fbox{\vbox to.1\textheight{\vss
+% 	\hbox to.8\textwidth{\hss This is a figure\hss}\vss}}}
+% \caption{図の例}\label{fig-example}
+% \end{subfigure}
+% \begin{subtable}{.4\textwidth}
+% \caption{表の例}\label{tab-example}
+% \centerline{\begin{tabular}{r|c|l}
+% This&is&a table\\\hline
+% placed&beside&a figure.
+% \end{tabular}}
+% \end{subtable}
+% \end{figure}%}
+% 
+% \subsection{箇条書}\label{appsub-itemizing}
+% \LaTeX の箇条書環境である\|\enumerate|, \|\itemize|, \|\description|などは，
+% すべてそのまま使用することができる．ただし，環境の前後や，項目の間には余分な
+% 空白が挿入されない．
+% 
+% \subsection{脚注}\label{appsub-footnote}
+% 脚注には，\LaTeX の標準コマンド\|\footnote|を用いる．脚注のマークは，ここに
+% 示すように\footnote{脚注の例}や\footnote{もう一つの脚注}である．また，このペー
+% ジと前のページを見るとわかるように，脚注番号はページごとに付けられる．ただし，
+% 正しい脚注番号を得るためには，\LaTeX を2回実行する必要がある．
+% 
+% \subsection{謝辞}\label{appsub-acknowlegments}
+% 謝辞は，コマンド\|\acknowledgments| に続いて記述する．見出し「謝辞」または
+% ``Acknowledgments''は自動的に生成され，目次にも登録される．
+% 
+% \subsection{参考文献}\label{appsub-references}
+% すべての参考文献を含むようなBib\TeX の文献データベースを作成し，文献スタイル
+% ファイル\|kuisunsrt|または\|kuissort|を用いて処理すれば，
+% \ref{subsec-references}節に示した形式の文献表が得られる．なお\|kuisunsrt|は文
+% 献を出現順に並べ，\|kuissort|は著者名のアルファベット順に並べる．
 
-何らかの理由でBib\TeX を利用できない場合は，\|thebibliography|環境を用いて文
-献表を作ってもよいが，この手引の文献表を参考にして指定された形式に従うこと．
+% 何らかの理由でBib\TeX を利用できない場合は，\|thebibliography|環境を用いて文
+% 献表を作ってもよいが，この手引の文献表を参考にして指定された形式に従うこと．
 
-なお，いずれの場合にも，見出し「参考文献」または``References''が自動的に生成
-され，目次にも登録される．
-
-\subsection{付録}\label{appsub-appendix}
-付録がもしあれば，コマンド\|\appendix|または\|\Appendix|に引き続いて記述する．
-両者の違いはページ付けであり，\|\appendix|では付録の各ページや目次にページ
-番号が印字されない．一方\|\Appendix|では，付録の先頭ページをA-1とし，順
-にA-2, A-3というページ番号が印字される．なおいずれの場合にも，dviファイルに
-は2001から始まるページ番号が付与される．
+% なお，いずれの場合にも，見出し「参考文献」または``References''が自動的に生成
+% され，目次にも登録される．
+% 
+% \subsection{付録}\label{appsub-appendix}
+% 付録がもしあれば，コマンド\|\appendix|または\|\Appendix|に引き続いて記述する．
+% 両者の違いはページ付けであり，\|\appendix|では付録の各ページや目次にページ
+% 番号が印字されない．一方\|\Appendix|では，付録の先頭ページをA-1とし，順
+% にA-2, A-3というページ番号が印字される．なおいずれの場合にも，dviファイルに
+% は2001から始まるページ番号が付与される．
 
-どちらのコマンドもオプション引数を持ち，付録全体の見出しをつけることができる．
-たとえば，この付録は
-\begin{quote}
-\|\Appendix[付録：スタイルファイル{\tt kuisthesis}の使い方]|
-\end{quote}
-で始まっている．オプション引数がない場合には，付録全体の見出しは単に「付録」
-または``Appendix''である．
+% どちらのコマンドもオプション引数を持ち，付録全体の見出しをつけることができる．
+% たとえば，この付録は
+% \begin{quote}
+% \|\Appendix[付録：スタイルファイル{\tt kuisthesis}の使い方]|
+% \end{quote}
+% で始まっている．オプション引数がない場合には，付録全体の見出しは単に「付録」
+% または``Appendix''である．
 
-付録の中の\|\section|, \|\subsection|などは，1レベル下のコマンドと同じ動作を
-する．またこれらの番号は，``A.1''や``A.2.3''のように，先頭に``A.''が付加され
-たものとなる．同様に，図表や数式の番号にも，先頭に``A.''が付加される
-\footnote{この番号付けは{\tt\string\documentclass}の{\tt withinsec}オプションと
-は無関係である．}．
-
-\section{その他の注意}\label{app-others}
-\LaTeX の大きな特徴の一つは，文書処理に関するさまざまな機能やパラメータをカ
-スタマイズできることである．したがって，少しでも論文を書きやすくするために，
-学生諸君の創意と工夫で個人用の機能を追加したりするのはもちろん自由であり，む
-しろ推奨される．しかし一方では，教室で定められた形式を守ることも必要であり，
-カスタマイズの際にはこの点に注意しなければならない．
+% 付録の中の\|\section|, \|\subsection|などは，1レベル下のコマンドと同じ動作を
+% する．またこれらの番号は，``A.1''や``A.2.3''のように，先頭に``A.''が付加され
+% たものとなる．同様に，図表や数式の番号にも，先頭に``A.''が付加される
+% \footnote{この番号付けは{\tt\string\documentclass}の{\tt withinsec}オプションと
+% は無関係である．}．
+% 
+% \section{その他の注意}\label{app-others}
+% \LaTeX の大きな特徴の一つは，文書処理に関するさまざまな機能やパラメータをカ
+% スタマイズできることである．したがって，少しでも論文を書きやすくするために，
+% 学生諸君の創意と工夫で個人用の機能を追加したりするのはもちろん自由であり，む
+% しろ推奨される．しかし一方では，教室で定められた形式を守ることも必要であり，
+% カスタマイズの際にはこの点に注意しなければならない．
 
-どのようなカスタマイズが許されるかを一般的に述べるのは困難であるが，一つの極
-端な基準は，スタイルファイルを読んでみて大丈夫だと確信が持てること以外はしな
-い，というものである．特に\LaTeX{}nicianであるような諸君には，この基準を厳守
-してもらいたい．
+% どのようなカスタマイズが許されるかを一般的に述べるのは困難であるが，一つの極
+% 端な基準は，スタイルファイルを読んでみて大丈夫だと確信が持てること以外はしな
+% い，というものである．特に\LaTeX{}nicianであるような諸君には，この基準を厳守
+% してもらいたい．
 
-一般の学生諸君のためのもう少し緩やかな基準として，コマンドやパラメータの再定
-義／再設定を行なわない，というものも挙げられる．スタイルファイルを読むのが面
-倒だったり，読んでもよくわからなかったりする場合には，この基準を守ってもらい
-たい．
+% 一般の学生諸君のためのもう少し緩やかな基準として，コマンドやパラメータの再定
+% 義／再設定を行なわない，というものも挙げられる．スタイルファイルを読むのが面
+% 倒だったり，読んでもよくわからなかったりする場合には，この基準を守ってもらい
+% たい．
 
-スタイルファイルの作成に当たっては，バグがないように細心の注意を払っているが，
-% 適用例が少ないこともあり，
-完璧なものとなっているとは断言できない．
-% もし何か問
-% 題が起こった場合には，教室のローカル・ニュース・グループ\|is.misc| に投
-% 稿されたい．またスタイルファイルの改版などの通知も，同じニュース・グループに
-% 投稿されるので，注意しておくこと．なお，担当教官などへの直接の質問には一切応
-% じない．
-\end{document}
+% スタイルファイルの作成に当たっては，バグがないように細心の注意を払っているが，
+% % 適用例が少ないこともあり，
+% 完璧なものとなっているとは断言できない．
+% % もし何か問
+% % 題が起こった場合には，教室のローカル・ニュース・グループ\|is.misc| に投
+% % 稿されたい．またスタイルファイルの改版などの通知も，同じニュース・グループに
+% % 投稿されるので，注意しておくこと．なお，担当教官などへの直接の質問には一切応
+% % じない．
+% \end{document}
