@@ -2,7 +2,7 @@
 
 ## Known issues
 
-- This style file currently cannot be used with `pdflatex`.  Instead, use `platex`, `jbibtex`, and `dvipdfmx`.
+- This style file currently cannot be used with `pdflatex`.  Instead, use `platex`, `pbibtex`, and `dvipdfmx`.
 
 ## Contact
 
