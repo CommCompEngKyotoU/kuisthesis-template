@@ -326,6 +326,7 @@
 \def\supervisor#1{\gdef\@supervisor{#1}}
 \def\date#1{\gdef\@date{#1}}
 \def\department#1{\gdef\@department{#1}}		% 2.10 (3)
+\def\course#1{\gdef\@department{#1}}		% 2.10 (3)
 
 \def\@jtitle{\mkt@warning\jtitle}
 \def\@etitle{\mkt@warning\etitle}
@@ -339,7 +340,7 @@
 \def\@author{\@eauthor}
 \def\mkt@masterthesis{Master's Thesis}
 \def\mkt@supervisor{Supervisor}
-\def\mkt@department{Department of \@department \\		% 2.10 (3)
+\def\mkt@department{Course of \@department \\ Department of Informatics \\		% 2.10 (3)
 	Graduate School of Informatics\\
 	Kyoto University}
 \else
@@ -347,7 +348,7 @@
 \def\@author{\@jauthor}
 \def\mkt@masterthesis{修士論文}
 \def\mkt@supervisor{指導教員}
-\def\mkt@department{京都大学大学院情報学研究科\\修士課程\@department 専攻}
+\def\mkt@department{京都大学大学院情報学研究科\\修士課程 情報学専攻 \@department コース}
 								% 2.10 (3)
 \fi
 
