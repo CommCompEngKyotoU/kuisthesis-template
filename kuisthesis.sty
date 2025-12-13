@@ -60,6 +60,17 @@
 %     version, those counters are mistakingly reset when the counter
 %     `section' is stepped.
 
+%%%%%% Engine Detection %%%%%%
+
+%% \ifLuaTeX is true if running under LuaLaTeX
+\newif\ifLuaTeX \LuaTeXfalse
+\ifx\directlua\undefined\else\LuaTeXtrue\fi
+
+%% Auto-load luatexja for LuaLaTeX
+\ifLuaTeX
+  \RequirePackage{luatexja}
+\fi
+
 %%%%%% LaTeX Version %%%%%%
 
 %% \ifASCII is true if ASCII version Japanese TeX, which doesn't have
@@ -67,7 +78,11 @@
 
 % 2.00 (1)>>
 \newif\ifASCII \ASCIIfalse
-\ifx\jintercharskip\undefined\ASCIItrue\fi
+\ifLuaTeX
+  \ASCIItrue  % Treat LuaLaTeX as ASCII-compatible (luatexja provides similar interface)
+\else
+  \ifx\jintercharskip\undefined\ASCIItrue\fi
+\fi
 \newif\if@LaTeX@e \@LaTeX@efalse
 \newif\if@LaTeX@eN \@LaTeX@eNfalse
 \def\@tempa{LaTeX2e}
@@ -135,17 +150,23 @@
 
 \ifASCII
 
-% To use \jspaceskip
-\let\latex@setsize\@setsize
-\def\@setsize#1#2#3#4{\latex@setsize{#1}{#2}{#3}{#4}\jspaceskip1zw}
-
-% For compatibility to NTT jTeX
-\newcount\jfsize
-\let\setjglues\relax
-\let\jintercharskip\kanjiskip
-\let\jasciikanjiskip\xkanjiskip
-\let\jmathkanjiskip\xkanjiskip
-\newdimen\jspaceskip
+\ifLuaTeX
+  % LuaLaTeX: \zw is always available from luatexja
+  % Define \jspaceskip as compatibility shim
+  \newdimen\jspaceskip
+  \jspaceskip=1\zw
+\else
+  % ASCII pTeX: hook \@setsize to set \jspaceskip
+  \let\latex@setsize\@setsize
+  \def\@setsize#1#2#3#4{\latex@setsize{#1}{#2}{#3}{#4}\jspaceskip1zw}
+  % For compatibility to NTT jTeX
+  \newcount\jfsize
+  \let\setjglues\relax
+  \let\jintercharskip\kanjiskip
+  \let\jasciikanjiskip\xkanjiskip
+  \let\jmathkanjiskip\xkanjiskip
+  \newdimen\jspaceskip
+\fi
 
 % Following NTT primitives are not simulated.
 \def\defjintercharskip#1#2#3#4{\@asciiwarning{\defjintercharskip}}
@@ -157,8 +178,15 @@
 	is not supported in ASCII version}}
 
 \if@LaTeX@eN							% 2.00(3)>>
-\DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
-\DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
+\ifLuaTeX
+  % LuaLaTeX: luatexja provides \mcfamily, \gtfamily
+  % Use \relax for math mode (user can load luatexja-preset for math fonts)
+  \DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\relax}
+  \DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\relax}
+\else
+  \DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
+  \DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
+\fi
 \fi
 
 \def\dg{\gt}
@@ -242,7 +270,12 @@
 
 %%%%%% Page Layout Parameters %%%%%%
 
-\newdimen\@Kwidth \@Kwidth\jspaceskip
+\newdimen\@Kwidth
+\ifLuaTeX
+  \@Kwidth=1\zw  % LuaLaTeX: use \zw from luatexja
+\else
+  \@Kwidth\jspaceskip  % pTeX: use \jspaceskip set by \@setsize hook
+\fi
 
 \headheight1pc
 \headsep2pc
