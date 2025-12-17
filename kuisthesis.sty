@@ -1,6 +1,7 @@
 % Copyright (C) 1996 by Dept. Information Science, Kyoto University
 % Copyright (C) 1999 by Computer Science Course,
 %	Scool of Informatics and Mathematical Science
+% kuisthesis.sty 13-Dec-25 by Kotaro Matsuoka   (ver 3.00)
 % kuisthesis.sty 26-Jan-00 by Hiroyuki Tarumi   (ver 2.11)
 % kuisthesis.sty 14-Dec-99 by Hiroyuki Tarumi   (ver 2.10)
 %
@@ -16,6 +17,14 @@
 % j-article.sty 10-Feb-89 from report.sty 16-Mar-88
 %
 % REVISION
+% ver 3.00 13-Dec-25 by Kotaro Matsuoka
+% (1) Add LuaLaTeX support: engine detection (\ifLuaTeX) and auto-loading
+%     luatexja package.
+% (2) Treat LuaLaTeX as ASCII-compatible for \ifASCII conditional.
+% (3) Add LuaLaTeX-specific handling for \jspaceskip and \@Kwidth using \zw.
+% (4) Add LuaLaTeX-specific font commands (\mc, \gt) using luatexja's
+%     \mcfamily and \gtfamily.
+%
 % ver 2.11 26-Jan-00 by Hiroyuki Tarumi
 %     Bug Fix: Contents was causing \clearpage, but it was a bug.
 %	\sectionNC is introduced to fix it.
@@ -60,6 +69,19 @@
 %     version, those counters are mistakingly reset when the counter
 %     `section' is stepped.
 
+%%%%%% Engine Detection %%%%%%
+
+% 3.00(1)>>
+%% \ifLuaTeX is true if running under LuaLaTeX
+\newif\ifLuaTeX \LuaTeXfalse
+\ifx\directlua\undefined\else\LuaTeXtrue\fi
+
+%% Auto-load luatexja for LuaLaTeX
+\ifLuaTeX
+  \RequirePackage{luatexja}
+\fi
+% 3.00(1)<<
+
 %%%%%% LaTeX Version %%%%%%
 
 %% \ifASCII is true if ASCII version Japanese TeX, which doesn't have
@@ -67,7 +89,13 @@
 
 % 2.00 (1)>>
 \newif\ifASCII \ASCIIfalse
-\ifx\jintercharskip\undefined\ASCIItrue\fi
+% 3.00(2)>>
+\ifLuaTeX
+  \ASCIItrue  % Treat LuaLaTeX as ASCII-compatible (luatexja provides similar interface)
+\else
+  \ifx\jintercharskip\undefined\ASCIItrue\fi
+\fi
+% 3.00(2)<<
 \newif\if@LaTeX@e \@LaTeX@efalse
 \newif\if@LaTeX@eN \@LaTeX@eNfalse
 \def\@tempa{LaTeX2e}
@@ -135,17 +163,25 @@
 
 \ifASCII
 
-% To use \jspaceskip
-\let\latex@setsize\@setsize
-\def\@setsize#1#2#3#4{\latex@setsize{#1}{#2}{#3}{#4}\jspaceskip1zw}
-
-% For compatibility to NTT jTeX
-\newcount\jfsize
-\let\setjglues\relax
-\let\jintercharskip\kanjiskip
-\let\jasciikanjiskip\xkanjiskip
-\let\jmathkanjiskip\xkanjiskip
-\newdimen\jspaceskip
+% 3.00(3)>>
+\ifLuaTeX
+  % LuaLaTeX: \zw is always available from luatexja
+  % Define \jspaceskip as compatibility shim
+  \newdimen\jspaceskip
+  \jspaceskip=1\zw
+\else
+% 3.00(3)<<
+  % ASCII pTeX: hook \@setsize to set \jspaceskip
+  \let\latex@setsize\@setsize
+  \def\@setsize#1#2#3#4{\latex@setsize{#1}{#2}{#3}{#4}\jspaceskip1zw}
+  % For compatibility to NTT jTeX
+  \newcount\jfsize
+  \let\setjglues\relax
+  \let\jintercharskip\kanjiskip
+  \let\jasciikanjiskip\xkanjiskip
+  \let\jmathkanjiskip\xkanjiskip
+  \newdimen\jspaceskip
+\fi
 
 % Following NTT primitives are not simulated.
 \def\defjintercharskip#1#2#3#4{\@asciiwarning{\defjintercharskip}}
@@ -157,8 +193,17 @@
 	is not supported in ASCII version}}
 
 \if@LaTeX@eN							% 2.00(3)>>
-\DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
-\DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
+% 3.00(4)>>
+\ifLuaTeX
+  % LuaLaTeX: luatexja provides \mcfamily, \gtfamily
+  % Use \relax for math mode (user can load luatexja-preset for math fonts)
+  \DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\relax}
+  \DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\relax}
+\else
+% 3.00(4)<<
+  \DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
+  \DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
+\fi
 \fi
 
 \def\dg{\gt}
@@ -242,7 +287,14 @@
 
 %%%%%% Page Layout Parameters %%%%%%
 
-\newdimen\@Kwidth \@Kwidth\jspaceskip
+\newdimen\@Kwidth
+% 3.00(3)>>
+\ifLuaTeX
+  \@Kwidth=1\zw  % LuaLaTeX: use \zw from luatexja
+\else
+% 3.00(3)<<
+  \@Kwidth\jspaceskip  % pTeX: use \jspaceskip set by \@setsize hook
+\fi
 
 \headheight1pc
 \headsep2pc
