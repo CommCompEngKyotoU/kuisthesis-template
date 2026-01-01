@@ -32,7 +32,7 @@
 % (6) Use IPAex Mincho (ipxm) font for better Japanese text quality.
 % NOTE: pdfLaTeX with CJKutf8 does not auto-insert space between Japanese
 %       and English. Use ~ (tilde) for proper spacing, e.g., 日本語~\LaTeX~を使う
-%       upLaTeX and LuaLaTeX insert spacing automatically, so tildes are optional.
+%       For upLaTeX/LuaLaTeX, tildes work as usual (non-breaking space).
 %
 % ver 3.00 13-Dec-25 by Kotaro Matsuoka
 % (1) Add LuaLaTeX support: engine detection (\ifLuaTeX) and auto-loading
@@ -509,7 +509,7 @@
 % Use IPAex Mincho (ipxm) for better font quality than default wadalab (min)
 % NOTE: pdfLaTeX with CJKutf8 does not auto-insert space between Japanese and
 %       English. Use ~ (tilde) for proper spacing, e.g., 日本語~\LaTeX~を使う
-%       upLaTeX and LuaLaTeX insert spacing automatically, so tildes are optional.
+%       For upLaTeX/LuaLaTeX, tildes work as usual (non-breaking space).
 \ifpdfLaTeX
   \def\kuis@jabstract@heading{内容梗概}
   \def\jabstract{\begin{CJK}{UTF8}{ipxm}\CJKtilde
