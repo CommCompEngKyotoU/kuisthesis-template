@@ -510,7 +510,7 @@
 %       Use ~ (tilde) to insert proper spacing, e.g., 日本語~\LaTeX~を使う
 \ifpdfLaTeX
   \def\kuis@jabstract@heading{内容梗概}
-  \def\jabstract{\begin{CJK}{UTF8}{ipxm}%
+  \def\jabstract{\begin{CJK}{UTF8}{ipxm}\CJKtilde
 	\@abstract\@jtitleforabst\@jauthor{\kuis@jabstract@heading}
 	\ifASCII\else\tolerance2000\hbadness2000\fi
 	\parindent\@Kwidth\indent\ignorespaces}
