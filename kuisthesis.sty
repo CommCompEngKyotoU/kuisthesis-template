@@ -1,6 +1,7 @@
 % Copyright (C) 1996 by Dept. Information Science, Kyoto University
 % Copyright (C) 1999 by Computer Science Course,
 %	Scool of Informatics and Mathematical Science
+% kuisthesis.sty  1-Jan-26 by Kotaro Matsuoka   (ver 3.01)
 % kuisthesis.sty 13-Dec-25 by Kotaro Matsuoka   (ver 3.00)
 % kuisthesis.sty 26-Jan-00 by Hiroyuki Tarumi   (ver 2.11)
 % kuisthesis.sty 14-Dec-99 by Hiroyuki Tarumi   (ver 2.10)
@@ -17,6 +18,18 @@
 % j-article.sty 10-Feb-89 from report.sty 16-Mar-88
 %
 % REVISION
+% ver 3.01  1-Jan-26 by Kotaro Matsuoka
+% (1) Add pdfLaTeX support: engine detection (\ifpdfLaTeX) for pdfLaTeX
+%     without Japanese TeX primitives.
+% (2) Define \zw fallback (1em) for pdfLaTeX, enabling layout calculations
+%     that depend on Japanese character width. Also auto-load CJKutf8 package.
+% (3) Add pdfLaTeX-specific handling for \jspaceskip and dummy skip registers
+%     (\jintercharskip, \jasciikanjiskip, \jmathkanjiskip).
+% (4) Add pdfLaTeX-specific font commands (\mc, \gt) mapping to \rmfamily
+%     and \sffamily as fallbacks for mincho/gothic.
+% (5) Automatically wrap jabstract environment in CJK for pdfLaTeX, enabling
+%     Japanese abstract without manual CJK wrapping in document.
+%
 % ver 3.00 13-Dec-25 by Kotaro Matsuoka
 % (1) Add LuaLaTeX support: engine detection (\ifLuaTeX) and auto-loading
 %     luatexja package.
@@ -81,6 +94,37 @@
   \RequirePackage{luatexja}
 \fi
 % 3.00(1)<<
+
+% 3.01(1)>>
+%% pdfLaTeX fallback support
+%% \ifpdfLaTeX is true if running under pdfLaTeX (not LuaLaTeX, not pTeX)
+\newif\ifpdfLaTeX \pdfLaTeXfalse
+\ifLuaTeX\else
+  \ifx\kanjiskip\undefined
+    % No \kanjiskip means not pTeX/upTeX
+    \ifx\pdfoutput\undefined\else
+      \pdfLaTeXtrue
+    \fi
+    % Also check for modern LaTeX where \pdfoutput may not be defined but pdf mode is used
+    \ifx\pdfoutput\undefined
+      \ifx\outputmode\undefined\else
+        \pdfLaTeXtrue
+      \fi
+    \fi
+  \fi
+\fi
+% 3.01(1)<<
+
+% 3.01(2)>>
+%% Define \zw (zenkaku width) fallback for pdfLaTeX
+%% In Japanese TeX, 1zw = width of one full-width character ≈ 1em
+%% Also load CJKutf8 package for Japanese text support
+\ifpdfLaTeX
+  \newdimen\zw
+  \zw=1em
+  \RequirePackage{CJKutf8}
+\fi
+% 3.01(2)<<
 
 %%%%%% LaTeX Version %%%%%%
 
@@ -170,6 +214,19 @@
   \newdimen\jspaceskip
   \jspaceskip=1\zw
 \else
+% 3.01(3)>>
+\ifpdfLaTeX
+  % pdfLaTeX fallback: use our \zw definition (1em)
+  \newdimen\jspaceskip
+  \jspaceskip=1\zw
+  \newcount\jfsize
+  \let\setjglues\relax
+  % Define dummy skips for compatibility (not used in pdfLaTeX)
+  \newskip\jintercharskip
+  \newskip\jasciikanjiskip
+  \newskip\jmathkanjiskip
+\else
+% 3.01(3)<<
 % 3.00(3)<<
   % ASCII pTeX: hook \@setsize to set \jspaceskip
   \let\latex@setsize\@setsize
@@ -181,7 +238,7 @@
   \let\jasciikanjiskip\xkanjiskip
   \let\jmathkanjiskip\xkanjiskip
   \newdimen\jspaceskip
-\fi
+\fi\fi
 
 % Following NTT primitives are not simulated.
 \def\defjintercharskip#1#2#3#4{\@asciiwarning{\defjintercharskip}}
@@ -200,10 +257,17 @@
   \DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\relax}
   \DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\relax}
 \else
+% 3.01(4)>>
+\ifpdfLaTeX
+  % pdfLaTeX fallback: use roman/sans-serif as substitutes for mincho/gothic
+  \DeclareOldFontCommand{\mc}{\normalfont\rmfamily}{\mathrm}
+  \DeclareOldFontCommand{\gt}{\normalfont\sffamily}{\mathsf}
+\else
+% 3.01(4)<<
 % 3.00(4)<<
   \DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
   \DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
-\fi
+\fi\fi
 \fi
 
 \def\dg{\gt}
@@ -309,7 +373,7 @@
 \topmargin296mm \advance\topmargin-\textheight \divide\topmargin\tw@
 \advance\topmargin-\headheight \advance\topmargin-\headsep
 \advance\topmargin-1in
-\ifASCII\if@LaTeX@e\@@topmargin\topmargin\fi\fi			% 2.00(7)
+\ifASCII\ifpdfLaTeX\else\if@LaTeX@e\@@topmargin\topmargin\fi\fi\fi	% 2.00(7), 3.01: skip for pdfLaTeX
 
 \footskip 1.5\baselineskip
 
@@ -435,13 +499,27 @@
 	\@date
 	\end{center}\newpage}
 
-\def\jabstract{\@abstract\@jtitleforabst\@jauthor{内容梗概}
+% 3.01(5)>>
+% pdfLaTeX: wrap Japanese abstract in CJK environment automatically
+% CJK environment must wrap the entire abstract including title and author
+\ifpdfLaTeX
+  \def\kuis@jabstract@heading{内容梗概}
+  \def\jabstract{\begin{CJK}{UTF8}{min}%
+	\@abstract\@jtitleforabst\@jauthor{\kuis@jabstract@heading}
 	\ifASCII\else\tolerance2000\hbadness2000\fi
 	\parindent\@Kwidth\indent\ignorespaces}
+  \def\endjabstract{\end{CJK}\newpage}
+\else
+  \def\kuis@jabstract@heading{内容梗概}
+  \def\jabstract{\@abstract\@jtitleforabst\@jauthor{\kuis@jabstract@heading}
+	\ifASCII\else\tolerance2000\hbadness2000\fi
+	\parindent\@Kwidth\indent\ignorespaces}
+  \let\endjabstract\newpage
+\fi
+% 3.01(5)<<
 \def\eabstract{\@abstract\@etitleforabst\@eauthor{Abstract}\parindent1.5em
 	\noindent\ignorespaces}
 \let\endabstract\newpage
-\let\endjabstract\endabstract
 \let\endeabstract\endabstract
 
 % for compatibility
