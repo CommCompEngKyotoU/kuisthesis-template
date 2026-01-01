@@ -29,6 +29,7 @@
 %     and \sffamily as fallbacks for mincho/gothic.
 % (5) Automatically wrap jabstract environment in CJK for pdfLaTeX, enabling
 %     Japanese abstract without manual CJK wrapping in document.
+% (6) Use IPAex Mincho (ipxm) font for better Japanese text quality.
 %
 % ver 3.00 13-Dec-25 by Kotaro Matsuoka
 % (1) Add LuaLaTeX support: engine detection (\ifLuaTeX) and auto-loading
@@ -502,9 +503,10 @@
 % 3.01(5)>>
 % pdfLaTeX: wrap Japanese abstract in CJK environment automatically
 % CJK environment must wrap the entire abstract including title and author
+% Use IPAex Mincho (ipxm) for better font quality than default wadalab (min)
 \ifpdfLaTeX
   \def\kuis@jabstract@heading{内容梗概}
-  \def\jabstract{\begin{CJK}{UTF8}{min}%
+  \def\jabstract{\begin{CJK}{UTF8}{ipxm}%
 	\@abstract\@jtitleforabst\@jauthor{\kuis@jabstract@heading}
 	\ifASCII\else\tolerance2000\hbadness2000\fi
 	\parindent\@Kwidth\indent\ignorespaces}
