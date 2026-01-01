@@ -30,6 +30,8 @@
 % (5) Automatically wrap jabstract environment in CJK for pdfLaTeX, enabling
 %     Japanese abstract without manual CJK wrapping in document.
 % (6) Use IPAex Mincho (ipxm) font for better Japanese text quality.
+% NOTE: CJKutf8 does not auto-insert space between Japanese and English.
+%       Use ~ (tilde) for proper spacing, e.g., 日本語~\LaTeX~を使う
 %
 % ver 3.00 13-Dec-25 by Kotaro Matsuoka
 % (1) Add LuaLaTeX support: engine detection (\ifLuaTeX) and auto-loading
@@ -504,6 +506,8 @@
 % pdfLaTeX: wrap Japanese abstract in CJK environment automatically
 % CJK environment must wrap the entire abstract including title and author
 % Use IPAex Mincho (ipxm) for better font quality than default wadalab (min)
+% NOTE: CJKutf8 does not auto-insert space between Japanese and English text.
+%       Use ~ (tilde) to insert proper spacing, e.g., 日本語~\LaTeX~を使う
 \ifpdfLaTeX
   \def\kuis@jabstract@heading{内容梗概}
   \def\jabstract{\begin{CJK}{UTF8}{ipxm}%
