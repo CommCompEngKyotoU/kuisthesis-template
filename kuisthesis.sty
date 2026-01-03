@@ -22,15 +22,19 @@
 % (1) Add pdfLaTeX support: engine detection (\ifpdfLaTeX) for pdfLaTeX
 %     without Japanese TeX primitives.
 % (2) Define \zw fallback (1em) for pdfLaTeX, enabling layout calculations
-%     that depend on Japanese character width. Also auto-load CJKutf8 package.
+%     that depend on Japanese character width. Auto-load bxcjkjatype package
+%     with ipaex-type1 and scale=0.95 for proper Japanese font size matching.
 % (3) Add pdfLaTeX-specific handling for \jspaceskip and dummy skip registers
 %     (\jintercharskip, \jasciikanjiskip, \jmathkanjiskip).
 % (4) Add pdfLaTeX-specific font commands (\mc, \gt) mapping to \rmfamily
 %     and \sffamily as fallbacks for mincho/gothic.
 % (5) Automatically wrap jabstract environment in CJK for pdfLaTeX, enabling
-%     Japanese abstract without manual CJK wrapping in document.
-% (6) Use IPAex Mincho (ipxm) font for better Japanese text quality.
-% NOTE: pdfLaTeX with CJKutf8 does not auto-insert space between Japanese
+%     Japanese abstract without manual CJK wrapping in document. Use IPAex
+%     Gothic (ipxg) for title and heading, IPAex Mincho (ipxm) for body text.
+%     Fix first paragraph indent using CJK-based measurement.
+% (6) Add pdfLaTeX-specific list indents using em-based values instead of
+%     \@Kwidth to fix itemize/enumerate environment indentation.
+% NOTE: pdfLaTeX with CJK does not auto-insert space between Japanese
 %       and English. Use ~ (tilde) for proper spacing, e.g., 日本語~\LaTeX~を使う
 %       For upLaTeX/LuaLaTeX, tildes work as usual (non-breaking space).
 %
@@ -764,6 +768,22 @@
 \def\@listvi{\leftmargin\leftmarginvi \lst@listi}
 
 \@listi
+
+% 3.01(6)>>
+\ifpdfLaTeX
+  % pdfLaTeX: avoid \@Kwidth-based list indents; use em-based fallbacks.
+  \leftmargini2em
+  \leftmarginii2em
+  \leftmarginiii2em
+  \leftmarginiv2em
+  \leftmarginv2em
+  \leftmarginvi2em
+  \def\lst@listi{\labelsep.75em \labelwidth.25em
+	\rightmargin\z@ \listparindent\z@ \itemindent\z@
+	\partopsep\z@ \parsep\z@ \topsep\z@ \itemsep\z@}
+  \@listi
+\fi
+% 3.01(6)<<
 
 \def\labelenumi{\theenumi.} 
 \def\theenumi{\arabic{enumi}} 
