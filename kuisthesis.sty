@@ -122,11 +122,11 @@
 % 3.01(2)>>
 %% Define \zw (zenkaku width) fallback for pdfLaTeX
 %% In Japanese TeX, 1zw = width of one full-width character ≈ 1em
-%% Also load CJKutf8 package for Japanese text support
+%% Also load bxcjkjatype package for Japanese text support with proper scaling
 \ifpdfLaTeX
   \newdimen\zw
   \zw=1em
-  \RequirePackage{CJKutf8}
+  \RequirePackage[ipaex-type1,scale=0.95]{bxcjkjatype}
 \fi
 % 3.01(2)<<
 
@@ -506,16 +506,20 @@
 % 3.01(5)>>
 % pdfLaTeX: wrap Japanese abstract in CJK environment automatically
 % CJK environment must wrap the entire abstract including title and author
-% Use IPAex Mincho (ipxm) for better font quality than default wadalab (min)
-% NOTE: pdfLaTeX with CJKutf8 does not auto-insert space between Japanese and
+% Using bxcjkjatype with ipaex-type1 and scale option for proper font size
+% NOTE: pdfLaTeX with CJK does not auto-insert space between Japanese and
 %       English. Use ~ (tilde) for proper spacing, e.g., 日本語~\LaTeX~を使う
 %       For upLaTeX/LuaLaTeX, tildes work as usual (non-breaking space).
 \ifpdfLaTeX
-  \def\kuis@jabstract@heading{内容梗概}
+  \newbox\kuis@cjkindent
+  \def\kuis@CJKoneindent{%
+	\setbox\kuis@cjkindent\hbox{あ}%
+	\parindent\wd\kuis@cjkindent}
+  \def\kuis@jabstract@heading{{\CJKfamily{ipxg}内容梗概}}
   \def\jabstract{\begin{CJK}{UTF8}{ipxm}\CJKtilde
-	\@abstract\@jtitleforabst\@jauthor{\kuis@jabstract@heading}
+	\@abstract{\CJKfamily{ipxg}\@jtitleforabst}\@jauthor{\kuis@jabstract@heading}
 	\ifASCII\else\tolerance2000\hbadness2000\fi
-	\parindent\@Kwidth\indent\ignorespaces}
+	\kuis@CJKoneindent\par\noindent\hspace*{\parindent}\ignorespaces}
   \def\endjabstract{\end{CJK}\newpage}
 \else
   \def\kuis@jabstract@heading{内容梗概}
