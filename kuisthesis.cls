@@ -14,6 +14,6 @@
   \NeedsTeXFormat{LaTeX2e}
 \fi
 
-\ProvidesClass{kuisthesis}[2026/01/01 ver 3.01 with LuaLaTeX support]
+\ProvidesClass{kuisthesis}[2026/01/01 ver 3.01]
 \input{kuisthesis.sty}
 \endinput

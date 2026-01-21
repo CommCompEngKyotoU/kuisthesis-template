@@ -1,6 +1,7 @@
 % Copyright (C) 1996 by Dept. Information Science, Kyoto University
 % Copyright (C) 1999 by Computer Science Course,
 %	Scool of Informatics and Mathematical Science
+% kuisthesis.sty 21-Jan-26 by Kotaro Matsuoka   (ver 3.02)
 % kuisthesis.sty  1-Jan-26 by Kotaro Matsuoka   (ver 3.01)
 % kuisthesis.sty 13-Dec-25 by Kotaro Matsuoka   (ver 3.00)
 % kuisthesis.sty 26-Jan-00 by Hiroyuki Tarumi   (ver 2.11)
@@ -18,6 +19,12 @@
 % j-article.sty 10-Feb-89 from report.sty 16-Mar-88
 %
 % REVISION
+% ver 3.02 21-Jan-26 by Kotaro Matsuoka
+% (1) Fix compatibility with subcaption package by renaming internal
+%     \subfigure/\subtable to \kuis@subfigure/\kuis@subtable and
+%     conditionally defining \subfigure/\subtable only when subcaption
+%     is not loaded.
+%
 % ver 3.01  1-Jan-26 by Kotaro Matsuoka
 % (1) Add pdfLaTeX support: engine detection (\ifpdfLaTeX) for pdfLaTeX
 %     without Japanese TeX primitives.
@@ -931,12 +938,27 @@
 	\else\centerline{\box\@tempboxa}\fi
 	\cap@afterskip}
 
-\def\subfigure{\let\cap@beforeskip\cap@@beforeskip
+% 3.02(1)>>
+% Internal implementations of subfigure/subtable environments
+% These are always available as \kuis@subfigure and \kuis@subtable
+\def\kuis@subfigure{\let\cap@beforeskip\cap@@beforeskip
 	\let\cap@afterskip\relax \def\@captype{figure}\minipage}
-\def\endsubfigure{\endminipage\global\@ignoretrue}
-\def\subtable{\let\cap@afterskip\cap@@afterskip
+\def\endkuis@subfigure{\endminipage\global\@ignoretrue}
+\def\kuis@subtable{\let\cap@afterskip\cap@@afterskip
 	\let\cap@beforeskip\relax \def\@captype{table}\minipage}
-\def\endsubtable{\endminipage\global\@ignoretrue}
+\def\endkuis@subtable{\endminipage\global\@ignoretrue}
+
+% Define \subfigure/\subtable only if subcaption package is not loaded
+\AtBeginDocument{%
+  \@ifpackageloaded{subcaption}{}{%
+    % subcaption not loaded - define our versions
+    \let\subfigure\kuis@subfigure
+    \let\endsubfigure\endkuis@subfigure
+    \let\subtable\kuis@subtable
+    \let\endsubtable\endkuis@subtable
+  }%
+}
+% 3.02(1)<<
 
 
 %%%%%% Footnote %%%%%%
